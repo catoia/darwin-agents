@@ -8,6 +8,7 @@
  * Usage:
  *   npx tsx god/god-agent.ts seed          # Spawn first wave of projects
  *   npx tsx god/god-agent.ts evaluate      # Run weekly selection cycle
+ *   npx tsx god/god-agent.ts poke          # Daily: stir all projects, check fleet health
  *   npx tsx god/god-agent.ts status        # Print fleet status table
  *   npx tsx god/god-agent.ts kill <id>     # Manually kill a project (after human confirmed)
  */
@@ -146,6 +147,31 @@ async function cmdKill(projectId: string) {
     );
 }
 
+async function cmdPoke() {
+    const registry = loadRegistry();
+    const projects = (registry.projects || []).filter((p: { status: string }) => p.status === "alive");
+
+    if (projects.length === 0) {
+        console.log("[god] No alive projects to poke. Run: npm run seed");
+        return;
+    }
+
+    console.log(`[god] Poking ${projects.length} alive projects...`);
+
+    const session = await createGodSession("poke");
+    await session.prompt(
+        `Run your default cadence (from your AGENTS.md):
+1. Check human-tasks.md for any human responses to act on
+2. Check registry.json fleet state — any pending-kill confirmations?
+3. For each alive project, check if its inbox.md has been addressed recently and if metrics.json is fresh
+4. Pick the lowest-performing project and write a specific challenge to its inbox.md, then invoke it
+5. If fleet size is below target (5 projects), spawn a new one
+6. Write a brief summary of what you stirred up to human-tasks.md as a low-priority task
+
+Current alive projects: ${projects.map((p: { id: string; cycles_alive?: number }) => `${p.id} (${p.cycles_alive ?? 0} cycles)`).join(", ")}`
+    );
+}
+
 // ── Entry point ───────────────────────────────────────────────────────────────
 
 const command = process.argv[2];
@@ -158,6 +184,9 @@ const command = process.argv[2];
         case "evaluate":
             await cmdEvaluate();
             break;
+        case "poke":
+            await cmdPoke();
+            break;
         case "status":
             await cmdStatus();
             break;
@@ -168,6 +197,7 @@ const command = process.argv[2];
             console.log(`Usage:
   npx tsx god/god-agent.ts seed          # Spawn initial project fleet
   npx tsx god/god-agent.ts evaluate      # Run weekly selection cycle  
+  npx tsx god/god-agent.ts poke          # Daily: stir projects, check fleet health
   npx tsx god/god-agent.ts status        # Show fleet status table
   npx tsx god/god-agent.ts kill <id>     # Kill a specific project
 `);

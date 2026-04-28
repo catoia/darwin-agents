@@ -6,8 +6,10 @@
   "scripts": {
     "seed": "tsx god/god-agent.ts seed",
     "evaluate": "tsx god/god-agent.ts evaluate",
+    "poke": "tsx god/god-agent.ts poke",
     "status": "tsx god/god-agent.ts status",
-    "kill": "tsx god/god-agent.ts kill"
+    "kill": "tsx god/god-agent.ts kill",
+    "heartbeat": "bash scripts/heartbeat.sh"
   },
   "dependencies": {
     "@mariozechner/pi-coding-agent": "^0.70.5"
