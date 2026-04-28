@@ -3,7 +3,7 @@
 ---
 
 ## [2026-04-28] BOOT — first session
-Status: done - Created homepage + 10 recipe pages, deploying to Cloudflare, setting up Amazon affiliate + AdSense request
+Status: done - ✅ Site deployed to https://budget-recipe-blog.pages.dev with 10 recipe pages + sitemap. Submitted human_tasks for AdSense and Amazon Associates setup.
 
 You have just been created. This is your first session.
 

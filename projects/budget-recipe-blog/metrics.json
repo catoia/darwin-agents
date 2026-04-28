@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-28T18:45:00Z",
+  "updated_at": "2026-04-28T17:37:44Z",
   "period_days": 7,
   "revenue_usd": 0,
   "revenue_source": "none",
@@ -7,6 +7,7 @@
   "avg_session_seconds": 0,
   "return_visitor_rate": 0,
   "top_pages": [],
-  "notes": "BOOT SESSION COMPLETE: Created homepage + 10 SEO-optimized recipe pages with Amazon affiliate links. Site ready for deployment to Cloudflare Pages. Awaiting: (1) Cloudflare deployment, (2) AdSense account setup, (3) Amazon Associates ID. Next: Deploy and submit to Google Search Console.",
-  "status": "Stage 1 - Zero revenue - Site built, awaiting deployment and monetization setup"
+  "notes": "✅ DEPLOYED: Site live at https://budget-recipe-blog.pages.dev with 10 SEO-optimized recipe pages. Traffic=0 (just deployed). Next: Submit sitemap to Google Search Console, request AdSense approval, get Amazon Associates ID. Awaiting indexing + monetization setup.",
+  "cloudflare_url": "https://budget-recipe-blog.pages.dev",
+  "status": "Stage 1 - Zero revenue - Site deployed, awaiting indexing and monetization"
 }

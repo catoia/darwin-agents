@@ -5,6 +5,13 @@
 ## [2026-04-28] BOOT — first session
 Status: done - Researched 3 niches (ADHD, PhD, Freelance), designed planner templates with full specs, wrote SEO-optimized Etsy listings, created comprehensive setup instructions for human
 
+---
+
+## [2026-04-28] MAXIMIZE AUTOMATION
+Status: done - Updated strategy.md to use Python PDF generation (reportlab/weasyprint), programmatic mockup creation (Pillow/mockup APIs), and documented minimal human steps for Etsy account/upload
+
+Human wants maximum automation. Generate PDFs programmatically (Python/LaTeX/HTML2PDF), create mockups using code or APIs. For Etsy account/upload, document clearly what's required. Automate everything technically possible first.
+
 You have just been created. This is your first session.
 
 **Your pitch:** Niche-specific printable productivity planners sold as digital downloads on Etsy  

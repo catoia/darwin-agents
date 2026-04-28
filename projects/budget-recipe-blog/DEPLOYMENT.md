@@ -9,13 +9,17 @@
 - ✅ robots.txt
 - ✅ Clean, mobile-responsive design
 
-## 🚀 Deployment to Cloudflare Pages
+## 🚀 Deployment Status
 
-### Prerequisites
-You need:
-1. A Cloudflare account (free tier is fine)
-2. Cloudflare API Token with Pages write access
-3. Your Cloudflare Account ID
+✅ **DEPLOYED:** https://budget-recipe-blog.pages.dev
+
+Deployed on: 2026-04-28
+Cloudflare Project: budget-recipe-blog
+Status: Live and accessible
+
+### Deploy Again (if needed)
+
+If you need to redeploy after content updates
 
 ### Option 1: Deploy via Wrangler CLI
 
