@@ -224,3 +224,142 @@ See `projects/etsy-productivity-planners/HUMAN-SETUP-INSTRUCTIONS.md` for comple
 
 **Human response:** Automate what you can (PDF generation, mockup creation using code/APIs). For what requires manual work (Etsy account setup, uploads), document clearly and I'll execute. But maximize automation first.
 **Status:** done
+
+## [HIGH] Etsy Seller Account — CRITICAL PATH TO REVENUE (etsy-productivity-planners)
+
+- **ID:** `task-$(openssl rand -hex 4)`
+- **From:** project:etsy-productivity-planners
+- **Created:** 2026-04-28T$(date +%H:%M:%S)Z
+- **Status:** open
+
+### Context
+
+**THIS IS THE #1 BLOCKER TO ALL REVENUE.**
+
+The agent has:
+✅ Built PDF generation scripts (reportlab/weasyprint)
+✅ Built mockup generation scripts (Pillow)
+✅ Written all listing copy (SEO-optimized)
+✅ Ready to generate 3 production-ready planner PDFs + 21 mockup images in 5 minutes
+
+**What we're waiting on:** Etsy seller account. Cannot sell anything without it.
+
+**WHAT YOU NEED TO DO (30 minutes, one-time):**
+
+1. Go to https://www.etsy.com/sell
+2. Click "Open your Etsy shop"
+3. Choose shop name (suggestion: "ProductivityPlannersHub" or similar)
+4. Fill in:
+   - Legal name and address
+   - Bank account for payouts  
+   - Tax ID (SSN or EIN)
+5. Set up Etsy Payments (required for sales)
+6. Accept Terms of Service
+7. Set shop policies:
+   - Return policy: "All sales final (digital download)"
+   - Processing time: "Instant download"
+
+**COST:** $0 (account is free)
+
+**TIMELINE:**
+- You do this: 30 minutes today
+- Agent generates PDFs + mockups: 5 minutes
+- You upload 3 listings: 90 seconds
+- Listings go live: immediately
+- First sale: 7-10 days after live
+
+**TARGET:** $150 revenue in 5 weeks (15 planner sales @ $10 avg)
+
+**See complete instructions:** `projects/etsy-productivity-planners/HUMAN-SETUP-INSTRUCTIONS-AUTOMATED.md`
+
+**Default action if no response in 48h:** Agent will document the complete automation pipeline but cannot deploy without Etsy account. Revenue stays at $0.
+
+### Human Response
+
+<!-- Reply here with "done + shop URL" or "blocked: [reason]", then change Status to: done -->
+
+---
+
+## [HIGH] API Keys + Setup Required - Automation System Blocked
+
+- **ID:** `task-$(openssl rand -hex 4)`
+- **From:** project:b2b-cold-email-consulting
+- **Created:** $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+- **Status:** open
+
+### Context
+
+The B2B cold email automation system is BUILT and READY but cannot run due to missing credentials.
+
+**WHAT'S BLOCKED:**
+- ❌ Cannot send emails (no SendGrid key)
+- ❌ Cannot personalize emails (no OpenAI key)  
+- ❌ Cannot run anything (Python dependencies not installed)
+- ❌ Config still has placeholder email "nuno@example.com"
+
+**WHAT YOU NEED TO DO (15 minutes total):**
+
+1. **Install dependencies** (2 min):
+   ```bash
+   cd /Users/nunocadete/darwin-agents/projects/b2b-cold-email-consulting
+   pip3 install -r automation/requirements.txt
+   ```
+
+2. **Get SendGrid API key** (5 min) - FREE:
+   - Sign up at https://sendgrid.com/
+   - Settings → API Keys → Create API Key
+   - Name: "Darwin Cold Email", Permissions: Full Access
+   - Copy key (starts with SG....)
+
+3. **Get OpenAI API key** (3 min) - $10/month:
+   - Go to https://platform.openai.com/
+   - API Keys → Create new secret key
+   - Copy key (starts with sk-...)
+
+4. **Create automation/.env** (2 min):
+   ```bash
+   cat > automation/.env << 'ENVEOF'
+   export SENDGRID_API_KEY="SG.your_key_here"
+   export OPENAI_API_KEY="sk-your_key_here"
+   export APOLLO_API_KEY="your_key_here"    # optional
+   export HUNTER_API_KEY="your_key_here"    # optional
+   ENVEOF
+   # Then edit with your actual keys
+   ```
+
+5. **Update automation/config.json** (1 min):
+   - Replace "nuno@example.com" with your real email
+   - Must match SendGrid verified sender
+
+6. **Verify SendGrid sender** (2 min):
+   - SendGrid → Settings → Sender Authentication
+   - Add your email and click verification link
+
+**THEN RUN:**
+```bash
+cd /Users/nunocadete/darwin-agents/projects/b2b-cold-email-consulting
+source automation/.env
+python3 automation/preflight.py
+```
+
+If all checks pass ✅, the system is ready to launch with:
+```bash
+python3 automation/orchestrator.py initial 20
+```
+
+**OPTIONAL (can add later):**
+- Apollo.io API key (better prospect finding, 50/month free)
+- Hunter.io API key (better email verification, 50/month free)
+
+**Complete instructions:** See `projects/b2b-cold-email-consulting/API-SETUP.md`
+
+**Cost:** $10/month for OpenAI. Everything else is free.  
+**ROI:** 1 consulting call ($200) pays for 20 months of automation.
+
+**Default action if no response in 48h:** Will build a manual fallback system that doesn't require APIs (slower, lower quality, but at least functional)
+
+### Human Response
+
+<!-- Reply here, then change Status to: done -->
+
+---
