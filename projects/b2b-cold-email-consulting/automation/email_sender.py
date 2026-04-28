@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
-Automated email sender using SendGrid API.
+Automated email sender using Twilio SendGrid API.
 Handles rate limiting, tracking, and webhooks.
+
+NOTE: After Twilio acquired SendGrid, you need a SendGrid API key (SG.xxx...)
+from your Twilio Console, NOT the Twilio Account SID + Auth Token.
+See TWILIO-MIGRATION-GUIDE.md for details.
 """
 
 import json
@@ -17,7 +21,19 @@ class EmailSender:
         with open(config_path) as f:
             self.config = json.load(f)
         
-        api_key = os.getenv(self.config['sendgrid_api_key'])
+        # Try multiple environment variable names for flexibility
+        api_key = (
+            os.getenv('TWILIO_SENDGRID_API_KEY') or  # Preferred (clearer naming)
+            os.getenv('SENDGRID_API_KEY') or          # Legacy/original
+            os.getenv(self.config.get('sendgrid_api_key', 'SENDGRID_API_KEY'))
+        )
+        
+        # Validate API key format
+        if api_key and not api_key.startswith('SG.'):
+            print("⚠️  WARNING: API key doesn't start with 'SG.' - is this a SendGrid API key?")
+            print("   Twilio Account SID + Auth Token cannot be used directly for email.")
+            print("   See TWILIO-MIGRATION-GUIDE.md for instructions.")
+        
         self.sg = SendGridAPIClient(api_key) if api_key else None
         
         self.from_email = self.config['from_email']
@@ -69,11 +85,14 @@ class EmailSender:
             Dict with 'success', 'message_id', and 'error' keys
         """
         if not self.sg:
-            print("⚠️  SendGrid API key not set. Email would be sent to:")
+            print("⚠️  Twilio SendGrid API key not set. Email would be sent to:")
             print(f"   TO: {to_name} <{to_email}>")
             print(f"   SUBJECT: {subject}")
             print(f"   BODY: {body[:100]}...")
-            return {'success': False, 'error': 'SendGrid not configured'}
+            print("\n💡 To fix: Set TWILIO_SENDGRID_API_KEY environment variable")
+            print("   Get key from: console.twilio.com → Email → API Keys")
+            print("   See TWILIO-MIGRATION-GUIDE.md for full instructions\n")
+            return {'success': False, 'error': 'Twilio SendGrid API key not configured'}
         
         # Check rate limit
         self._wait_for_rate_limit()

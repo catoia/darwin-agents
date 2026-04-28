@@ -20,29 +20,35 @@ pip3 install -r automation/requirements.txt
 
 ---
 
-### 🔴 CRITICAL #2: Get SendGrid API Key (FREE)
+### 🔴 CRITICAL #2: Get Twilio SendGrid API Key (FREE)
 **Status:** Not set  
 **What it does:** Sends cold emails + automated follow-ups  
 **Cost:** FREE tier = 100 emails/day  
 **Time:** 5 minutes  
 
+**IMPORTANT:** SendGrid is now owned by Twilio. If you have Twilio credentials:
+- ⚠️ Twilio Account SID + Auth Token are NOT used for email
+- ✅ You need a SendGrid API key from your Twilio Console
+- 📖 See **TWILIO-MIGRATION-GUIDE.md** for detailed instructions
+
 **Steps:**
-1. Go to https://sendgrid.com/ and sign up (free)
-2. Navigate: Settings → API Keys → Create API Key
+1. Go to **https://console.twilio.com/** (or https://sendgrid.com/ if no Twilio account)
+2. Navigate: **Email** → **Settings** → **API Keys** → **Create API Key**
 3. Name: "Darwin Cold Email"
-4. Permissions: "Full Access"
+4. Permissions: "Full Access" (or minimum: Mail Send)
 5. Copy key (starts with "SG....")
 
 **Create automation/.env and add:**
 ```bash
-export SENDGRID_API_KEY="SG.your_actual_key_here"
+export TWILIO_SENDGRID_API_KEY="SG.your_actual_key_here"
 export APOLLO_API_KEY="your_apollo_key_here"    # optional
 export HUNTER_API_KEY="your_hunter_key_here"    # optional
 ```
 
 **Important:** After getting key, verify sender email:
-- SendGrid → Settings → Sender Authentication
+- Twilio Console → Email → Sender Authentication → Verify a Single Sender
 - Add "your@email.com" and verify via email link
+- ⚠️ You CANNOT send emails until sender is verified
 
 ---
 
@@ -129,7 +135,7 @@ You only need to: **monitor your inbox for replies (5 min/day)**
 
 | Service | Tier | Monthly Cost | What you get |
 |---------|------|--------------|--------------|
-| SendGrid | Free | $0 | 100 emails/day (3,000/month) |
+| Twilio SendGrid | Free | $0 | 100 emails/day (3,000/month) |
 | Email Personalization | Local LLM (pi) | $0 | Unlimited personalized emails |
 | Apollo | Free | $0 | 50 prospects/month |
 | Hunter | Free | $0 | 50 email verifications |

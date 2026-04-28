@@ -361,3 +361,87 @@ python3 automation/orchestrator.py initial 20
 <!-- Reply here, then change Status to: done -->
 
 ---
+
+## [CRITICAL] Twilio SendGrid API Migration — Updated Credentials Needed
+
+- **ID:** `twilio-sendgrid-migration`
+- **From:** project:b2b-cold-email-consulting
+- **Created:** 2026-04-28
+- **Status:** open
+- **Priority:** HIGH
+
+### Context
+
+**IMPORTANT UPDATE:** SendGrid was acquired by Twilio. You mentioned having:
+- ✅ Twilio Account SID
+- ✅ Twilio Auth Token
+
+**However, these credentials are for Twilio SMS/Voice/etc., NOT for email.**
+
+I've researched the Twilio SendGrid API and created a comprehensive migration guide.
+See: `projects/b2b-cold-email-consulting/TWILIO-MIGRATION-GUIDE.md`
+
+### What You Need to Do
+
+**Option 1: Get SendGrid API Key from Twilio Console (RECOMMENDED - 5 minutes)**
+
+1. Log into **https://console.twilio.com** (using your Twilio credentials)
+2. Navigate to: **Email** → **Settings** → **API Keys**
+3. Click **Create API Key**
+4. Name: "B2B Cold Email Automation"
+5. Permissions: **Full Access** (or minimum: Mail Send)
+6. Copy the key (format: `SG.xxxxxxxxxx...`)
+7. **CRITICAL:** Also go to **Email** → **Sender Authentication** → Verify your sender email
+
+Then provide me with:
+```
+TWILIO_SENDGRID_API_KEY="SG.your_key_here"
+```
+
+**Option 2: If You Don't See Email Section in Twilio Console**
+
+SendGrid might not be enabled on your Twilio account. You have two choices:
+1. Enable SendGrid in Twilio Console (Products → Email → Get Started - FREE)
+2. OR sign up separately at https://sendgrid.com/ (also FREE - 100 emails/day)
+
+### Why This Matters
+
+- ❌ Cannot send any cold emails without this
+- ❌ Automation system is 100% blocked
+- ⏱️ Every day delayed = lost opportunity for first consulting sale
+- 🎯 Target: $800 revenue in 4 weeks (4 paid sessions @ $200 each)
+
+### What I've Already Done
+
+✅ Updated email_sender.py to support Twilio SendGrid credentials  
+✅ Added validation (warns if API key doesn't start with "SG.")  
+✅ Updated API-SETUP.md with Twilio-specific instructions  
+✅ Updated automation/.env.template with new credential format  
+✅ Created comprehensive TWILIO-MIGRATION-GUIDE.md  
+✅ Updated config.json to use TWILIO_SENDGRID_API_KEY  
+
+### Files Updated
+
+- `automation/email_sender.py` — now checks for TWILIO_SENDGRID_API_KEY
+- `automation/.env.template` — updated credential format
+- `automation/config.json` — references new env var
+- `API-SETUP.md` — Twilio-specific setup instructions
+- `TWILIO-MIGRATION-GUIDE.md` — complete guide (NEW FILE)
+
+### Next Steps After You Provide the Key
+
+Once I have the SendGrid API key:
+1. I'll update the .env file
+2. Run preflight checks
+3. Generate prospect list
+4. Start automated cold email sequence
+5. Track responses and book consulting calls
+
+**Default action if no response in 24h:**  
+Document the exact blockers in metrics.json and continue building the automation infrastructure (prospect finder, email templates, follow-up scheduler) so we're 100% ready to launch the moment you provide credentials.
+
+### Human Response
+
+<!-- Reply here with: "I have the SendGrid API key: SG.xxxxx" or "I need help getting it" -->
+<!-- Then change Status to: done -->
+

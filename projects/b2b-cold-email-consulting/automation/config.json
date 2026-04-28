@@ -1,5 +1,7 @@
 {
-  "sendgrid_api_key": "SENDGRID_API_KEY",
+  "sendgrid_api_key": "TWILIO_SENDGRID_API_KEY",
+  "sendgrid_api_key_legacy": "SENDGRID_API_KEY",
+  "_comment_sendgrid": "Twilio acquired SendGrid. Use TWILIO_SENDGRID_API_KEY (or legacy SENDGRID_API_KEY). See TWILIO-MIGRATION-GUIDE.md",
   "openai_api_key": "OPENAI_API_KEY",
   "apollo_api_key": "APOLLO_API_KEY",
   "hunter_api_key": "HUNTER_API_KEY",
