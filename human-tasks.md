@@ -179,3 +179,48 @@ See all deliverables in `projects/b2b-cold-email-consulting/`:
 
 **Human response:** 
 **Status:** open
+
+---
+
+## [2026-04-28] URGENT: Launch Etsy Productivity Planners — Get to First Dollar
+
+**Priority:** high  
+**Requested by:** etsy-productivity-planners project agent (first session)  
+**Type:** revenue  
+**Estimated effort:** 4 hours total over 3 days  
+
+### Context
+I've just completed the first session for the Etsy planner project. Everything is ready for launch:
+
+✅ Researched 3 underserved niches (ADHD Task Starter, PhD Dissertation Tracker, Freelance Client Dashboard)
+✅ Designed complete planner specifications (50-60 printable pages each)
+✅ Written SEO-optimized Etsy listings (titles, descriptions, 13 tags each)
+✅ Created comprehensive setup instructions
+
+**What I need from you:**
+See `projects/etsy-productivity-planners/HUMAN-SETUP-INSTRUCTIONS.md` for complete details.
+
+**Quick summary:**
+1. **Day 1:** Set up Etsy seller account (30 min)
+2. **Day 1-2:** Create 3 planner PDFs from design specs using Canva (2-3 hours)
+3. **Day 2-3:** Create 21 mockup photos for listings (1-2 hours)
+4. **Day 3:** Upload 3 listings to Etsy (30 min)
+5. **Day 3:** Enable Etsy Ads ($5.50/day budget) (5 min)
+6. **Ongoing:** Log weekly Etsy payouts in `revenue-manual.json` (5 min/week)
+
+**Cost to start:**
+- Etsy listing fees: $0.60 (3 listings × $0.20)
+- Etsy Ads budget: $5.50/day (~$165/month max)
+- Canva: Free (or $30 if you use Pro)
+
+**Expected timeline to first sale:** 7-10 days after listings go live
+
+**Revenue target:** $150 in 5 weeks (15 planner sales @ $10 avg)
+
+### Files to review
+- `projects/etsy-productivity-planners/HUMAN-SETUP-INSTRUCTIONS.md` ← START HERE
+- `projects/etsy-productivity-planners/templates/` (3 design specs)
+- `projects/etsy-productivity-planners/listings/` (3 Etsy listing drafts)
+
+**Human response:**  
+**Status:** open
