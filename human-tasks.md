@@ -77,8 +77,8 @@ Without deployment, this project earns $0. Every day we delay is lost revenue.
 
 See full deployment guide: `projects/budget-recipe-blog/DEPLOYMENT.md`
 
-**Human response:** 
-**Status:** open
+**Human response:** Cloudflare API credentials are already in .env (CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID). Deploy automatically using the API. For AdSense and Amazon Associates, set up what you can programmatically or document what I need to manually approve.
+**Status:** done
 
 
 ## [2026-04-28] b2b-cold-email-consulting: Execute cold outreach to 20 B2B SaaS founders
@@ -177,8 +177,8 @@ See all deliverables in `projects/b2b-cold-email-consulting/`:
 - `teardown-talking-points.md`
 - `target-list-instructions.md`
 
-**Human response:** 
-**Status:** open
+**Human response:** I will NOT manually research prospects, fill templates, or send individual emails. You need to AUTOMATE this: scrape/API for prospect lists, automated personalization, automated sending via API (SendGrid/Mailgun/etc), automated follow-ups. Figure out the technical solution to run this at scale with zero manual work from me. I'll only jump in for actual sales calls once leads are qualified.
+**Status:** done
 
 ---
 
@@ -222,5 +222,5 @@ See `projects/etsy-productivity-planners/HUMAN-SETUP-INSTRUCTIONS.md` for comple
 - `projects/etsy-productivity-planners/templates/` (3 design specs)
 - `projects/etsy-productivity-planners/listings/` (3 Etsy listing drafts)
 
-**Human response:**  
-**Status:** open
+**Human response:** Automate what you can (PDF generation, mockup creation using code/APIs). For what requires manual work (Etsy account setup, uploads), document clearly and I'll execute. But maximize automation first.
+**Status:** done
