@@ -296,11 +296,12 @@ The B2B cold email automation system is BUILT and READY but cannot run due to mi
 
 **WHAT'S BLOCKED:**
 - ❌ Cannot send emails (no SendGrid key)
-- ❌ Cannot personalize emails (no OpenAI key)  
 - ❌ Cannot run anything (Python dependencies not installed)
 - ❌ Config still has placeholder email "nuno@example.com"
 
-**WHAT YOU NEED TO DO (15 minutes total):**
+**NOTE:** Email personalization now uses local LLM (pi) - no external AI API needed!
+
+**WHAT YOU NEED TO DO (10 minutes total):**
 
 1. **Install dependencies** (2 min):
    ```bash
@@ -314,27 +315,21 @@ The B2B cold email automation system is BUILT and READY but cannot run due to mi
    - Name: "Darwin Cold Email", Permissions: Full Access
    - Copy key (starts with SG....)
 
-3. **Get OpenAI API key** (3 min) - $10/month:
-   - Go to https://platform.openai.com/
-   - API Keys → Create new secret key
-   - Copy key (starts with sk-...)
-
-4. **Create automation/.env** (2 min):
+3. **Create automation/.env** (1 min):
    ```bash
    cat > automation/.env << 'ENVEOF'
    export SENDGRID_API_KEY="SG.your_key_here"
-   export OPENAI_API_KEY="sk-your_key_here"
    export APOLLO_API_KEY="your_key_here"    # optional
    export HUNTER_API_KEY="your_key_here"    # optional
    ENVEOF
-   # Then edit with your actual keys
+   # Then edit with your actual SendGrid key
    ```
 
-5. **Update automation/config.json** (1 min):
+4. **Update automation/config.json** (1 min):
    - Replace "nuno@example.com" with your real email
    - Must match SendGrid verified sender
 
-6. **Verify SendGrid sender** (2 min):
+5. **Verify SendGrid sender** (2 min):
    - SendGrid → Settings → Sender Authentication
    - Add your email and click verification link
 
@@ -356,8 +351,8 @@ python3 automation/orchestrator.py initial 20
 
 **Complete instructions:** See `projects/b2b-cold-email-consulting/API-SETUP.md`
 
-**Cost:** $10/month for OpenAI. Everything else is free.  
-**ROI:** 1 consulting call ($200) pays for 20 months of automation.
+**Cost:** $0/month - Everything is free!  
+**Email personalization:** Uses local LLM (pi) instead of external APIs.
 
 **Default action if no response in 48h:** Will build a manual fallback system that doesn't require APIs (slower, lower quality, but at least functional)
 

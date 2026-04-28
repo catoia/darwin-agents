@@ -1,115 +1,100 @@
 #!/usr/bin/env python3
 """
-Automated email personalizer using OpenAI/Claude API.
+Automated email personalizer using local LLM via pi skill.
 Generates highly personalized cold emails based on prospect data.
 """
 
 import json
 import os
+import subprocess
 from typing import Dict, List
-from openai import OpenAI
 
 class EmailPersonalizer:
     def __init__(self, config_path='automation/config.json'):
         with open(config_path) as f:
             self.config = json.load(f)
         
-        api_key = os.getenv(self.config['openai_api_key'])
-        self.client = OpenAI(api_key=api_key) if api_key else None
+        # Get absolute path to skill file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        project_dir = os.path.dirname(script_dir)
+        self.skill_path = os.path.join(project_dir, 'skills', 'email-personalizer', 'SKILL.md')
         
-        self.templates = {
-            'initial': self._get_initial_template(),
-            'follow_up_1': self._get_follow_up_1_template(),
-            'follow_up_2': self._get_follow_up_2_template(),
-            'follow_up_3': self._get_follow_up_3_template()
+        # Verify skill exists
+        if not os.path.exists(self.skill_path):
+            print(f"⚠️  Email personalizer skill not found at {self.skill_path}")
+            self.skill_path = None
+    
+    def _call_skill(self, prospect: Dict, email_type: str) -> Dict:
+        """
+        Call the email personalizer skill via pi subprocess.
+        
+        Args:
+            prospect: Dict with prospect data
+            email_type: Type of email to generate
+        
+        Returns:
+            Dict with 'subject' and 'body' or None if failed
+        """
+        if not self.skill_path:
+            return None
+        
+        # Prepare input JSON
+        input_data = {
+            'prospect': prospect,
+            'email_type': email_type
         }
-    
-    def _get_initial_template(self) -> str:
-        return """You are a cold email expert. Write a short, personalized cold email to a B2B SaaS founder.
-
-Prospect info:
-- Name: {name}
-- Company: {company}
-- Product: {product}
-- Title: {title}
-
-Email guidelines:
-1. Subject line must be ultra-specific and intriguing (8-12 words max)
-2. Opening: personalized observation about their product/company (1 sentence)
-3. Value prop: "I help B2B SaaS founders write cold email sequences that get 20%+ response rates" (1 sentence)
-4. Hook: "Quick example - I just reviewed your current cold email approach and spotted 3 quick wins that could double your response rate" (1-2 sentences)
-5. CTA: "Want a free 15-min teardown of your cold email strategy? I'll send you a quick video audit" (1 sentence)
-6. Sign off: Keep it casual and brief
-
-Tone: Direct, confident, helpful. No fluff. No corporate speak. Like a friend who knows their shit.
-Length: 80-120 words MAX.
-
-Output format:
-SUBJECT: [subject line]
-
-BODY:
-[email body]"""
-    
-    def _get_follow_up_1_template(self) -> str:
-        return """Write a brief follow-up email (3 days after initial email).
-
-Prospect: {name} at {company}
-
-Guidelines:
-1. Subject: Re: [original subject] or a new short subject referencing their pain point
-2. Acknowledge they're busy
-3. Add NEW value: share a specific insight about cold email that applies to their industry
-4. Reiterate the free offer: 15-min teardown
-5. Make it easy to say yes: "Just reply 'yes' and I'll send the calendar link"
-
-Length: 60-80 words MAX.
-Tone: Persistent but helpful, not pushy.
-
-Output format:
-SUBJECT: [subject line]
-
-BODY:
-[email body]"""
-    
-    def _get_follow_up_2_template(self) -> str:
-        return """Write a second follow-up email (7 days after initial).
-
-Prospect: {name} at {company}
-
-Guidelines:
-1. Subject: Different angle - "Last attempt: [specific benefit]"
-2. Breakup pattern: "I'll stop bugging you after this"
-3. Share a quick cold email tip relevant to B2B SaaS (1-2 sentences)
-4. Final CTA: "If you're interested, reply 'yes'. If not, no worries - good luck with {company}!"
-
-Length: 50-70 words MAX.
-Tone: Respectful, giving them an out, but confident in value.
-
-Output format:
-SUBJECT: [subject line]
-
-BODY:
-[email body]"""
-    
-    def _get_follow_up_3_template(self) -> str:
-        return """Write a final breakup email (14 days after initial).
-
-Prospect: {name} at {company}
-
-Guidelines:
-1. Subject: "Moving on (+ free cold email resource)"
-2. Acknowledge they're not interested right now
-3. Offer a free resource (cold email template or guide) with no strings attached
-4. Leave door open: "If you ever need cold email help, you know where to find me"
-
-Length: 40-60 words MAX.
-Tone: Gracious, generous, not needy.
-
-Output format:
-SUBJECT: [subject line]
-
-BODY:
-[email body]"""
+        
+        try:
+            # Call pi with the skill file as context
+            result = subprocess.run(
+                [
+                    'pi',
+                    '--no-session',
+                    '--provider', 'github-copilot',
+                    '--model', 'claude-sonnet-4.6',
+                    '--context-files', self.skill_path,
+                    '-p', f'Generate an email. Input: {json.dumps(input_data)}'
+                ],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            
+            if result.returncode != 0:
+                print(f"⚠️  Skill call failed: {result.stderr}")
+                return None
+            
+            # Parse JSON output from stdout
+            # Look for JSON block in the output
+            output = result.stdout.strip()
+            
+            # Try to find JSON object in output
+            start_idx = output.find('{')
+            end_idx = output.rfind('}') + 1
+            
+            if start_idx == -1 or end_idx == 0:
+                print(f"⚠️  No JSON found in skill output")
+                return None
+            
+            json_str = output[start_idx:end_idx]
+            email_data = json.loads(json_str)
+            
+            # Validate structure
+            if 'subject' not in email_data or 'body' not in email_data:
+                print(f"⚠️  Invalid skill output format")
+                return None
+            
+            return email_data
+            
+        except subprocess.TimeoutExpired:
+            print("⚠️  Skill call timed out after 30 seconds")
+            return None
+        except json.JSONDecodeError as e:
+            print(f"⚠️  Failed to parse skill output as JSON: {e}")
+            return None
+        except Exception as e:
+            print(f"⚠️  Skill call error: {e}")
+            return None
     
     def personalize_email(self, prospect: Dict, email_type='initial') -> Dict:
         """
@@ -122,40 +107,19 @@ BODY:
         Returns:
             Dict with 'subject' and 'body'
         """
-        if not self.client:
-            print("⚠️  OpenAI API key not set. Using fallback templates.")
-            return self._fallback_template(prospect, email_type)
+        # Try to use local skill first
+        email_data = self._call_skill(prospect, email_type)
         
-        try:
-            template = self.templates[email_type]
-            prompt = template.format(**prospect)
-            
-            response = self.client.chat.completions.create(
-                model="gpt-4",
-                messages=[
-                    {"role": "system", "content": "You are an expert B2B cold email copywriter known for high response rates."},
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0.7,
-                max_tokens=300
-            )
-            
-            result = response.choices[0].message.content.strip()
-            
-            # Parse result
-            parts = result.split('\n\n', 1)
-            subject_line = parts[0].replace('SUBJECT:', '').strip()
-            body = parts[1].replace('BODY:', '').strip() if len(parts) > 1 else ''
-            
+        if email_data:
             return {
-                'subject': subject_line,
-                'body': body,
+                'subject': email_data['subject'],
+                'body': email_data['body'],
                 'type': email_type
             }
         
-        except Exception as e:
-            print(f"⚠️  AI personalization error: {e}. Using fallback.")
-            return self._fallback_template(prospect, email_type)
+        # Fall back to static templates if skill fails
+        print("⚠️  Local skill failed. Using fallback templates.")
+        return self._fallback_template(prospect, email_type)
     
     def _fallback_template(self, prospect: Dict, email_type: str) -> Dict:
         """Fallback templates when AI is unavailable."""
