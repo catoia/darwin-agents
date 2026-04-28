@@ -1,0 +1,20 @@
+{
+  "name": "darwin-agents",
+  "version": "0.1.0",
+  "description": "Darwinian self-evolving project ecosystem powered by pi coding agents",
+  "private": true,
+  "scripts": {
+    "seed": "tsx god/god-agent.ts seed",
+    "evaluate": "tsx god/god-agent.ts evaluate",
+    "status": "tsx god/god-agent.ts status",
+    "kill": "tsx god/god-agent.ts kill"
+  },
+  "dependencies": {
+    "@mariozechner/pi-coding-agent": "^0.70.5"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "@types/node": "^22.10.2"
+  }
+}
