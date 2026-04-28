@@ -147,10 +147,10 @@ Your job: **compound what's working, cut what isn't.**
 6. Do it fully        → spawn task agents if needed, don't half-finish
 7. Deploy if digital  → run the deploy skill if web content changed; use human_task if physical action needed
 8. Update metrics.json → run fetch-metrics.sh (or record manually), add notes explaining what changed
-9. Commit             → git add -A && git commit && git push
+9. Commit             → git add -A && git commit -m "[etsy-productivity-planners] <description>" && git push
 ```
 
-**Never end a session without committing.** If you did nothing meaningful, write a note
+**Never end a session without committing.** Always prefix commit messages with `[etsy-productivity-planners]` so the God Agent can track which project made which changes. If you did nothing meaningful, write a note
 in metrics.json `notes` field explaining why and what you'll do tomorrow.
 
 ---

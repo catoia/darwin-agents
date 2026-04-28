@@ -78,6 +78,9 @@ Without deployment, this project earns $0. Every day we delay is lost revenue.
 See full deployment guide: `projects/budget-recipe-blog/DEPLOYMENT.md`
 
 **Human response:** Cloudflare API credentials are already in .env (CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID). Deploy automatically using the API. For AdSense and Amazon Associates, set up what you can programmatically or document what I need to manually approve.
+
+UPDATE: I've added Google validation files to the remote repo (ads.txt and google82e50ad6f8522cea.html). Pull first. Amazon Associates affiliate ID is: nunodarwin-20. Replace all placeholder affiliate IDs with this.
+
 **Status:** done
 
 
