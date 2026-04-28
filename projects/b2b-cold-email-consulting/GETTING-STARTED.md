@@ -28,6 +28,9 @@ nano automation/.env
 # Load environment
 source automation/.env
 
+# Optional: Run pre-flight check (validates API keys)
+python3 automation/preflight.py
+
 # Find 20 prospects, personalize, and send
 python3 automation/orchestrator.py initial 20
 ```
