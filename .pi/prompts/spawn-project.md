@@ -9,10 +9,13 @@ You are spawning a new organism in the Darwin ecosystem. Your job is to:
 3. **Define its fitness target** — what does success look like in 4 weeks? Be specific: "500 unique visitors/week from organic search" or "$20/month from affiliate links".
 
 4. **Scaffold it** — create `projects/<id>/` with:
-   - `AGENTS.md` (project agent context — use the project template)
-   - `index.html` or the appropriate entry point
-   - `metrics.json` (initial empty metrics)
-   - Whatever else the project needs to be deployable
+   - `AGENTS.md` using the template at `god/project-agent-template.md` (fill all `{{placeholders}}`)
+   - `inbox.md` with header `# Inbox for <id>\n\n<!-- God Agent writes instructions here -->`
+   - `metrics.json` (zeroed out, with `updated_at` set to now)
+   - `experiments.md` (header only)
+   - `task-log.md` (header only)
+   - `index.html` or whatever the project entry point is
+   - `tasks/` directory (empty, for task briefs)
 
 5. **Deploy it** to Cloudflare Pages using `/skill:deploy-cloudflare`
 

@@ -26,6 +26,35 @@ GOD AGENT  (this session)
 **Project Agent** — owns one project completely. God of its own sub-agents. Never touches other projects.
 **Task Agent** — ephemeral, single-purpose. Spawned by a project agent via bash + pi SDK. Reports to task-log.md. Cannot spawn further agents.
 
+## How agents communicate
+
+There are no live sockets or message queues. All communication is **filesystem + fresh pi sessions**.
+
+### God → Project Agent
+You do NOT send a message to a running project agent session. Instead:
+1. Write instructions to `projects/<id>/inbox.md` (append an entry)
+2. Spawn a fresh pi session for that project that will read its AGENTS.md + inbox:
+   ```bash
+   pi --no-session \
+      --context-files projects/<id>/AGENTS.md \
+      -p "Check your inbox at projects/<id>/inbox.md and act on the latest instruction."
+   ```
+3. The project agent reads inbox.md, executes, updates metrics.json, and exits.
+
+### Project Agent → God
+Project agents **cannot call God directly**. They communicate upward via two channels:
+- `projects/<id>/metrics.json` — God reads this at evaluation time (passive)
+- `human_task` tool — for anything urgent that can't wait for the weekly cycle
+
+### Project Agent → Task Agent
+Project agent spawns `pi --no-session` with the task brief. Task agent writes results to `task-log.md` and exits.
+
+### Task Agent → Project Agent  
+Task agent appends to `projects/<id>/task-log.md` and exits. Project agent reads it on next run.
+
+### The golden rule
+**Everything important must be written to a file.** Sessions are ephemeral. If it's not in a file, it doesn't exist.
+
 ## Your responsibilities
 
 1. **Spawn** — create new project agents with a seed idea and deploy them to Cloudflare Pages

@@ -8,11 +8,13 @@ Run the full Darwin selection cycle. Execute these steps in order.
 
 2. **Collect metrics** for each alive project:
    ```bash
-   # For each project, read its metrics.json
-   # If CF Analytics API is configured, fetch fresh data:
-   # bash scripts/fetch-metrics.sh <cf_project_name>
+   # Run for every alive project — this fetches CF analytics + revenue and writes metrics.json
+   for id in $(python3 -c "import json; [print(p['id']) for p in json.load(open('registry.json'))['projects'] if p['status']=='alive']"); do
+     bash scripts/fetch-metrics.sh "$id" || echo "WARNING: fetch failed for $id"
+   done
    ```
-   Update `projects/<id>/metrics.json` with fresh data.
+   If `CLOUDFLARE_API_TOKEN` is not set, call `human_task` (medium priority) asking for it before
+   proceeding — without traffic data the fitness scores will be incomplete.
 
 3. **Score each project** using the fitness formula:
    ```
