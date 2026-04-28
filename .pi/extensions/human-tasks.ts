@@ -20,6 +20,7 @@ export default function (pi: ExtensionAPI) {
 
     pi.registerTool({
         name: "human_task",
+        label: "Queue Human Task",
         description:
             "Queue a task or question for the human owner. Use this when you need human judgment, approval, credentials, or want to flag something important. You do NOT need to wait for a response — continue working on what you can. The human will check this file and respond.",
         parameters: {
@@ -53,13 +54,8 @@ export default function (pi: ExtensionAPI) {
             },
             required: ["priority", "title", "context", "agent"],
         },
-        execute: async (params: {
-            priority: string;
-            title: string;
-            context: string;
-            agent: string;
-            default_action?: string;
-        }) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        execute: async (_toolCallId: string, params: any) => {
             const id = crypto.randomBytes(4).toString("hex");
             const now = new Date().toISOString();
             const defaultNote = params.default_action
@@ -87,10 +83,10 @@ ${params.context}${defaultNote}
 
             fs.appendFileSync(tasksFile, entry, "utf8");
 
+            const resultMessage = `Task queued in human-tasks.md (ID: task-${id}). Continue working — the human will respond asynchronously.`;
             return {
-                success: true,
-                task_id: `task-${id}`,
-                message: `Task queued in human-tasks.md (ID: task-${id}). Continue working — the human will respond asynchronously.`,
+                content: [{ type: "text" as const, text: resultMessage }],
+                details: { success: true, task_id: `task-${id}` },
             };
         },
     });
@@ -98,18 +94,20 @@ ${params.context}${defaultNote}
     // Also register a command to view open tasks inline
     pi.registerCommand("tasks", {
         description: "Show all open human tasks",
-        execute: async () => {
+        handler: async (_args: string) => {
             if (!fs.existsSync(tasksFile)) {
-                return "No human-tasks.md found.";
+                console.log("No human-tasks.md found.");
+                return;
             }
             const content = fs.readFileSync(tasksFile, "utf8");
             const open = content
                 .split("---")
                 .filter((block) => block.includes("**Status:** open"));
             if (open.length === 0) {
-                return "✓ No open human tasks.";
+                console.log("✓ No open human tasks.");
+                return;
             }
-            return `${open.length} open task(s):\n${open.join("\n---")}`;
+            console.log(`${open.length} open task(s):\n${open.join("\n---")}`);
         },
     });
 }

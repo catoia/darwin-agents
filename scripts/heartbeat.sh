@@ -14,6 +14,12 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 REGISTRY_FILE="$REPO_ROOT/registry.json"
+
+# Load env vars (credentials for CF, Stripe, AdSense, etc.)
+if [[ -f "$REPO_ROOT/.env" ]]; then
+  # shellcheck disable=SC1090
+  set -a; source "$REPO_ROOT/.env"; set +a
+fi
 LOG_DIR="$REPO_ROOT/logs"
 mkdir -p "$LOG_DIR"
 
@@ -69,7 +75,7 @@ for PROJECT_ID in $ALIVE_IDS; do
   # Invoke the project agent (reads inbox + runs its default work loop)
   pi --no-session \
      --provider github-copilot \
-     --model claude-sonnet-4.5 \
+     --model claude-sonnet-4.6 \
      --context-files "$PROJECT_DIR/AGENTS.md" \
      --extension "$REPO_ROOT/.pi/extensions/human-tasks.ts" \
      --skill "$REPO_ROOT/.pi/skills/deploy-cloudflare/SKILL.md" \

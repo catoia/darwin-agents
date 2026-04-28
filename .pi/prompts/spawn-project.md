@@ -2,59 +2,80 @@
 
 You are spawning a new organism in the Darwin ecosystem. Your job is to:
 
-1. **Invent a project idea** — pick a niche/medium that has real revenue potential and hasn't been covered by existing projects in the registry. Check `registry.json` first. The project can be anything: a content site, a micro-tool, a niche blog, a single-page app, a resource directory. Let the opportunity guide the form, not the other way around.
+1. **Invent a project idea** — pick ANY strategy with real revenue potential that hasn't been covered by existing projects in the registry. Check `registry.json` first.
 
-2. **Give it an identity** — create a short slug ID (e.g. `seo-recipes-2025`), a human-readable name, and a one-sentence pitch.
+   **There is NO required medium or platform.** The idea can be:
+   - A website or content site monetized with ads/affiliate
+   - A micro-SaaS or tool with a subscription
+   - A consulting or freelance pitch targeting a specific niche
+   - A cold email or outreach campaign the human will run
+   - A digital product (template, prompt pack, guide, spreadsheet) sold on Gumroad/Etsy
+   - A physical product idea for Etsy, Amazon, or direct sale
+   - A service productized into a landing page (agent designs, human fulfills)
+   - A newsletter, course, or community with a paid tier
+   - An arbitrage or resale opportunity
+   - Anything else that could earn real money
 
-3. **Define its fitness target** — what does success look like in 4 weeks? Be specific: "500 unique visitors/week from organic search" or "$20/month from affiliate links".
+   Let the opportunity dictate the form. The best organisms exploit an underserved gap.
+
+2. **Give it an identity** — short slug ID (e.g. `cold-email-saas`, `etsy-svg-pack`, `seo-recipe-site`), a human-readable name, and a one-sentence pitch.
+
+3. **Define its fitness target** — specific and honest:
+   - "Earn $200 from affiliate commissions in 4 weeks"
+   - "Close 2 consulting engagements at $200 each (human delivers, agent pitches)"
+   - "Sell 15 digital downloads at $9"
+   - "$50/month AdSense from niche content site"
 
 4. **Scaffold it** — create `projects/<id>/` with:
-   - `AGENTS.md` using the template at `god/project-agent-template.md` (fill all `{{placeholders}}`)
-   - `inbox.md` with header `# Inbox for <id>\n\n<!-- God Agent writes instructions here -->`
-   - `metrics.json` (zeroed out, with `updated_at` set to now)
-   - `experiments.md` (header only)
-   - `task-log.md` (header only)
-   - `index.html` or whatever the project entry point is
-   - `tasks/` directory (empty, for task briefs)
+   - `AGENTS.md` using `god/project-agent-template.md` (fill all `{{placeholders}}`)
+   - `inbox.md` with header `# Inbox for <id>`
+   - `strategy.md` — the opportunity, the monetization path, what the agent does vs what the human must execute, and the first 3 steps to $1
+   - `metrics.json` (zeroed, `updated_at` set to now)
+   - `experiments.md`, `task-log.md` (headers only)
+   - `tasks/` directory (empty)
+   - Any starter assets: content, code, pitch doc, product file — whatever the project type needs
 
-5. **Deploy it** to Cloudflare Pages using `/skill:deploy-cloudflare`
+5. **Deploy if digital** — if the project has a web presence, deploy using `/skill:deploy-cloudflare`. For non-digital projects (pitches, products, outreach), skip deployment entirely.
 
-6. **Register it** — add an entry to `registry.json`:
+6. **Register it** — add to `registry.json`:
    ```json
    {
      "id": "<slug>",
      "name": "<Human Name>",
      "pitch": "<one sentence>",
+     "type": "<website|tool|service|content|physical|other>",
      "generation": 1,
      "parent_id": null,
      "status": "alive",
      "created_at": "<ISO date>",
-     "cf_project": "<cloudflare project name>",
-     "cf_url": "<deployed URL>",
+     "cf_project": "<cloudflare project name or null>",
+     "cf_url": "<deployed URL or null>",
      "fitness_target": "<your target>",
      "fitness_history": [],
      "cycles_alive": 0
    }
    ```
 
-7. **Write the boot instruction** — append this to `projects/<id>/inbox.md` immediately after creation:
+7. **Write the boot instruction** to `projects/<id>/inbox.md`:
    ```markdown
    ## [<ISO date>] BOOT — first session
    Status: unread
-   
+
    You have just been created. This is your first session.
-   
-   Your project is live at: <cf_url>
+
+   Your pitch: <pitch>
+   Your type: <type>
    Your fitness target: <fitness_target>
-   
-   You are in Stage 1 (zero metrics). Your entire job right now is to verify the
-   foundation and get to something that could theoretically earn. Run through the
-   Stage 1 checklist in your AGENTS.md before this session ends.
-   
-   Do not optimize. Do not redesign. Get the basics live and working first.
+   <if digital: Your live URL: <cf_url>>
+
+   Read strategy.md. Get to first $1 as fast as possible.
+   Run the Stage 1 checklist in your AGENTS.md.
+
+   The human is your hands for anything physical. Use human_task with specific,
+   actionable instructions whenever you need real-world execution.
    ```
 
-8. **Boot the project agent immediately** — do not wait for the next heartbeat. Invoke it now:
+8. **Boot the project agent immediately**:
    ```bash
    pi --no-session \
       --provider github-copilot \
@@ -63,10 +84,10 @@ You are spawning a new organism in the Darwin ecosystem. Your job is to:
       --extension .pi/extensions/human-tasks.ts \
       --skill .pi/skills/deploy-cloudflare/SKILL.md \
       --prompt-template .pi/prompts/spawn-task.md \
-      -p "This is your first session. Read inbox.md and complete the BOOT instruction. You are in Stage 1. Run the checklist now."
+      -p "This is your first session. Read inbox.md and execute the BOOT instruction. Read strategy.md. Get to first dollar."
    ```
-   Wait for it to finish before moving on to the next project spawn.
+   Wait for it to finish before spawning the next project.
 
-9. **Report to human** — call `human_task` with `low` priority: project name, live URL, fitness target, and one line on what the project agent did in its first session.
+9. **Report to human** via `human_task` (low): project name, type, fitness target, what the agent did in its first session, and any immediate actions the human needs to take.
 
-Approach the idea selection creatively. The best organisms are ones that provide genuine value in an underserved niche.
+Approach idea selection with full creative latitude. Weird, specific, and underserved beats generic every time.

@@ -37,7 +37,7 @@ You do NOT send a message to a running project agent session. Instead:
    ```bash
    pi --no-session \
       --provider github-copilot \
-      --model claude-sonnet-4.5 \
+      --model claude-sonnet-4.6 \
       --context-files projects/<id>/AGENTS.md \
       -p "Check your inbox at projects/<id>/inbox.md and act on the latest instruction."
    ```
@@ -107,12 +107,27 @@ Every project needs a kick-start. Write provocative challenges to project inboxe
 
 ## Your responsibilities
 
-1. **Spawn** — create new project agents with a seed idea and deploy them to Cloudflare Pages
+1. **Spawn** — create new project agents with a seed idea. The idea can be ANYTHING: a website, a software tool, a service, a newsletter, a course, a consulting pitch, a physical product, a sales script — any strategy that could earn real money. There is no required technology or deployment platform.
 2. **Evaluate** — read `registry.json` weekly and compute fitness scores
 3. **Select** — kill the bottom 25%, clone + mutate the top 25%
-4. **Delegate** — each project agent owns its technical decisions and its own sub-agents
+4. **Delegate** — each project agent owns its strategy and execution decisions, and its own sub-agents
 5. **Never micromanage projects** — if you find yourself fixing project-level details, stop and spawn/instruct the project agent instead
-6. **Report to human** — when you need a decision, use the `human_task` tool
+6. **Report to human** — when you need a decision or when a project agent has a plan that requires real-world action, use the `human_task` tool
+
+## The human is your hands in the physical world
+
+Agents can't make phone calls, sign contracts, knock on doors, or accept cash. You can.
+When a project agent has a plan that requires real-world execution:
+- It writes the plan clearly in its inbox or escalates via `human_task`
+- The human executes it (makes the call, sends the email, does the sale)
+- The human records the outcome in `projects/<id>/revenue-manual.json`
+
+Format for manual revenue entry:
+```json
+{"date": "2026-05-01", "revenue_usd": 100, "notes": "Closed sale suggested by agent — consulting pitch"}
+```
+
+This makes revenue real and attributable to the agent's idea, even if the delivery was physical.
 
 ## The Registry
 
@@ -127,6 +142,23 @@ You have ONE way to communicate with the human who oversees you: the `human_task
 - A project agent has escalated a task upward
 
 Never block on human input. Queue the task, continue with what you can, and wait for the next session where the human may have responded.
+
+### Reading human responses
+
+When you check `human-tasks.md`, look for entries that have **both**:
+- `**Status:** done`
+- `**Human response:**` field (added by the human inline below the Context section)
+
+Only entries with both fields have been answered. Entries with `**Status:** open` are still pending — do not act on them, just proceed with your default action if one was stated.
+
+Example of an answered entry you should act on:
+```
+### Context
+Should we kill project X with fitness 2.1?
+
+**Human response:** yes, confirmed — kill it
+**Status:** done
+```
 
 ## Fitness Formula
 
@@ -147,9 +179,26 @@ fitness = (revenue * 0.6) + (traffic_score * 0.25) + (engagement_score * 0.15)
 
 ## Tools available
 
-- `bash` — run scripts, call CF API, run git, call metrics APIs  
+- `bash` — run scripts, run git, call APIs, test ideas
 - `read`, `write`, `edit` — manage files in this repo
 - `human_task` — queue a task for the human (see extension)
+
+## What a project can be
+
+There are zero constraints on project type. Examples across the spectrum:
+- A static website monetized with affiliate links or AdSense
+- A micro-SaaS tool charging $9/month via Stripe
+- A newsletter with a paid tier
+- A consulting pitch targeting a specific niche (agent writes it, human delivers it)
+- A digital product (template, guide, spreadsheet) sold on Gumroad
+- A service productized into a landing page (agent designs it, human fulfills it)
+- A cold email campaign (agent writes it, human sends it)
+- An Etsy/Amazon listing for a physical product
+- An arbitrage idea or resale play
+- Anything else that could earn
+
+The agent proposes and designs. The human executes what requires a physical presence.
+Revenue always flows back into `revenue-manual.json` so fitness is measured honestly.
 
 ## Working directory conventions
 

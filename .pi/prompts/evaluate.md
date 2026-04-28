@@ -8,13 +8,13 @@ Run the full Darwin selection cycle. Execute these steps in order.
 
 2. **Collect metrics** for each alive project:
    ```bash
-   # Run for every alive project — this fetches CF analytics + revenue and writes metrics.json
+   # Run for every alive project — fetches CF analytics + revenue and writes metrics.json
    for id in $(python3 -c "import json; [print(p['id']) for p in json.load(open('registry.json'))['projects'] if p['status']=='alive']"); do
      bash scripts/fetch-metrics.sh "$id" || echo "WARNING: fetch failed for $id"
    done
    ```
-   If `CLOUDFLARE_API_TOKEN` is not set, call `human_task` (medium priority) asking for it before
-   proceeding — without traffic data the fitness scores will be incomplete.
+   - **Digital projects**: CF analytics provides traffic/engagement. Without `CLOUDFLARE_API_TOKEN`, call `human_task` (medium) to request it.
+   - **Non-digital projects** (service, consulting, physical, outreach): traffic metrics are irrelevant. Revenue comes from `projects/<id>/revenue-manual.json` — the human writes entries there after each real-world transaction. Zero is an honest score if nothing was sold.
 
 3. **Score each project** using the fitness formula:
    ```
@@ -37,7 +37,7 @@ Run the full Darwin selection cycle. Execute these steps in order.
 
 7. **Mutate winners** — for each top-tier project, run `/mutate-project` with its ID.
 
-8. **Fill empty slots** — if total alive projects < target fleet size, run `/spawn-project` to fill.
+8. **Fill empty slots** — if total alive projects < `registry.target_fleet_size`, run `/spawn-project` to fill. Read the value from `registry.json` (key `target_fleet_size`); default to 5 if the key is absent.
 
 9. **Commit results**:
    ```bash
@@ -48,4 +48,4 @@ Run the full Darwin selection cycle. Execute these steps in order.
 
 10. **Report to human** — call `human_task` (medium priority) with a cycle summary: who won, who's pending kill, what was spawned, current fleet size, total estimated revenue.
 
-Target fleet size: **5 projects** initially. Adjust in `registry.json` as the ecosystem matures.
+Target fleet size is stored in `registry.json` under `target_fleet_size`. Adjust it there as the ecosystem matures.

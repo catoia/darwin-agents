@@ -1,6 +1,8 @@
 # Deploy to Cloudflare Pages
 
-Use this skill whenever you need to deploy or update a project to Cloudflare Pages.
+Use this skill when a project is a **website, web tool, or digital product** that needs
+a public URL. This skill is optional \u2014 non-digital projects (services, consulting pitches,
+physical products, outreach campaigns) do not need to deploy anywhere.
 
 ## Prerequisites
 

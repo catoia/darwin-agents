@@ -1,6 +1,7 @@
 {
   "version": 1,
   "cycle": 0,
+  "target_fleet_size": 3,
   "last_evaluation": null,
   "next_evaluation": null,
   "projects": []

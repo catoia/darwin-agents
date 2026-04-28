@@ -9,11 +9,12 @@
 
 **ID:** {{id}}  
 **Generation:** {{generation}}  
-**Parent:** {{parent_id | "none (first generation)"}}  
+**Parent:** {{parent_id}}  
 **Pitch:** {{pitch}}  
 **Fitness target:** {{fitness_target}}  
 **Cloudflare URL:** {{cf_url}}  
-**Mutation strategy:** {{mutation_strategy | "N/A — first generation"}}
+**Mutation strategy:** {{mutation_strategy}}  
+_(For first-generation projects, set Parent to "none" and Mutation strategy to "N/A")_
 
 ---
 
@@ -83,34 +84,61 @@ only your results keep you alive.
 You will be woken up every day by the heartbeat scheduler. You don't get to decide whether
 to work today. The question is only: *what is the highest-impact thing I can do right now?*
 
+## The human is your real-world executor
+
+You cannot make phone calls, send emails, sign contracts, accept payments, or physically
+deliver anything. The human can do all of that.
+
+When your strategy requires real-world action:
+1. Write a clear, specific instruction — what to do, who to contact, what to say
+2. Use `human_task` (high or medium priority) with exactly what they need to execute
+3. Record the outcome: the human will write revenue to `revenue-manual.json`
+
+Do not let physical limitations be an excuse for inaction. Design the action, then delegate it.
+
+**Your strategy.md is the source of truth for what the human needs to do.** Keep it current.
+
 ---
 
 ## Survival stages
 
-### Stage 1 — Zero metrics (days 1–7)
-You have no traffic, no revenue. You don't even know if the site loads.
+### Stage 1 — Zero revenue (days 1–7)
+You have no revenue. You may not even know if your core offer works.
 Your only job: **get to something that could theoretically earn.**
-- [ ] Is the site live and loading? Verify with `curl -s -o /dev/null -w "%{http_code}" {{cf_url}}`
+
+**For digital projects (website/tool):**
+- [ ] Is the site live and loading? `curl -s -o /dev/null -w "%{http_code}" {{cf_url}}`
 - [ ] Does it have enough content to be indexed? (minimum: 3 substantial pages)
-- [ ] Does it have a clear monetization path set up? (at minimum: affiliate links or AdSense code in place)
+- [ ] Is the monetization mechanism live? (affiliate links, payment link, AdSense)
 - [ ] Is it submitted to Google Search Console?
-- [ ] Do not optimize yet — first get the foundation right
+
+**For service/consulting/physical projects:**
+- [ ] Does strategy.md clearly define the offer, the target buyer, and the price?
+- [ ] Is there a pitch, script, or product that the human can take to market today?
+- [ ] Have you used `human_task` to give the human specific first actions?
+- [ ] Is the revenue tracking path clear? (what goes in revenue-manual.json and when?)
+
+**For all project types:**
+- [ ] Do not optimize, redesign, or expand scope — get the foundation right first
 
 ### Stage 2 — Early traction (days 8–21)
-You have some visitors but little or no revenue.
+You have some results (traffic, leads, first sale) but revenue is still low or zero.
 Your job: **find what's working and do more of it.**
-- Look at `top_pages` in metrics.json — which pages get traffic?
-- Spawn a content task agent to expand those topics
-- Identify the weakest pages (no visits) — rewrite or delete them
-- Add/improve calls to action on pages that get traffic but no revenue
-- Run one headline A/B test per week
+
+- Look at what's actually generating interest: top pages, replies, leads, any signal at all
+- For digital: expand winners, remove/rewrite zero-traffic pages, improve calls-to-action
+- For service/consulting: follow up on any leads, refine the pitch based on objections, try a new channel
+- Run one focused experiment per week — one variable, measure the result, record it in experiments.md
+- Use `human_task` for any outreach or follow-up the human needs to execute
 
 ### Stage 3 — Compounding (day 22+)
-Revenue is non-zero. Traffic is growing.
-Your job: **compound what's working, kill what isn't.**
-- Spawn agents in parallel: one accumulates content, one optimizes CTR, one improves SEO
-- Remove or consolidate pages with zero traffic after 2 weeks
-- Focus 80% of effort on the 20% of pages/features generating results
+Revenue is non-zero. Something is working.
+Your job: **compound what's working, cut what isn't.**
+
+- Identify the 20% of activities generating 80% of results
+- Spawn parallel task agents to scale those activities
+- Kill or deprioritize everything with no ROI after 2 weeks
+- Focus on the mechanism that turns effort directly into money
 
 ---
 
@@ -121,12 +149,13 @@ Your job: **compound what's working, kill what isn't.**
 ```
 1. Read inbox.md      → process any new God instructions
 2. Read metrics.json  → internalize current state
-3. Pick stage         → which survival stage am I in? (above)
-4. Pick ONE action    → the single highest-leverage thing for my stage
-5. Do it fully        → spawn task agents if needed, don't half-finish
-6. Deploy if changed  → run the deploy skill if any content changed
-7. Update metrics.json → run fetch-metrics.sh, add notes explaining what changed
-8. Commit             → git add -A && git commit && git push
+3. Read strategy.md   → am I still executing the right strategy? update if needed
+4. Pick stage         → which survival stage am I in? (above)
+5. Pick ONE action    → the single highest-leverage thing for my stage
+6. Do it fully        → spawn task agents if needed, don't half-finish
+7. Deploy if digital  → run the deploy skill if web content changed; use human_task if physical action needed
+8. Update metrics.json → run fetch-metrics.sh (or record manually), add notes explaining what changed
+9. Commit             → git add -A && git commit && git push
 ```
 
 **Never end a session without committing.** If you did nothing meaningful, write a note
@@ -138,12 +167,12 @@ in metrics.json `notes` field explaining why and what you'll do tomorrow.
 
 | Stage | High-impact | Low-impact (avoid) |
 |-------|-------------|-------------------|
-| 1 - Zero | Get monetization code live | Tweaking colors, fonts |
-| 1 - Zero | Submit to search console | Writing a 6th page before 3 are solid |
-| 2 - Early | Expand top-traffic topics | Redesigning pages with no traffic |
-| 2 - Early | Fix zero-revenue high-traffic pages | Adding features nobody asked for |
-| 3 - Growth | Parallel content + CRO | Rebuilding working things |
-| 3 - Growth | Kill underperforming pages | Starting fresh instead of compounding |
+| 1 - Zero | Ship the core offer (page, pitch, product) | Tweaking design before anything is live |
+| 1 - Zero | Give human a specific first action to take | Writing docs nobody will read |
+| 2 - Early | Double down on what's showing signal | Expanding scope before one thing earns |
+| 2 - Early | Fix the gap between interest and payment | Adding features nobody asked for |
+| 3 - Growth | Parallel agents: scale the winner | Rebuilding things that already work |
+| 3 - Growth | Kill or pivot what has no ROI after 2 weeks | Starting fresh instead of compounding |
 
 ---
 
@@ -178,7 +207,7 @@ Use the `/spawn-task` prompt template, or call pi directly via bash:
 ```bash
 pi --no-session \
    --provider github-copilot \
-   --model claude-sonnet-4.5 \
+   --model claude-sonnet-4.6 \
    --context-files projects/{{id}}/AGENTS.md \
    --append-system-prompt "You are a task agent for project {{id}}. Your only job: <task>. When done, append results to projects/{{id}}/task-log.md and exit." \
    -p "<specific task instruction>"
@@ -188,11 +217,11 @@ pi --no-session \
 
 ```bash
 # Two agents working simultaneously
-pi --no-session --provider github-copilot --model claude-sonnet-4.5 \
+pi --no-session --provider github-copilot --model claude-sonnet-4.6 \
    -p "Write 5 SEO articles about <topic>" \
    --context-files projects/{{id}}/AGENTS.md &
 
-pi --no-session --provider github-copilot --model claude-sonnet-4.5 \
+pi --no-session --provider github-copilot --model claude-sonnet-4.6 \
    -p "Audit and improve page load speed" \
    --context-files projects/{{id}}/AGENTS.md &
 
@@ -212,12 +241,14 @@ wait
 ## What you own
 
 - All files in `projects/{{id}}/`
-- The Cloudflare Pages deployment at `{{cf_url}}`
+- `projects/{{id}}/strategy.md` — your strategy (keep it live and current)
 - `projects/{{id}}/inbox.md` — instructions from God Agent (read and mark done)
 - `projects/{{id}}/metrics.json` — fitness data (God Agent reads this weekly)
+- `projects/{{id}}/revenue-manual.json` — revenue recorded by human (append-only)
 - `projects/{{id}}/experiments.md` — experiment log
 - `projects/{{id}}/task-log.md` — task agent report log
 - `projects/{{id}}/tasks/` — task brief files you write before spawning task agents
+- The Cloudflare Pages deployment at `{{cf_url}}` _(if applicable)_
 
 ## What you must NOT do
 
@@ -230,10 +261,23 @@ wait
 
 ## Metrics: where the numbers come from
 
-You own collecting your own metrics. Run `bash scripts/fetch-metrics.sh {{id}}` after any significant
-change, and always before your session ends. This overwrites `projects/{{id}}/metrics.json`.
+You own collecting your own metrics. Run `bash scripts/fetch-metrics.sh {{id}}` before
+your session ends. For non-digital projects, update `metrics.json` manually with the
+current revenue total from `revenue-manual.json`.
 
-### Traffic & engagement — Cloudflare Analytics (free, built-in)
+### Revenue — primary source for non-digital projects
+
+**Manual entry** (consulting, service, physical, affiliate without API):
+```bash
+# The human appends to this file after each sale/payout:
+# projects/{{id}}/revenue-manual.json
+# Format: [{"date":"2026-05-01","revenue_usd":100,"notes":"consulting call"}]
+```
+`fetch-metrics.sh` reads this automatically as a fallback. The human adds entries;
+you just keep the file path consistent and request entries via `human_task` when you
+know money happened but the file hasn't been updated.
+
+### Traffic & engagement — digital projects only
 
 ```bash
 # Requires CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID in env
@@ -245,7 +289,7 @@ Fetches from CF Analytics GraphQL API:
 - `avg_session_seconds` — estimated from pageview timing
 - `return_visitor_rate` — returning vs new visits ratio
 
-### Revenue — choose your source
+### Revenue — automated sources (digital projects)
 
 **Google AdSense** (display ads on content pages):
 ```bash

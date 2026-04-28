@@ -33,7 +33,7 @@ You are the project agent. The agent you are spawning reports to you.
    ```bash
    pi --no-session \
       --provider github-copilot \
-      --model claude-sonnet-4.5 \
+      --model claude-sonnet-4.6 \
       --context-files projects/{{project_id}}/AGENTS.md \
       --context-files projects/{{project_id}}/tasks/{{task_slug}}-brief.md \
       --append-system-prompt "You are a task agent. Read your brief carefully. Stay within scope. Report back to task-log.md when done." \
@@ -50,8 +50,11 @@ You are the project agent. The agent you are spawning reports to you.
 - "Write 5 SEO article stubs targeting these 5 keywords, save as articles/*.html"
 - "Run a Lighthouse audit on index.html and fix the top 3 performance issues"
 - "Research the top 10 competitors for {{niche}} and produce a gap analysis in research/competitors.md"
-- "Rewrite the homepage headline and hero copy, A/B test setup: save two variants as index-a.html and index-b.html"
-- "Scan all internal links on the site and fix any broken ones"
+- "Write a cold email sequence (3 emails) for {{consulting pitch}}, save as outreach/email-sequence.md"
+- "Draft a Gumroad product listing (title, description, pricing) for {{digital product}}, save as product/listing.md"
+- "Research 20 Etsy shops in {{niche}}, identify pricing gaps, and write a sourcing report"
+- "Write a productized service landing page for {{service}}, save as landing-page.html"
+- "Rewrite the homepage headline and hero copy — save two A/B variants"
 
 ## What task agents CANNOT do
 

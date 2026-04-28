@@ -21,6 +21,10 @@ import {
 } from "@mariozechner/pi-coding-agent";
 import * as fs from "fs";
 import * as path from "path";
+import { execSync } from "child_process";
+
+// ── Config ───────────────────────────────────────────────────────────────────
+const GOD_MODEL = "claude-sonnet-4.5";
 
 const REPO_ROOT = path.resolve(__dirname, "..");
 const REGISTRY_FILE = path.join(REPO_ROOT, "registry.json");
@@ -41,25 +45,21 @@ async function createGodSession(sessionLabel: string) {
     const authStorage = AuthStorage.create();
     const modelRegistry = ModelRegistry.create(authStorage);
 
+    const model = modelRegistry.find("github-copilot", GOD_MODEL);
+    if (!model) {
+        throw new Error(
+            `Model not found: github-copilot/${GOD_MODEL}. ` +
+            `Run 'pi --list-models' to see available models.`
+        );
+    }
+
     const { session } = await createAgentSession({
-        // Sessions saved to ~/.pi/agent/sessions/ organized by project
-        sessionManager: SessionManager.create(),
+        // Auto-discovers AGENTS.md, .pi/extensions/, .pi/skills/, .pi/prompts/ from cwd
+        cwd: REPO_ROOT,
         authStorage,
         modelRegistry,
-        // GitHub Copilot — authenticated via `pi /login` → GitHub Copilot
-        provider: "github-copilot",
-        model: "claude-sonnet-4.5",
-        workingDir: REPO_ROOT,
-        contextFiles: [path.join(REPO_ROOT, "AGENTS.md")],
-        extensionPaths: [path.join(REPO_ROOT, ".pi/extensions/human-tasks.ts")],
-        promptTemplatePaths: [
-            path.join(REPO_ROOT, ".pi/prompts/spawn-project.md"),
-            path.join(REPO_ROOT, ".pi/prompts/mutate-project.md"),
-            path.join(REPO_ROOT, ".pi/prompts/evaluate.md"),
-        ],
-        skillPaths: [
-            path.join(REPO_ROOT, ".pi/skills/deploy-cloudflare/SKILL.md"),
-        ],
+        model,
+        sessionManager: SessionManager.create(REPO_ROOT),
     });
 
     console.log(`[god] Session started: ${sessionLabel}`);
@@ -140,7 +140,7 @@ async function cmdKill(projectId: string) {
     const session = await createGodSession(`kill-${projectId}`);
     await session.prompt(
         `Kill project '${projectId}'. Steps:\n` +
-        `1. Delete the Cloudflare Pages project named '${project.cf_project}' using wrangler\n` +
+        `1. If registry shows cf_project is non-null, delete the Cloudflare Pages project named '${project.cf_project}' using wrangler\n` +
         `2. Set status to "killed" and killed_at to now in registry.json\n` +
         `3. git rm -r projects/${projectId}/\n` +
         `4. Commit and push\n` +
@@ -151,6 +151,7 @@ async function cmdKill(projectId: string) {
 async function cmdPoke() {
     const registry = loadRegistry();
     const projects = (registry.projects || []).filter((p: { status: string }) => p.status === "alive");
+    const targetFleetSize: number = registry.target_fleet_size ?? 5;
 
     if (projects.length === 0) {
         console.log("[god] No alive projects to poke. Run: npm run seed");
@@ -162,15 +163,54 @@ async function cmdPoke() {
     const session = await createGodSession("poke");
     await session.prompt(
         `Run your default cadence (from your AGENTS.md):
-1. Check human-tasks.md for any human responses to act on
-2. Check registry.json fleet state — any pending-kill confirmations?
+1. Check human-tasks.md for any human responses (Status: done with a Human response field) and act on them
+2. Check registry.json fleet state — any pending-kill confirmations from human?
 3. For each alive project, check if its inbox.md has been addressed recently and if metrics.json is fresh
-4. Pick the lowest-performing project and write a specific challenge to its inbox.md, then invoke it
-5. If fleet size is below target (5 projects), spawn a new one
+4. Pick the lowest-performing project and write a specific challenge to its inbox.md
+5. If fleet size is below target (${targetFleetSize} projects), spawn a new one
 6. Write a brief summary of what you stirred up to human-tasks.md as a low-priority task
 
 Current alive projects: ${projects.map((p: { id: string; cycles_alive?: number }) => `${p.id} (${p.cycles_alive ?? 0} cycles)`).join(", ")}`
     );
+
+    // After god agent has written to inboxes, invoke each project agent directly
+    // (mirrors what heartbeat.sh does in Step 2, so `npm run poke` also wakes projects)
+    console.log(`[god] Invoking ${projects.length} project agents...`);
+    for (const project of projects) {
+        const projectDir = path.join(REPO_ROOT, "projects", project.id);
+        if (!fs.existsSync(projectDir)) {
+            console.warn(`[god] WARNING: missing dir for ${project.id}, skipping`);
+            continue;
+        }
+
+        // fetch-metrics first so the agent has fresh numbers
+        try {
+            execSync(`bash "${path.join(REPO_ROOT, "scripts", "fetch-metrics.sh")}" "${project.id}"`, { stdio: "inherit" });
+        } catch {
+            console.warn(`[god] metrics fetch failed for ${project.id} (continuing)`);
+        }
+
+        const agentsFile = path.join(projectDir, "AGENTS.md");
+        const extensionFile = path.join(REPO_ROOT, ".pi", "extensions", "human-tasks.ts");
+        const skillFile = path.join(REPO_ROOT, ".pi", "skills", "deploy-cloudflare", "SKILL.md");
+        const promptTemplate = path.join(REPO_ROOT, ".pi", "prompts", "spawn-task.md");
+
+        try {
+            execSync(
+                `pi --no-session \
+  --provider github-copilot \
+  --model ${GOD_MODEL} \
+  --context-files "${agentsFile}" \
+  --extension "${extensionFile}" \
+  --skill "${skillFile}" \
+  --prompt-template "${promptTemplate}" \
+  -p "Daily work session. Check inbox.md first, then run your default work loop. Be decisive and commit before exiting."`,
+                { stdio: "inherit", cwd: REPO_ROOT }
+            );
+        } catch {
+            console.warn(`[god] Project agent ${project.id} exited with error (continuing)`);
+        }
+    }
 }
 
 // ── Entry point ───────────────────────────────────────────────────────────────
