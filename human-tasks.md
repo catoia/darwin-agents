@@ -79,3 +79,103 @@ See full deployment guide: `projects/budget-recipe-blog/DEPLOYMENT.md`
 
 **Human response:** 
 **Status:** open
+
+
+## [2026-04-28] b2b-cold-email-consulting: Execute cold outreach to 20 B2B SaaS founders
+
+**Priority:** HIGH
+**Project:** b2b-cold-email-consulting
+**Agent:** Project Agent (b2b-cold-email-consulting)
+
+### Context
+
+I've created a complete cold email consulting service package:
+- **Cold email pitch** (3-email sequence with subject lines) → `projects/b2b-cold-email-consulting/cold-email-pitch.md`
+- **Service offer document** (free 15-min teardown → $200 paid 90-min strategy session) → `projects/b2b-cold-email-consulting/offer-document.md`
+- **Talking points for free teardown calls** (pre-call prep + call structure + objection handling) → `projects/b2b-cold-email-consulting/teardown-talking-points.md`
+- **Target list instructions** (where to find founders + tracking template) → `projects/b2b-cold-email-consulting/target-list-instructions.md`
+
+**This is a service business. I write the strategy, you execute the outreach and deliver the consulting calls.**
+
+### Required Actions
+
+**1. Research 20 B2B SaaS founders (60 minutes)**
+   - Use the sources in `target-list-instructions.md`:
+     - Product Hunt (recent B2B SaaS launches in last 60 days)
+     - Indie Hackers (active B2B founders)
+     - LinkedIn search ("founder" + "B2B SaaS" + "seed")
+     - Twitter/X (#buildinpublic B2B SaaS)
+   - For each founder, record: Name, Company, Product, ICP (who they sell to), Email/Contact, LinkedIn URL, Personalization note
+   - Create a spreadsheet or Notion doc to track responses (template in target-list-instructions.md)
+
+**2. Send first batch of cold emails (30 minutes)**
+   - **Day 1:** Send Email 1 to 10 founders (Batch A)
+   - **Day 2:** Send Email 1 to 10 founders (Batch B)
+   - Use the email template from `cold-email-pitch.md` (Subject: "Your cold email sequence teardown (15 min, free)")
+   - **PERSONALIZE each email:** Replace [Company Name], [their ICP], [First Name], add a line about recent launch/post
+   - Send from your personal email (higher deliverability than a new domain)
+   - Include a calendar link (Calendly or Google Calendar) or say "reply with your availability"
+
+**3. Send follow-up emails (ongoing)**
+   - **Day 4-5:** Email 2 to Batch A non-responders (use template from cold-email-pitch.md)
+   - **Day 5-6:** Email 2 to Batch B non-responders
+   - **Day 9-11:** Email 3 (breakup email) to remaining non-responders
+
+**4. Conduct free 15-minute teardown calls (as they book)**
+   - Before each call: Read their email sequence (ask them to send it before the call)
+   - Use the talking points from `teardown-talking-points.md`:
+     - Identify their 3 biggest issues (use the checklist)
+     - Give specific fixes for each
+     - Pitch the paid $200 session at the end if they're engaged
+   - Track outcomes in your response tracker
+
+**5. Book & conduct paid $200 sessions (when they convert)**
+   - Send payment link: Stripe / PayPal / Venmo
+   - Once paid, schedule 90-minute strategy call
+   - Deliver the full service (sequence rewrite, ICP strategy, testing plan)
+   - **Immediately after receiving payment, record revenue:**
+     ```bash
+     echo '[{"date":"YYYY-MM-DD","revenue_usd":200,"notes":"Consulting session with [Founder Name] from [Company]"}]' > projects/b2b-cold-email-consulting/revenue-manual.json
+     ```
+     (Replace date and name — if multiple sessions, append to the array)
+
+**6. Report back after Week 1 (5 minutes)**
+   - Update me with:
+     - How many emails sent
+     - How many opened (if trackable)
+     - How many replied
+     - How many booked free teardowns
+     - Any common objections or questions
+   - Write this in `projects/b2b-cold-email-consulting/inbox.md` as a new entry: "[YYYY-MM-DD] Week 1 results: X sent, Y opened, Z replied, etc."
+
+### Why this matters
+
+**Revenue target: $800 in 4 weeks (4 paid sessions)**
+- Timeline: First outreach by Day 2, first teardown call by Day 5, first paid session by Day 10
+- Without outreach, fitness = 0. Without paid sessions, project gets killed at next evaluation.
+- This is Stage 1 (zero revenue) — the ONLY thing that matters is getting to first dollar.
+
+**Success metrics for Week 1:**
+- 20 emails sent ✅
+- 15% reply rate (3+ positive replies) ✅
+- 2+ free teardown calls booked ✅
+- 1 paid session booked by end of Week 2 ✅
+
+**Payment setup:**
+- Set up Stripe/PayPal/Venmo to accept $200 payments
+- Preferred: Stripe payment link (create one for "$200 Cold Email Strategy Session")
+- Include payment link in follow-up after successful teardown calls
+
+**Time commitment from you:**
+- Week 1: ~2 hours (research + send emails)
+- Week 2: ~3-4 hours (follow-ups + 2-3 teardown calls)
+- Week 3+: ~2 hours/week (1-2 paid sessions)
+
+See all deliverables in `projects/b2b-cold-email-consulting/`:
+- `cold-email-pitch.md`
+- `offer-document.md`
+- `teardown-talking-points.md`
+- `target-list-instructions.md`
+
+**Human response:** 
+**Status:** open
