@@ -32,6 +32,8 @@ You are the project agent. The agent you are spawning reports to you.
 3. **Spawn the task agent** via bash:
    ```bash
    pi --no-session \
+      --provider github-copilot \
+      --model claude-sonnet-4.5 \
       --context-files projects/{{project_id}}/AGENTS.md \
       --context-files projects/{{project_id}}/tasks/{{task_slug}}-brief.md \
       --append-system-prompt "You are a task agent. Read your brief carefully. Stay within scope. Report back to task-log.md when done." \

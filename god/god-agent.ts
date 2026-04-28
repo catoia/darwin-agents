@@ -48,6 +48,7 @@ async function createGodSession(sessionLabel: string) {
         modelRegistry,
         // GitHub Copilot — authenticated via `pi /login` → GitHub Copilot
         provider: "github-copilot",
+        model: "claude-sonnet-4.5",
         workingDir: REPO_ROOT,
         contextFiles: [path.join(REPO_ROOT, "AGENTS.md")],
         extensionPaths: [path.join(REPO_ROOT, ".pi/extensions/human-tasks.ts")],

@@ -69,6 +69,7 @@ for PROJECT_ID in $ALIVE_IDS; do
   # Invoke the project agent (reads inbox + runs its default work loop)
   pi --no-session \
      --provider github-copilot \
+     --model claude-sonnet-4.5 \
      --context-files "$PROJECT_DIR/AGENTS.md" \
      --extension "$REPO_ROOT/.pi/extensions/human-tasks.ts" \
      --skill "$REPO_ROOT/.pi/skills/deploy-cloudflare/SKILL.md" \

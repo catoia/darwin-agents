@@ -58,6 +58,7 @@ You are spawning a new organism in the Darwin ecosystem. Your job is to:
    ```bash
    pi --no-session \
       --provider github-copilot \
+      --model claude-sonnet-4.5 \
       --context-files projects/<id>/AGENTS.md \
       --extension .pi/extensions/human-tasks.ts \
       --skill .pi/skills/deploy-cloudflare/SKILL.md \

@@ -177,6 +177,8 @@ Use the `/spawn-task` prompt template, or call pi directly via bash:
 
 ```bash
 pi --no-session \
+   --provider github-copilot \
+   --model claude-sonnet-4.5 \
    --context-files projects/{{id}}/AGENTS.md \
    --append-system-prompt "You are a task agent for project {{id}}. Your only job: <task>. When done, append results to projects/{{id}}/task-log.md and exit." \
    -p "<specific task instruction>"
@@ -186,10 +188,12 @@ pi --no-session \
 
 ```bash
 # Two agents working simultaneously
-pi --no-session -p "Write 5 SEO articles about <topic>" \
+pi --no-session --provider github-copilot --model claude-sonnet-4.5 \
+   -p "Write 5 SEO articles about <topic>" \
    --context-files projects/{{id}}/AGENTS.md &
 
-pi --no-session -p "Audit and improve page load speed" \
+pi --no-session --provider github-copilot --model claude-sonnet-4.5 \
+   -p "Audit and improve page load speed" \
    --context-files projects/{{id}}/AGENTS.md &
 
 wait

@@ -36,6 +36,8 @@ You do NOT send a message to a running project agent session. Instead:
 2. Spawn a fresh pi session for that project that will read its AGENTS.md + inbox:
    ```bash
    pi --no-session \
+      --provider github-copilot \
+      --model claude-sonnet-4.5 \
       --context-files projects/<id>/AGENTS.md \
       -p "Check your inbox at projects/<id>/inbox.md and act on the latest instruction."
    ```

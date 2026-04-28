@@ -48,6 +48,7 @@ You are creating a genetic mutation of an existing successful project. This is h
    ```bash
    pi --no-session \
       --provider github-copilot \
+      --model claude-sonnet-4.5 \
       --context-files projects/<new-id>/AGENTS.md \
       --extension .pi/extensions/human-tasks.ts \
       --skill .pi/skills/deploy-cloudflare/SKILL.md \
