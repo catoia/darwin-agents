@@ -16,7 +16,7 @@
  * - Human sends commands via Telegram (checked on next heartbeat)
  */
 
-import { Extension } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -141,48 +141,46 @@ async function checkTelegramMessages(): Promise<string[]> {
     }
 }
 
-export default {
-    name: "telegram-god",
-    description: "Telegram integration for Darwin God Agent ecosystem management",
-    
-    tools: [
-        {
-            name: "telegram_send",
-            description: "Send a message to the human via Telegram. Use for important updates: project spawned, project killed, evaluation complete, critical blockers. Keep messages concise.",
-            input_schema: {
-                type: "object",
-                properties: {
-                    message: {
-                        type: "string",
-                        description: "Message text (supports Markdown formatting)",
-                    },
+export default function (pi: ExtensionAPI) {
+    pi.registerTool({
+        name: "telegram_send",
+        label: "Send Telegram Message",
+        description: "Send a message to the human via Telegram. Use for important updates: project spawned, project killed, evaluation complete, critical blockers. Keep messages concise.",
+        parameters: {
+            type: "object",
+            properties: {
+                message: {
+                    type: "string",
+                    description: "Message text (supports Markdown formatting)",
                 },
-                required: ["message"],
             },
-            async execute(args: { message: string }) {
-                const result = await sendTelegramMessage(args.message);
-                if (!result.success) {
-                    return `❌ Failed to send Telegram message: ${result.error}\n\nTo enable Telegram:\n1. Create bot via @BotFather\n2. Add TELEGRAM_BOT_TOKEN to .env\n3. Add TELEGRAM_CHAT_ID to .env (your Telegram user ID)`;
-                }
-                return `✅ Message sent to human via Telegram`;
-            },
+            required: ["message"],
         },
-        {
-            name: "telegram_check",
-            description: "Check for new messages from the human via Telegram. Returns list of unread messages. Call this at the start of God Agent sessions to check for human commands.",
-            input_schema: {
-                type: "object",
-                properties: {},
-            },
-            async execute() {
-                const messages = await checkTelegramMessages();
-                
-                if (messages.length === 0) {
-                    return "No new Telegram messages from human";
-                }
-                
-                return `📬 ${messages.length} new message(s) from human:\n\n${messages.map((m, i) => `${i + 1}. ${m}`).join("\n\n")}\n\nProcess these commands and act accordingly.`;
-            },
+        async execute(args: { message: string }) {
+            const result = await sendTelegramMessage(args.message);
+            if (!result.success) {
+                return `❌ Failed to send Telegram message: ${result.error}\n\nTo enable Telegram:\n1. Create bot via @BotFather\n2. Add TELEGRAM_BOT_TOKEN to .env\n3. Add TELEGRAM_CHAT_ID to .env (your Telegram user ID)`;
+            }
+            return `✅ Message sent to human via Telegram`;
         },
-    ],
-} satisfies Extension;
+    });
+
+    pi.registerTool({
+        name: "telegram_check",
+        label: "Check Telegram Messages",
+        description: "Check for new messages from the human via Telegram. Returns list of unread messages. Call this at the start of God Agent sessions to check for human commands.",
+        parameters: {
+            type: "object",
+            properties: {},
+        },
+        async execute() {
+            const messages = await checkTelegramMessages();
+            
+            if (messages.length === 0) {
+                return "No new Telegram messages from human";
+            }
+            
+            return `📬 ${messages.length} new message(s) from human:\n\n${messages.map((m, i) => `${i + 1}. ${m}`).join("\n\n")}\n\nProcess these commands and act accordingly.`;
+        },
+    });
+}
