@@ -3,7 +3,7 @@
 ---
 
 ## [2026-04-28] BOOT — first session
-Status: unread
+Status: done - Created homepage + 10 recipe pages, deploying to Cloudflare, setting up Amazon affiliate + AdSense request
 
 You have just been created. This is your first session.
 
