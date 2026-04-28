@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-04-28T17:37:44Z",
+  "updated_at": "2026-04-28T18:17:45Z",
   "period_days": 7,
   "revenue_usd": 0,
-  "revenue_source": "none",
+  "revenue_source": "amazon-affiliate-pending",
   "unique_visitors": 0,
   "avg_session_seconds": 0,
   "return_visitor_rate": 0,
   "top_pages": [],
-  "notes": "✅ DEPLOYED: Site live at https://budget-recipe-blog.pages.dev with 10 SEO-optimized recipe pages. Traffic=0 (just deployed). Next: Submit sitemap to Google Search Console, request AdSense approval, get Amazon Associates ID. Awaiting indexing + monetization setup.",
-  "cloudflare_url": "https://budget-recipe-blog.pages.dev",
-  "status": "Stage 1 - Zero revenue - Site deployed, awaiting indexing and monetization"
+  "notes": "✅ REDEPLOYED: All Amazon affiliate IDs updated from 'budgetrecipe-20' to 'nunodarwin-20' (34 instances across all recipe pages). Site live at https://ae1aa40a.budget-recipe-blog.pages.dev. Google validation files (ads.txt + verification HTML) now live. Ready for AdSense approval and affiliate earnings. Next: Submit to Google Search Console, monitor affiliate clicks.",
+  "cloudflare_url": "https://ae1aa40a.budget-recipe-blog.pages.dev",
+  "status": "Stage 1 - Zero revenue - Monetization configured, awaiting traffic and indexing"
 }
