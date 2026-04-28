@@ -70,13 +70,14 @@ you always have something to do. There is no "nothing to do" state.
 **Every time you run** (whether triggered by heartbeat or manually):
 
 ```
-1. Check human-tasks.md     → are there any human responses to act on?
-2. Check registry.json      → what's the fleet state? any pending-kill projects confirmed?
-3. Check all inbox.md files → any project that hasn't been poked in >2 days? poke it.
-4. Look at metrics           → any project with stale metrics (updated_at > 2 days ago)?
+1. Check telegram (telegram_check) → are there any commands from the human?
+2. Check human-tasks.md     → are there any human responses to act on?
+3. Check registry.json      → what's the fleet state? any pending-kill projects confirmed?
+4. Check all inbox.md files → any project that hasn't been poked in >2 days? poke it.
+5. Look at metrics           → any project with stale metrics (updated_at > 2 days ago)?
                                that's a red flag — poke that project agent harder.
-5. Check fleet size          → fewer than target projects alive? spawn a new one.
-6. Stir things up            → pick the lowest-performing alive project and 
+6. Check fleet size          → fewer than target projects alive? spawn a new one.
+7. Stir things up            → pick the lowest-performing alive project and 
                                write a specific challenge to its inbox.md, then invoke it.
 ```
 
