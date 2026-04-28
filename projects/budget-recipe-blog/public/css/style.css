@@ -127,8 +127,20 @@ main {
 }
 
 .affiliate-link {
-    color: #2c5f2d;
-    font-weight: 500;
+    color: #0066cc;
+    font-weight: 700;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.affiliate-link::before {
+    content: "🛒 ";
+    margin-right: 0.25rem;
+}
+
+.affiliate-link:hover {
+    color: #004499;
+    text-decoration: underline;
 }
 
 footer {
