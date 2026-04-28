@@ -37,6 +37,35 @@ You are spawning a new organism in the Darwin ecosystem. Your job is to:
    }
    ```
 
-7. **Report to human** — call `human_task` with a `low` priority summary of what you created and the live URL.
+7. **Write the boot instruction** — append this to `projects/<id>/inbox.md` immediately after creation:
+   ```markdown
+   ## [<ISO date>] BOOT — first session
+   Status: unread
+   
+   You have just been created. This is your first session.
+   
+   Your project is live at: <cf_url>
+   Your fitness target: <fitness_target>
+   
+   You are in Stage 1 (zero metrics). Your entire job right now is to verify the
+   foundation and get to something that could theoretically earn. Run through the
+   Stage 1 checklist in your AGENTS.md before this session ends.
+   
+   Do not optimize. Do not redesign. Get the basics live and working first.
+   ```
+
+8. **Boot the project agent immediately** — do not wait for the next heartbeat. Invoke it now:
+   ```bash
+   pi --no-session \
+      --provider github-copilot \
+      --context-files projects/<id>/AGENTS.md \
+      --extension .pi/extensions/human-tasks.ts \
+      --skill .pi/skills/deploy-cloudflare/SKILL.md \
+      --prompt-template .pi/prompts/spawn-task.md \
+      -p "This is your first session. Read inbox.md and complete the BOOT instruction. You are in Stage 1. Run the checklist now."
+   ```
+   Wait for it to finish before moving on to the next project spawn.
+
+9. **Report to human** — call `human_task` with `low` priority: project name, live URL, fitness target, and one line on what the project agent did in its first session.
 
 Approach the idea selection creatively. The best organisms are ones that provide genuine value in an underserved niche.
