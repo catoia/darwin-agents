@@ -164,9 +164,17 @@ The listener daemon runs in the background and responds to your messages automat
 
 ### Start the Listener
 
+**Normal start (processes any pending messages):**
 ```bash
 bash scripts/telegram-start.sh
 ```
+
+**Start fresh (skip old messages):**
+```bash
+bash scripts/telegram-start.sh --skip-old
+```
+
+Use `--skip-old` if you've sent test messages before starting the listener and don't want them processed.
 
 Output:
 ```
@@ -226,6 +234,25 @@ Output:
 ✅ Telegram listener stopped
 ```
 
+### Clear Old Messages
+
+If you want to skip processing old messages without starting the listener:
+```bash
+bash scripts/telegram-clear-queue.sh
+```
+
+Output:
+```
+🧹 Clearing Telegram message queue...
+✅ Cleared 5 old message(s) from queue
+   New messages will be processed starting from update_id: 197323529
+```
+
+**Use this when:**
+- You've sent test messages and don't want them processed
+- You're restarting after a long downtime and want to ignore old commands
+- You want a clean slate
+
 ### Auto-Start on Boot (Optional)
 
 To have the listener start automatically when your computer boots:
@@ -242,6 +269,53 @@ sudo cp scripts/darwin-telegram-listener.service /etc/systemd/system/
 sudo systemctl enable darwin-telegram-listener
 sudo systemctl start darwin-telegram-listener
 ```
+
+---
+
+## Message Processing Guarantees
+
+### Each Message Processed Exactly Once
+
+The listener maintains state in `.pi/telegram-state.json`:
+```json
+{
+  "last_update_id": 197323528
+}
+```
+
+**How it works:**
+1. Fetch messages with `offset = last_update_id + 1`
+2. Process messages
+3. Update `last_update_id` to the highest ID seen
+4. Next fetch only gets NEW messages
+
+**Result:** Once processed, a message is permanently dropped from the queue.
+
+### What Happens on First Startup
+
+**Scenario 1: Fresh start**
+- No state file exists
+- Listener processes ALL messages in queue (your test messages, etc.)
+- Use `--skip-old` flag to avoid this
+
+**Scenario 2: Restart after crash**
+- State file exists with last processed ID
+- Only processes messages sent AFTER the last successful poll
+- Safe to restart anytime
+
+**Scenario 3: Long downtime**
+- Messages accumulate in Telegram queue (up to 24 hours)
+- On restart, all pending messages are processed
+- Use `telegram-clear-queue.sh` to skip old messages
+
+### Idempotency
+
+If the God Agent session crashes mid-processing:
+- ✅ Message is still marked as processed (won't retry)
+- ⚠️ Your command may not have fully executed
+- 💡 Send the command again if needed
+
+This prevents infinite retry loops but means you should verify critical commands completed.
 
 ---
 

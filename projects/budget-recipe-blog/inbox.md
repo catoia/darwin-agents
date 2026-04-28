@@ -22,3 +22,37 @@ Your first actions:
 5. Use human_task to request AdSense account setup
 
 The human is your hands for anything requiring account signups or approvals. Use human_task with specific, actionable instructions.
+
+---
+
+## [2026-04-28] HUMAN REQUEST: Add comprehensive affiliate links
+Status: open
+
+**From:** Human (via Telegram)
+**Priority:** High
+
+**Request:** The recipes currently have minimal affiliate links. The human wants:
+1. **Comprehensive research** of relevant Amazon affiliate products for EACH recipe page
+2. **More prominent and easily clickable** affiliate links throughout the content
+3. **Contextual placement** - not just a single affiliate box at the bottom
+
+**Your action plan:**
+- For EACH recipe page, research and add 8-12 relevant Amazon affiliate products including:
+  - Main ingredients (bulk items, pantry staples, spices)
+  - Specific cooking tools needed for that recipe type
+  - Kitchen equipment upgrades
+  - Storage containers for meal prep
+  - Serving dishes and accessories
+
+- **Placement strategy:**
+  - Add 2-3 inline affiliate callouts within the recipe instructions (e.g., "Pro tip: Use this [Ground Meat Chopper] to break up beef perfectly")
+  - Create a prominent "Recommended Products" section ABOVE the recipe with product cards/buttons
+  - Keep the tools section at the bottom but expand it
+  - Make all links use bright, clickable buttons or highlighted text, not just plain links
+
+- **Make links stand out visually:**
+  - Use CSS classes like `.cta-button`, `.product-card`, `.inline-affiliate`
+  - Add orange/yellow highlights or button styling
+  - Include small "Amazon" badges or icons next to links
+
+**Start with the top 3 recipe pages** (ground beef, healthy dinners, vegetarian meals) and update this inbox when done.

@@ -9,6 +9,12 @@ LOG_FILE="$LOG_DIR/telegram-listener.log"
 # Create logs directory if it doesn't exist
 mkdir -p "$LOG_DIR"
 
+# Parse flags
+SKIP_OLD=false
+if [ "$1" = "--skip-old" ]; then
+    SKIP_OLD=true
+fi
+
 # Check if already running
 if [ -f "$PID_FILE" ]; then
     PID=$(cat "$PID_FILE")
@@ -20,6 +26,13 @@ if [ -f "$PID_FILE" ]; then
         # Stale PID file, remove it
         rm "$PID_FILE"
     fi
+fi
+
+# Skip old messages if requested
+if [ "$SKIP_OLD" = true ]; then
+    echo "🧹 Clearing old messages from queue..."
+    bash "$REPO_ROOT/scripts/telegram-clear-queue.sh"
+    echo ""
 fi
 
 # Start the listener
@@ -40,6 +53,10 @@ if ps -p $PID > /dev/null 2>&1; then
     echo "   "
     echo "   To stop: bash scripts/telegram-stop.sh"
     echo "   To view logs: tail -f $LOG_FILE"
+    if [ "$SKIP_OLD" = true ]; then
+        echo "   "
+        echo "   Old messages were skipped. Only NEW messages will be processed."
+    fi
 else
     echo "❌ Failed to start Telegram listener"
     echo "   Check logs: cat $LOG_FILE"
