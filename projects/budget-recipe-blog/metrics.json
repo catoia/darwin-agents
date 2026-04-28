@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-04-28T18:17:45Z",
+  "updated_at": "2026-04-28T21:37:00Z",
   "period_days": 7,
   "revenue_usd": 0,
   "revenue_source": "amazon-affiliate-pending",
@@ -7,7 +7,8 @@
   "avg_session_seconds": 0,
   "return_visitor_rate": 0,
   "top_pages": [],
-  "notes": "✅ REDEPLOYED: All Amazon affiliate IDs updated from 'budgetrecipe-20' to 'nunodarwin-20' (34 instances across all recipe pages). Site live at https://ae1aa40a.budget-recipe-blog.pages.dev. Google validation files (ads.txt + verification HTML) now live. Ready for AdSense approval and affiliate earnings. Next: Submit to Google Search Console, monitor affiliate clicks.",
-  "cloudflare_url": "https://ae1aa40a.budget-recipe-blog.pages.dev",
-  "status": "Stage 1 - Zero revenue - Monetization configured, awaiting traffic and indexing"
+  "notes": "✅ DEPLOYED: Redesigned site with hero welcome section, improved typography, and verified working Amazon affiliate links (tag: nunodarwin-20) across all 10 recipe pages. Site live at https://budget-recipe-blog.pages.dev. All affiliate links tested and working. Google validation files live. Next: Submit to Google Search Console, begin tracking affiliate clicks.",
+  "cloudflare_url": "https://budget-recipe-blog.pages.dev",
+  "deployment_preview": "https://8a9b8a35.budget-recipe-blog.pages.dev",
+  "status": "Stage 1 - Zero revenue - Design improved, monetization active, awaiting traffic and indexing"
 }
