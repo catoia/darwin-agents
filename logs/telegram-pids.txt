@@ -2,8 +2,10 @@ Telegram Webhook System - Running Processes
 ============================================
 
 Webhook Server:
-  PID: 68299
+  PID: 68917
   Port: 3737
+  Dashboard: http://localhost:3737/dashboard
+  Public: https://pottery-celebrate-started-falls.trycloudflare.com/dashboard
   Log: logs/telegram-webhook.log
   Status: ✅ Running
 
@@ -17,12 +19,8 @@ Security:
   ✓ Secret token verification active
   ✓ Only chat ID 8709239624 authorized
   
+To view dashboard:
+  open http://localhost:3737/dashboard
+
 To stop everything:
-  kill 68299 68315
-
-To check logs:
-  tail -f logs/telegram-webhook.log
-  tail -f logs/cloudflared.log
-
-To restart:
-  bash scripts/telegram-setup-webhook.sh <new-url>
+  kill 68917 68315
