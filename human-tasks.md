@@ -471,3 +471,59 @@ Etsy account is confirmed active. All 3 planners (PDFs + 21 mockup images + list
 - Mockup images: `projects/etsy-productivity-planners/photos/`
 - Listing text: `projects/etsy-productivity-planners/listings/`
 
+
+---
+
+## [2026-04-29] Pinterest Marketing Blitz — Upload 21 Pins & Create Business Account
+
+**Priority:** HIGH  
+**Project:** etsy-productivity-planners  
+**Status:** open
+
+### Context
+
+The Pinterest marketing agent has completed all preparatory work. Everything is generated and ready — the human only needs to click through Pinterest's UI (cannot be automated without API credentials).
+
+**What's ready (agent-completed):**
+- ✅ 21 Pinterest-optimized pins (1000×1500px) in `projects/etsy-productivity-planners/pinterest-content/`
+- ✅ 7 ADHD pins (blue theme, cornflower brand colors)
+- ✅ 7 PhD pins (academic blue + gold theme)
+- ✅ 7 Freelance pins (professional green theme)
+- ✅ Keyword-rich titles and descriptions for all 21 pins
+- ✅ Research on winning pin patterns, hashtags, group boards
+- ✅ 48-hour pinning schedule with optimal upload times
+
+**What you need to do (~45 min, one-time):**
+
+1. **Create Pinterest Business Account** (10 min)
+   - Go to https://business.pinterest.com/
+   - Name: "ADHD & Productivity Planners"
+   - See full instructions: `projects/etsy-productivity-planners/PINTEREST-SETUP-INSTRUCTIONS.md`
+
+2. **Create 3 boards** (5 min)
+   - "ADHD Planner Printable | Neurodivergent Productivity Tools"
+   - "PhD & Academic Planner | Dissertation Progress Tracker"
+   - "Freelance Client Tracker | Solopreneur Business Printables"
+
+3. **Upload 21 pins** (20 min)
+   - All files: `projects/etsy-productivity-planners/pinterest-content/`
+   - Titles + descriptions: See `PINTEREST-SETUP-INSTRUCTIONS.md` (Step 3, tables)
+   - Use the pinning schedule: `projects/etsy-productivity-planners/pinterest-pinning-schedule.md`
+
+4. **Request access to 5 group boards** (10 min)
+   - Search "printable planner", "ADHD organization", "digital download etsy"
+   - Find boards with 5k+ followers → click "Request to Join"
+   - Template message is in `PINTEREST-SETUP-INSTRUCTIONS.md` (Step 4)
+
+5. **Log daily metrics** (2 min/day)
+   - Pinterest Analytics → Overview → copy numbers to `pinterest-metrics-log.md`
+
+**48-hour target (by 2026-05-01):**
+- 100+ impressions
+- 10+ saves
+- 5+ profile followers
+- 3+ group board memberships
+
+**Why this matters:**
+Pinterest drives 50% of Etsy planner sales. Since Etsy Ads are blocked for 2 weeks on new accounts, Pinterest organic is our ONLY path to traffic right now. Every day without Pinterest is a day where listings go live with zero external traffic pipeline.
+
