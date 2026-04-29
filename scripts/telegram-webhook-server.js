@@ -20,8 +20,83 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
+// Apply dashboard authentication
+app.use(requireDashboardAuth);
+
 const REPO_ROOT = path.resolve(__dirname, '..');
 const PORT = process.env.TELEGRAM_WEBHOOK_PORT || 3737;
+const DASHBOARD_PASSWORD = process.env.DASHBOARD_PASSWORD || null;
+
+// Middleware to protect dashboard
+function requireDashboardAuth(req, res, next) {
+    // Only protect dashboard routes, not webhook
+    if (!req.path.startsWith('/dashboard') && !req.path.startsWith('/api/activity')) {
+        return next();
+    }
+    
+    // Check if password is set
+    if (!DASHBOARD_PASSWORD) {
+        // No password set - block all remote access
+        // Allow only if explicitly from localhost (not through tunnel)
+        const host = req.get('host') || '';
+        
+        // If accessed via localhost, allow
+        if (host.startsWith('localhost:') || host.startsWith('127.0.0.1:')) {
+            return next();
+        }
+        
+        // Otherwise block (including cloudflared tunnel)
+        return res.status(403).send(`
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Access Denied</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; padding: 40px; background: #0a0e27; color: #e0e6ed; }
+        h1 { color: #ef4444; }
+        code { background: #1a2238; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🔒 Dashboard Access Restricted</h1>
+    <p>The dashboard is only accessible from <code>localhost</code> for security.</p>
+    <p><strong>Why?</strong> The dashboard shows sensitive information:</p>
+    <ul>
+        <li>Your chat ID</li>
+        <li>Messages you send</li>
+        <li>Active agent sessions</li>
+        <li>Command history</li>
+    </ul>
+    <p><strong>To access remotely:</strong></p>
+    <ol>
+        <li>Add to <code>.env</code>: <code>DASHBOARD_PASSWORD=your-strong-password</code></li>
+        <li>Restart webhook server</li>
+        <li>Access will require Basic Auth</li>
+    </ol>
+    <p><strong>Local access:</strong> <code>http://localhost:3737/dashboard</code></p>
+</body>
+</html>
+        `);
+    }
+    
+    // Check basic auth
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Basic ')) {
+        res.setHeader('WWW-Authenticate', 'Basic realm="Darwin Dashboard"');
+        return res.status(401).send('Authentication required');
+    }
+    
+    const base64Credentials = authHeader.split(' ')[1];
+    const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
+    const [username, password] = credentials.split(':');
+    
+    if (password !== DASHBOARD_PASSWORD) {
+        res.setHeader('WWW-Authenticate', 'Basic realm="Darwin Dashboard"');
+        return res.status(401).send('Invalid password');
+    }
+    
+    next();
+}
 
 // Store recent activity for dashboard
 const activityLog = [];
@@ -509,10 +584,25 @@ app.listen(PORT, () => {
     log(`Telegram webhook server started on port ${PORT}`);
     log('Waiting for webhooks...');
     log('');
-    log('Next steps:');
-    log('1. Expose this server with: cloudflared tunnel --url http://localhost:' + PORT);
-    log('2. Or use ngrok: ngrok http ' + PORT);
-    log('3. Configure webhook: bash scripts/telegram-setup-webhook.sh <public-url>');
+    
+    const { secretToken } = loadEnv();
+    if (secretToken) {
+        log('✅ Security: Webhook secret token active');
+    } else {
+        log('⚠️  WARNING: No webhook secret token configured');
+    }
+    
+    if (DASHBOARD_PASSWORD) {
+        log('✅ Dashboard: Password authentication enabled');
+        log('   Access: http://localhost:' + PORT + '/dashboard (username: admin, password: set in .env)');
+    } else {
+        log('⚠️  Dashboard: Localhost-only access (no remote access)');
+        log('   To enable remote access: Set DASHBOARD_PASSWORD in .env');
+        log('   Local: http://localhost:' + PORT + '/dashboard');
+    }
+    
+    log('');
+    log('Webhook endpoint: /webhook (public, authenticated via secret token)');
     log('');
 });
 
