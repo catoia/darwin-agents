@@ -14,7 +14,7 @@ import time
 from typing import Dict, List
 from datetime import datetime
 from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, TrackingSettings, ClickTracking, OpenTracking
+from sendgrid.helpers.mail import Mail, TrackingSettings, ClickTracking, OpenTracking, Bcc
 
 class EmailSender:
     def __init__(self, config_path='automation/config.json'):
@@ -39,6 +39,7 @@ class EmailSender:
         self.from_email = self.config['from_email']
         self.from_name = self.config['from_name']
         self.reply_to = self.config['reply_to']
+        self.bcc_email = self.config.get('bcc_email', 'b2bemails@solvd.studio')
         
         # Rate limiting
         self.emails_per_hour = self.config['rate_limits']['emails_per_hour']
@@ -108,6 +109,9 @@ class EmailSender:
             
             # Set reply-to
             message.reply_to = self.reply_to
+            
+            # Add BCC for campaign tracking
+            message.add_bcc(self.bcc_email)
             
             # Enable tracking
             message.tracking_settings = TrackingSettings()

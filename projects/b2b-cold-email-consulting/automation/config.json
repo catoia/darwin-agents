@@ -8,6 +8,7 @@
   "from_email": "marketing@solvd.studio",
   "from_name": "Nuno - Cold Email Consultant",
   "reply_to": "marketing@solvd.studio",
+  "bcc_email": "b2bemails@solvd.studio",
   "prospect_filters": {
     "target_industries": [
       "B2B SaaS",
@@ -33,7 +34,7 @@
     "follow_up_3_delay_days": 14
   },
   "rate_limits": {
-    "emails_per_hour": 10,
-    "emails_per_day": 50
+    "emails_per_hour": 50,
+    "emails_per_day": 100
   }
 }

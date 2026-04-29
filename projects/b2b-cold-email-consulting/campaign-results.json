@@ -1,78 +1,408 @@
 {
-  "campaign_date": "2026-04-29T11:56:10.574736",
-  "total_prospects": 10,
-  "sent": 10,
-  "failed": 0,
+  "campaign_date": "2026-04-29T14:46:06.517237",
+  "total_prospects": 50,
+  "sent": 0,
+  "failed": 50,
   "results": [
     {
-      "prospect": "Alex Tkachuk",
-      "email": "alex@screendesk.io",
-      "company": "Screendesk",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:08.163945"
+      "prospect": "Marty Kausas",
+      "email": "marty@usepylon.com",
+      "company": "Pylon",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:57.233484"
     },
     {
-      "prospect": "Sarah Chen",
-      "email": "sarah@buildbuddy.io",
-      "company": "BuildBuddy",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:08.387922"
+      "prospect": "William Beebe",
+      "email": "william@greenlite.ai",
+      "company": "Greenlite",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:57.440245"
     },
     {
-      "prospect": "Marcus Johnson",
-      "email": "marcus@clarityhq.com",
-      "company": "ClarityHQ",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:08.672225"
+      "prospect": "Robin Guldener",
+      "email": "robin@nango.dev",
+      "company": "Nango",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:57.588219"
     },
     {
-      "prospect": "Priya Patel",
-      "email": "priya@flowtest.dev",
-      "company": "FlowTest",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:09.375632"
+      "prospect": "David Gu",
+      "email": "david@recall.ai",
+      "company": "Recall.ai",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:57.732843"
     },
     {
-      "prospect": "David Kim",
-      "email": "david@revenueops.ai",
-      "company": "RevenueOps.AI",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:09.579971"
+      "prospect": "Danny Sheridan",
+      "email": "danny@buildwithfern.com",
+      "company": "Fern",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:57.960066"
     },
     {
-      "prospect": "Emma Rodriguez",
-      "email": "emma@talentgrid.io",
-      "company": "TalentGrid",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:09.825607"
+      "prospect": "Han Wang",
+      "email": "han@mintlify.com",
+      "company": "Mintlify",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:58.106199"
     },
     {
-      "prospect": "James Chen",
-      "email": "james@secureapi.dev",
-      "company": "SecureAPI",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:10.022908"
+      "prospect": "Matt Aitken",
+      "email": "matt@trigger.dev",
+      "company": "Trigger.dev",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:58.247413"
     },
     {
-      "prospect": "Lisa Wang",
-      "email": "lisa@marketpulse.io",
-      "company": "MarketPulse",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:10.228874"
+      "prospect": "Gabriel Hubert",
+      "email": "gabriel@dust.tt",
+      "company": "Dust",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:58.486896"
     },
     {
-      "prospect": "Tom Anderson",
-      "email": "tom@devplatform.io",
-      "company": "DevPlatform",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:10.400717"
+      "prospect": "Jordan Dearsley",
+      "email": "jordan@vapi.ai",
+      "company": "Vapi",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:58.631298"
     },
     {
-      "prospect": "Sophie Martin",
-      "email": "sophie@bizflow.ai",
-      "company": "BizFlow",
-      "status": "sent",
-      "sent_at": "2026-04-29T11:56:10.574091"
+      "prospect": "Isaiah Granet",
+      "email": "isaiah@bland.ai",
+      "company": "Bland AI",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:58.796872"
+    },
+    {
+      "prospect": "Sully Omar",
+      "email": "sully@letta.ai",
+      "company": "Letta",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:59.009105"
+    },
+    {
+      "prospect": "Aditya Agarwal",
+      "email": "aditya@skyvern.com",
+      "company": "Skyvern",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:59.170938"
+    },
+    {
+      "prospect": "Chirag Mahapatra",
+      "email": "chirag@withorb.com",
+      "company": "Orb",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:59.321600"
+    },
+    {
+      "prospect": "Nolan Di Mare Sullivan",
+      "email": "nolan@speakeasyapi.dev",
+      "company": "Speakeasy",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:59.532672"
+    },
+    {
+      "prospect": "Emre Gultepe",
+      "email": "emre@arini.ai",
+      "company": "Arini",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:59.674386"
+    },
+    {
+      "prospect": "Kevin Bai",
+      "email": "kevin@camelai.com",
+      "company": "Camel AGI",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:45:59.823745"
+    },
+    {
+      "prospect": "Patrick Donnelly",
+      "email": "patrick@vessel.land",
+      "company": "Vessel",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:00.051742"
+    },
+    {
+      "prospect": "Avi Swartz",
+      "email": "avi@structify.ai",
+      "company": "Structify",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:00.285014"
+    },
+    {
+      "prospect": "Devin Stein",
+      "email": "devin@dosu.dev",
+      "company": "Dosu",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:00.429230"
+    },
+    {
+      "prospect": "Tobi Osi",
+      "email": "tobi@inferable.ai",
+      "company": "Inferable",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:00.659957"
+    },
+    {
+      "prospect": "Simo Lemhandez",
+      "email": "simo@folk.app",
+      "company": "Folk",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:00.807700"
+    },
+    {
+      "prospect": "Flo Crivello",
+      "email": "flo@lindy.ai",
+      "company": "Lindy",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:01.055989"
+    },
+    {
+      "prospect": "Tom Gollan",
+      "email": "tom@userled.io",
+      "company": "Userled",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:01.230315"
+    },
+    {
+      "prospect": "Karim Hamze",
+      "email": "karim@claap.io",
+      "company": "Claap",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:01.385061"
+    },
+    {
+      "prospect": "Samuel Omole",
+      "email": "samuel@treblle.com",
+      "company": "Treblle",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:01.581267"
+    },
+    {
+      "prospect": "Yoav Oz",
+      "email": "yoav@momentum.io",
+      "company": "Momentum",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:01.741274"
+    },
+    {
+      "prospect": "Vincent Battaglia",
+      "email": "vincent@commandbar.com",
+      "company": "CommandBar",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:01.884786"
+    },
+    {
+      "prospect": "Thibaud Elziere",
+      "email": "thibaud@slite.com",
+      "company": "Slite",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:02.195711"
+    },
+    {
+      "prospect": "Jason Bates",
+      "email": "jason@usebroadcast.com",
+      "company": "Broadcast",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:02.405656"
+    },
+    {
+      "prospect": "Ivan Karpov",
+      "email": "ivan@neptune.ai",
+      "company": "Neptune.ai",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:02.628486"
+    },
+    {
+      "prospect": "Chris Frantz",
+      "email": "chris@ruttl.com",
+      "company": "Ruttl",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:02.803872"
+    },
+    {
+      "prospect": "Remy Tuyeras",
+      "email": "remy@basepilot.ai",
+      "company": "Basepilot",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:02.975458"
+    },
+    {
+      "prospect": "Cody Schneider",
+      "email": "cody@seo.ai",
+      "company": "SEO.ai",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:03.204537"
+    },
+    {
+      "prospect": "Nick Abraham",
+      "email": "nick@leadbird.io",
+      "company": "Leadbird",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:03.374838"
+    },
+    {
+      "prospect": "Peter Suhm",
+      "email": "peter@reform.app",
+      "company": "Reform",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:03.549053"
+    },
+    {
+      "prospect": "Tony Dinh",
+      "email": "tony@devutils.net",
+      "company": "DevUtils",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:03.783401"
+    },
+    {
+      "prospect": "Damon Chen",
+      "email": "damon@testimonial.to",
+      "company": "Testimonial.to",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:03.960196"
+    },
+    {
+      "prospect": "Adil Majid",
+      "email": "adil@outseta.com",
+      "company": "Outseta",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:04.201794"
+    },
+    {
+      "prospect": "Marc Louvion",
+      "email": "marc@shipfa.st",
+      "company": "ShipFast",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:04.382568"
+    },
+    {
+      "prospect": "Pawan Kumar",
+      "email": "pawan@writesonic.com",
+      "company": "Writesonic",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:04.548537"
+    },
+    {
+      "prospect": "Josh Pigford",
+      "email": "josh@baremetrics.com",
+      "company": "Baremetrics",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:04.780534"
+    },
+    {
+      "prospect": "Peter Cottle",
+      "email": "peter@savio.io",
+      "company": "Savio",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:04.947287"
+    },
+    {
+      "prospect": "Ben Orenstein",
+      "email": "ben@tuple.app",
+      "company": "Tuple",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:05.125252"
+    },
+    {
+      "prospect": "Rosie Sherry",
+      "email": "rosie@orbit.love",
+      "company": "Orbit",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:05.362302"
+    },
+    {
+      "prospect": "Suresh Balasubramanian",
+      "email": "suresh@chameleon.io",
+      "company": "Chameleon",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:05.530539"
+    },
+    {
+      "prospect": "Sarah Hum",
+      "email": "sarah@canny.io",
+      "company": "Canny",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:05.786867"
+    },
+    {
+      "prospect": "Hunter McKinley",
+      "email": "hunter@toplyne.io",
+      "company": "Toplyne",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:05.973304"
+    },
+    {
+      "prospect": "Josh Schachter",
+      "email": "josh@updateai.io",
+      "company": "UpdateAI",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:06.132677"
+    },
+    {
+      "prospect": "Laura Borghesi",
+      "email": "laura@dealfront.com",
+      "company": "Dealfront",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:06.349805"
+    },
+    {
+      "prospect": "Kirra Anderson",
+      "email": "kirra@safebase.io",
+      "company": "SafeBase",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "sent_at": "2026-04-29T14:46:06.516685"
     }
   ]
 }
