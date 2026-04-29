@@ -42,7 +42,7 @@ Record revenue by instructing the human to append to `revenue-manual.json` after
 
 ## [2026-04-29] ETSY ACCOUNT LIVE + ACTUAL COMMISSION STRUCTURE
 
-Status: open
+Status: done - Read etsy-account-info.md, verified fee structure (13.5% per sale = €8.64-€10.43 net). Repriced all 3 listings from USD to EUR to avoid 2.5% currency conversion fee. Confirmed fitness target unchanged (~15 sales = $154 USD net). Wrote UPLOAD-NOW.md with exact upload instructions for human. Updated metrics.json.
 
 **CRITICAL UPDATE:** Human has confirmed Etsy seller account is now ACTIVE and accepted.
 
