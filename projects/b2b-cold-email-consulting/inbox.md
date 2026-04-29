@@ -285,3 +285,130 @@ GO.
 
 **Report back:** Update task-log.md with BCC implementation confirmation and current campaign metrics.
 
+---
+
+## [2026-04-29] CRITICAL: EMAIL QUALITY & CALENDLY ISSUES
+
+**From:** Nuno (via Telegram → God Agent)
+**Priority:** CRITICAL — Human reports emails are not working properly
+
+**The problems:**
+
+1. **❌ Calendly link does not work in the emails**
+   - The link is broken or not clickable
+   - Fix this immediately — prospects can't book even if interested
+   - Test the actual HTML rendering in Gmail/Outlook
+
+2. **❌ Emails are not personalized enough**
+   - Current emails follow a structure but look meaningless
+   - They're generic templates, not genuine outreach
+   - Prospects can tell it's automated
+
+3. **❌ Need deeper prospect analysis**
+   - You're not actually analyzing each prospect's product
+   - You need to visit their website, understand their offering
+   - Write each email PERSONALLY based on their specific product
+
+**What this means:**
+
+You're sending volume but sacrificing quality. A generic template to 50 people = 0 results.
+A deeply personalized email to 10 people = 1-2 responses.
+
+**IMMEDIATE ACTIONS:**
+
+### 1. Fix Calendly Link (30 min)
+
+- Check the exact URL you're putting in emails
+- Test it yourself — does it actually open a booking page?
+- Make sure it's formatted as proper HTML link in email body
+- Send yourself a test email and verify the link is clickable
+- Document the fix in task-log.md
+
+### 2. STOP Mass Sending — Switch to Quality (2 hours)
+
+**OLD APPROACH (WRONG):**
+- Find 50 prospects
+- Generate 50 template emails with {firstName} {companyName} placeholders
+- Send all 50
+- Get 0 responses because they're obviously automated
+
+**NEW APPROACH (RIGHT):**
+- Pick your TOP 10 most promising prospects from verified list
+- For EACH one:
+  - Visit their website
+  - Read their homepage, product pages, about page
+  - Understand what they're selling and who to
+  - Identify their specific cold email challenge (e.g., "you're targeting enterprises but your emails feel too casual")
+  - Write a unique email that references their actual product
+  - Include a specific observation only possible if you looked at their site
+
+**Example of BAD vs GOOD:**
+
+**BAD (generic):**
+> Hi {firstName},
+> 
+> I noticed you're building a B2B SaaS product. Cold email is hard.
+> Want a free teardown of your emails?
+> Book here: [link]
+
+**GOOD (personalized):**
+> Hi Sarah,
+> 
+> I was looking at Buildbuddy's homepage — your remote caching pitch is strong, but I noticed your cold emails (saw your LinkedIn post about outreach struggles) have a mismatch.
+> 
+> You're selling a deeply technical product to engineering teams, but your cold emails read like generic SaaS pitches. Enterprise CTOs want specifics.
+> 
+> I'd love to show you 2 changes that could 3x your reply rate. Free 15-min teardown?
+> 
+> [Calendly link]
+
+**See the difference?** The second shows you actually looked at Buildbuddy.
+
+### 3. Create "Deep Research + Personal Email" Workflow (1 hour)
+
+**For each prospect:**
+
+1. **Research (10 min per prospect):**
+   - Visit company website
+   - Read homepage headline
+   - Understand their target customer
+   - Check LinkedIn for any posts about sales/marketing challenges
+   - Look for signs they do cold email (check their team for SDRs)
+
+2. **Write custom email (10 min per prospect):**
+   - Reference something specific from their site
+   - Connect their product to a cold email challenge you spotted
+   - Make the value prop specific to them
+   - Keep it short (4-5 sentences max)
+   - Include working Calendly link
+
+3. **Human review before sending:**
+   - Save each email as draft in task-log.md
+   - Let human review before sending (quality check)
+
+**Output:** 10 deeply personalized emails that don't look automated.
+
+### 4. Test & Iterate
+
+- Send these 10 personalized emails
+- Track response rate (target: 20-30% vs current ~0%)
+- If you get responses, scale this approach to next 20 prospects
+
+**DELIVERABLES THIS SESSION:**
+
+1. ✅ Calendly link fixed and tested
+2. ✅ 10 deeply personalized emails drafted (one per top prospect)
+3. ✅ Each email shows actual research (references their product specifically)
+4. ✅ Document research notes for each prospect in task-log.md
+5. ✅ Test email sent to yourself to verify link + formatting
+
+**THE TRUTH:**
+
+You built great automation, but cold email is a HUMAN game at this stage.
+50 automated emails = 0 responses.
+10 personal emails = 2-3 responses = 1 paid session = $200.
+
+Quality > Volume.
+
+**DO THIS NOW.**
+
