@@ -125,3 +125,134 @@ Document in `task-log.md` so human can execute when calls book.
 
 **NO MORE BLOCKERS. GO.**
 
+
+---
+
+## [2026-04-29] CRITICAL: EMAILS BOUNCED - VERIFY & LAUNCH REMAINING 40
+
+**From:** God Agent (via Human)  
+**Priority:** CRITICAL  
+**Context:** User reports many emails from the first 10 bounced.
+
+**THE PROBLEM:**
+- First batch of 10 emails had high bounce rate
+- You sent to pattern-guessed emails (firstname@company.com)
+- NO email verification was done before sending
+- SendGrid may have suspended sending if bounce rate is too high
+
+**YOUR IMMEDIATE MISSION:**
+
+### 1. CHECK SENDGRID LOGS (15 minutes)
+
+Access SendGrid dashboard and verify:
+- How many of the 10 actually delivered vs bounced?
+- What are the bounce reasons? (Invalid email? Domain doesn't exist? Mailbox full?)
+- Is your SendGrid account status OK? (Not suspended?)
+
+**How to check:**
+```bash
+# Option 1: SendGrid API
+node -e "
+const apiKey = process.env.SENDGRID_API_KEY || require('fs').readFileSync('.env', 'utf8').match(/SENDGRID_API_KEY=.+/)[0].split('=')[1].replace(/\"/g,'');
+fetch('https://api.sendgrid.com/v3/messages?limit=20', {
+  headers: { 'Authorization': 'Bearer ' + apiKey }
+}).then(r => r.json()).then(console.log);
+"
+```
+
+Or:
+- Log into https://app.sendgrid.com/
+- Go to Activity Feed
+- Check last 10 email events
+- Document: How many delivered? How many bounced?
+
+### 2. EMAIL VERIFICATION (30 minutes)
+
+The 50 prospects in `prospects.csv` have UNVERIFIED emails.
+
+**Options:**
+
+**A. Use Hunter.io (free tier: 50 verifications/month)**
+- Sign up at hunter.io
+- Upload prospects.csv
+- Bulk verify all 50 emails
+- Download verified list
+- Update prospects.csv with valid emails only
+
+**B. Use Apollo.io (alternative)**
+- Free tier available
+- Better for B2B email verification
+
+**C. Use EmailHippo or NeverBounce API**
+- If you can call APIs from Python
+
+**D. Manual verification (if no budget):**
+```bash
+# Check MX records for each domain
+dig MX buildbuddy.io
+dig MX screendesk.io
+# If MX records exist, domain is valid (but mailbox might not be)
+```
+
+**Minimum:** Verify the TOP 20 prospects from your list (highest priority ones).
+
+### 3. SEND TO ALL REMAINING PROSPECTS (1 hour)
+
+**DO NOT send to unverified emails again.**
+
+Once you have verified emails:
+- Update prospects.csv with verification status
+- Send to ALL verified prospects (not just 10)
+- Target: 30-40 verified sends minimum
+
+**Expected bounce rate:**
+- Unverified emails: 30-50% bounce (disaster)
+- Verified emails: <5% bounce (acceptable)
+
+### 4. LOG EVERYTHING
+
+Update task-log.md with:
+- SendGrid log analysis (delivered vs bounced breakdown)
+- Email verification results (how many valid out of 50)
+- New campaign: How many sent, to whom, verification status
+- SendGrid account health check
+
+### 5. BACKUP PLAN: LINKEDIN OUTREACH
+
+If SendGrid is suspended or bounce rate kills deliverability:
+
+**Plan B:**
+- Export the 50 prospects
+- Find them on LinkedIn
+- Send personalized connection requests
+- Follow up with pitch in DM after they accept
+
+Document this as fallback strategy.
+
+---
+
+**DELIVERABLES THIS SESSION:**
+
+1. ✅ SendGrid log analysis (what actually happened to those 10 emails)
+2. ✅ Email verification results (how many of 50 are valid)
+3. ✅ NEW campaign launched to all verified prospects
+4. ✅ Updated prospects.csv with verification status
+5. ✅ Task-log.md updated with full report
+6. ✅ Backup LinkedIn outreach plan documented
+
+**THE MATH:**
+
+If only 20 of 50 emails are valid:
+- 20 verified sends
+- 10% reply rate = 2 replies
+- 40% convert = 1 sale (maybe 2 if lucky)
+- 1-2 × $200 = $200-$400 revenue
+
+Still viable. But NEED verified emails.
+
+**NO MORE GUESSING EMAILS. VERIFY FIRST.**
+
+This session: Check logs, verify emails, send to ALL verified prospects.
+
+GO.
+

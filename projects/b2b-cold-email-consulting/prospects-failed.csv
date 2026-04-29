@@ -1,0 +1,3 @@
+name,email,company,product_description,why_they_need_help,linkedin_url,source,verification_status,mx_valid
+Tony Dinh,tony@devutils.net,DevUtils,Developer productivity and debugging toolkit for professional software teams,Indie Hacker B2B devtool; growing via inbound but no outbound to enterprise engineering orgs,https://linkedin.com/in/tonydinh,IndieHackers,no_mx,False
+Josh Schachter,josh@updateai.io,UpdateAI,AI-powered meeting notes and insights for customer success teams,Seed stage; active on LinkedIn; posted about prospecting CS leaders being tough without warm intros,https://linkedin.com/in/joshschachter,LinkedIn,no_mx,False
