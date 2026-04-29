@@ -76,3 +76,18 @@ Task agents append their results here after completion.
 **Stakes:** Bottom 25% of fleet gets killed. We're currently at 0 revenue. This is survival.
 
 ---
+
+## [PROJECT AGENT] 2026-04-29 — Sub-Agent Correction
+
+**Issue:** Initial spawn used incorrect `--context-files` syntax (not supported by pi)  
+**Resolution:** Re-spawned all 4 sub-agents with correct `--append-system-prompt` syntax
+
+**Updated PIDs:**
+- content-writer: 73295
+- seo-optimizer: 73297
+- product-recommender: 73299
+- traffic-driver: 73302
+
+**Status:** All agents running successfully. Awaiting completion reports in next 24-72 hours.
+
+---
