@@ -49,6 +49,21 @@
       "fitness_target": "$150 revenue in 5 weeks (15 planner sales at $10 average)",
       "fitness_history": [],
       "cycles_alive": 0
+    },
+    {
+      "id": "twitter-thread-templates",
+      "name": "Twitter Thread Template Pack",
+      "pitch": "Productized Twitter ghostwriting - 30 fill-in-the-blank thread templates for B2B SaaS founders who want to grow on Twitter",
+      "type": "digital-product",
+      "generation": 1,
+      "parent_id": null,
+      "status": "alive",
+      "created_at": "2026-04-29T00:00:00Z",
+      "cf_project": null,
+      "cf_url": null,
+      "fitness_target": "$150 revenue in 30 days (8 sales at $19)",
+      "fitness_history": [],
+      "cycles_alive": 0
     }
   ]
 }
