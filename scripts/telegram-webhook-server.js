@@ -154,6 +154,7 @@ Process this command:
 2. If it's a question or instruction, act on it appropriately
 3. Reply to the user in Telegram using Node.js directly (the extension has issues)
 4. Be concise - Telegram messages should be brief
+5. **IMPORTANT: Commit any changes you make with git**
 
 To send a Telegram reply, use bash with this command:
 \`\`\`bash
@@ -169,6 +170,18 @@ node -e "fetch('https://api.telegram.org/bot${botToken}/sendMessage', {
 \`\`\`
 
 Replace 'Your response here' with your actual response.
+
+**Git workflow:**
+Whenever you modify files (registry.json, inbox.md, metrics.json, etc.), commit them:
+\`\`\`bash
+git add -A
+git commit -m "[god] Brief description of what you did"
+git push
+\`\`\`
+
+Use the commit convention:
+- [god] for God Agent actions
+- [project-id] for project-specific changes
 
 After responding, update human-tasks.md if any follow-up action is needed.`;
 

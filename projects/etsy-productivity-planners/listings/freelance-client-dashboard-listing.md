@@ -4,7 +4,14 @@
 Freelance Client Tracker Printable | Project Management Planner | Freelancer Organizer | Invoice Tracker Digital Download for Solopreneurs
 
 ## Price
-$10.99
+€10.99 EUR
+
+**Fee breakdown (actual, Portuguese account):**
+- Transaction fee (6.5%): -€0.71
+- Payment processing (4% + €0.30): -€0.74
+- **Net per sale: €9.54** (~$10.30 USD at current rate)
+
+⚠️ List in EUR (not USD) — avoids the extra 2.5% currency conversion fee since your payment account is EUR.
 
 ## Category
 - Art & Collectibles > Prints > Digital Prints

@@ -4,7 +4,14 @@
 ADHD Task Starter Planner Printable | Executive Dysfunction Planner | ADHD Productivity | Neurodivergent Organizer Digital Download
 
 ## Price
-$9.99
+€9.99 EUR
+
+**Fee breakdown (actual, Portuguese account):**
+- Transaction fee (6.5%): -€0.65
+- Payment processing (4% + €0.30): -€0.70
+- **Net per sale: €8.64** (~$9.33 USD at current rate)
+
+⚠️ List in EUR (not USD) — avoids the extra 2.5% currency conversion fee since your payment account is EUR.
 
 ## Category
 - Art & Collectibles > Prints > Digital Prints

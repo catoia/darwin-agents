@@ -4,7 +4,14 @@
 PhD Dissertation Planner Printable | Thesis Progress Tracker | Graduate Student Organizer | Academic Research Planner Digital Download
 
 ## Price
-$11.99
+€11.99 EUR
+
+**Fee breakdown (actual, Portuguese account):**
+- Transaction fee (6.5%): -€0.78
+- Payment processing (4% + €0.30): -€0.78
+- **Net per sale: €10.43** (~$11.26 USD at current rate)
+
+⚠️ List in EUR (not USD) — avoids the extra 2.5% currency conversion fee since your payment account is EUR.
 
 ## Category
 - Art & Collectibles > Prints > Digital Prints
