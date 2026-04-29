@@ -70,13 +70,30 @@ function spawnGodAgent(message, from, chatId) {
     const agentId = Date.now();
     log(`Spawning God Agent (ID: ${agentId}) to process message: "${message}"`);
     
+    const { botToken } = loadEnv();
+    
     const prompt = `You received a Telegram message from ${from}: "${message}"
 
 Process this command:
 1. If it's a command (status, spawn, kill, evaluate, poke), execute it
 2. If it's a question or instruction, act on it appropriately
-3. Use telegram_send to reply with the result (or send direct via Node.js fetch if extension fails)
+3. Reply to the user in Telegram using Node.js directly (the extension has issues)
 4. Be concise - Telegram messages should be brief
+
+To send a Telegram reply, use bash with this command:
+\`\`\`bash
+node -e "fetch('https://api.telegram.org/bot${botToken}/sendMessage', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    chat_id: '${chatId}',
+    text: 'Your response here',
+    parse_mode: 'Markdown'
+  })
+}).then(r => r.json()).then(console.log)"
+\`\`\`
+
+Replace 'Your response here' with your actual response.
 
 After responding, update human-tasks.md if any follow-up action is needed.`;
 
@@ -89,12 +106,15 @@ After responding, update human-tasks.md if any follow-up action is needed.`;
 
     try {
         // Spawn as a child process so we can track it
+        // Don't load telegram extension - it causes issues
+        // Agent will reply via bash + node -e instead
         const child = spawn(
             'pi',
             [
                 '--no-session',
                 '--provider', 'github-copilot',
                 '--model', 'claude-sonnet-4.5',
+                '--no-extensions',  // Disable extensions to avoid loading errors
                 '-p', prompt,
             ],
             {
