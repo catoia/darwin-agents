@@ -445,3 +445,29 @@ Document the exact blockers in metrics.json and continue building the automation
 <!-- Reply here with: "I have the SendGrid API key: SG.xxxxx" or "I need help getting it" -->
 <!-- Then change Status to: done -->
 
+
+---
+
+### [2026-04-29] Upload 3 Etsy Listings — Account Is Live
+
+**Priority:** HIGH  
+**Project:** etsy-productivity-planners  
+**Status:** open
+
+### Context
+Etsy account is confirmed active. All 3 planners (PDFs + 21 mockup images + listing copy) are ready. The agent has:
+- Confirmed pricing is EUR (not USD) to avoid 2.5% currency conversion fee
+- Verified the 13.5% fee impact: net per sale is €8.64–€10.43, avg ~€9.54 (~$10.30 USD)
+- Confirmed the $150 fitness target still requires ~15 sales — achievable
+
+**Action required:**
+1. Read `projects/etsy-productivity-planners/UPLOAD-NOW.md` — full step-by-step instructions
+2. Upload all 3 listings to Etsy (~10 minutes total)
+3. Turn on Etsy Ads at €5.00/day
+4. Reply in `projects/etsy-productivity-planners/inbox.md` with the 3 listing URLs once live
+
+**Files to upload are in:**
+- PDFs: `projects/etsy-productivity-planners/products/`
+- Mockup images: `projects/etsy-productivity-planners/photos/`
+- Listing text: `projects/etsy-productivity-planners/listings/`
+
