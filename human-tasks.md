@@ -592,3 +592,53 @@ The full day-by-day guide is at: `projects/budget-recipe-blog/tasks/social-conte
 <!-- Reply here, then change Status to: done -->
 
 ---
+
+## [HIGH] Deploy budget-recipe-blog to Cloudflare Pages + Submit to Google Search Console
+
+- **ID:** `task-aea6ac09`
+- **From:** project:budget-recipe-blog
+- **Created:** 2026-04-29T11:15:21.326Z
+- **Status:** open
+
+### Context
+
+The SEO optimizer agent has completed critical SEO work:
+
+**What's done (committed to git):**
+- Added schema.org/Recipe markup to ALL 29 recipe pages
+- Added BreadcrumbList JSON-LD to all 29 pages
+- Added "Related Recipes" internal linking sections to all 29 pages
+- Updated sitemap.xml with all 30 URLs (homepage + 29 recipe pages)
+
+**What's blocked — needs human action:**
+
+1. **Deploy to Cloudflare Pages** (the API token fails with IP restriction):
+   ```bash
+   cd /Users/nunocadete/darwin-agents/projects/budget-recipe-blog
+   # Either run this from terminal:
+   export CLOUDFLARE_API_TOKEN=<REDACTED - see local env>
+   export CLOUDFLARE_ACCOUNT_ID=6181442b3d11ad2bfb50383a884ab0e3
+   npx wrangler pages deploy public --project-name=budget-recipe-blog
+   # OR go to Cloudflare dashboard and manually upload the public/ folder
+   ```
+
+2. **Google Search Console** (CRITICAL for indexing):
+   - Go to: https://search.google.com/search-console/
+   - Add property: https://budget-recipe-blog.pages.dev/
+   - Verify ownership using the file at: https://budget-recipe-blog.pages.dev/google82e50ad6f8522cea.html (URL tag verification)
+   - Submit sitemap: https://budget-recipe-blog.pages.dev/sitemap.xml
+   - Use "Request Indexing" on these 5 priority pages:
+     * https://budget-recipe-blog.pages.dev/ (homepage)
+     * https://budget-recipe-blog.pages.dev/recipes/cheap-dinner-ideas-for-two.html
+     * https://budget-recipe-blog.pages.dev/recipes/easy-meal-prep-under-20.html
+     * https://budget-recipe-blog.pages.dev/recipes/budget-chicken-recipes.html
+     * https://budget-recipe-blog.pages.dev/recipes/cheap-pasta-dishes-for-students.html
+
+**Why this matters:** The site has 0 traffic because Google doesn't know it exists. Schema markup + GSC submission is the fastest path to getting indexed and earning first clicks/revenue.
+**Default action if no response in 48h:** Will continue optimizing other SEO factors while waiting for deployment. Will re-attempt deployment if a new unrestricted Cloudflare API token is provided.
+
+### Human Response
+
+<!-- Reply here, then change Status to: done -->
+
+---

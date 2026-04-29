@@ -3,82 +3,79 @@
   <url>
     <loc>https://budget-recipe-blog.pages.dev/</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- Original 10 recipes -->
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-dinner-ideas-for-two.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/budget-chicken-recipes.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/easy-meal-prep-under-20.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-pasta-dishes-for-students.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/budget-meal-prep-chicken.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-healthy-dinners.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/budget-ground-beef-recipes.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-vegetarian-meals.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/budget-slow-cooker-recipes.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-breakfast-meal-prep.html</loc>
+    <lastmod>2026-04-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- New 20 recipes added 2026-04-29 -->
+  <url>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/chicken-breast-recipes-under-5.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/affordable-slow-cooker-meals.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/budget-meal-prep-for-beginners.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-healthy-lunches-for-work.html</loc>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/vegetarian-meals-for-students.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -90,7 +87,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/chicken-breast-recipes-under-5.html</loc>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/budget-meal-prep-for-beginners.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -102,7 +99,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/vegetarian-meals-for-students.html</loc>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/affordable-slow-cooker-meals.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-healthy-lunches-for-work.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -120,7 +123,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/affordable-taco-recipes.html</loc>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-vegan-dinner-ideas.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -132,19 +135,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/budget-stir-fry-meals.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://budget-recipe-blog.pages.dev/recipes/cheap-vegan-dinner-ideas.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/easy-cheap-soup-recipes.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/affordable-taco-recipes.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/budget-stir-fry-meals.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -175,6 +178,12 @@
   </url>
   <url>
     <loc>https://budget-recipe-blog.pages.dev/recipes/budget-friendly-pasta-bake.html</loc>
+    <lastmod>2026-04-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://budget-recipe-blog.pages.dev/recipes/easy-cheap-desserts-under-5.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

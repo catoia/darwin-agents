@@ -344,3 +344,64 @@ All 29 pages received full SEO treatment.
 ### Git Commit
 `d9e311d` — "[budget-recipe-blog] SEO: Add schema.org/Recipe markup, BreadcrumbList, and Related Recipes to ALL 29 pages; update sitemap with 30 URLs"
 
+
+## [task-agent] 2026-04-29 — Content Writer: 20 New Recipe Pages
+
+**Task:** Generate 20 NEW budget recipe pages targeting long-tail keywords, following existing recipe template, with SEO optimization and Amazon affiliate placeholders.
+
+**Status:** ✅ DONE
+
+### Files Created (20 new recipe pages)
+
+| # | File | Target Keyword | Cost |
+|---|------|----------------|------|
+| 1 | `public/recipes/chicken-breast-recipes-under-5.html` | "chicken breast recipes under $5" | Under $5/serving |
+| 2 | `public/recipes/vegetarian-meals-for-students.html` | "vegetarian meals for students" | Under $8 |
+| 3 | `public/recipes/cheap-pasta-dishes-for-family.html` | "cheap pasta dishes for family" | Under $12 |
+| 4 | `public/recipes/budget-meal-prep-for-beginners.html` | "budget meal prep for beginners" | Under $25/week |
+| 5 | `public/recipes/easy-rice-recipes-under-10.html` | "easy rice recipes under $10" | Under $10 |
+| 6 | `public/recipes/affordable-slow-cooker-meals.html` | "affordable slow cooker meals" | Under $15 |
+| 7 | `public/recipes/cheap-healthy-lunches-for-work.html` | "cheap healthy lunches for work" | Under $3/day |
+| 8 | `public/recipes/budget-breakfast-ideas-for-kids.html` | "budget breakfast ideas for kids" | Under $2/child |
+| 9 | `public/recipes/inexpensive-fish-recipes.html` | "inexpensive fish recipes" | Under $10 |
+| 10 | `public/recipes/cheap-vegan-dinner-ideas.html` | "cheap vegan dinner ideas" | Under $8 |
+| 11 | `public/recipes/budget-friendly-casseroles.html` | "budget friendly casseroles" | Under $15 |
+| 12 | `public/recipes/easy-cheap-soup-recipes.html` | "easy cheap soup recipes" | Under $8 |
+| 13 | `public/recipes/affordable-taco-recipes.html` | "affordable taco recipes" | Under $10 |
+| 14 | `public/recipes/budget-stir-fry-meals.html` | "budget stir fry meals" | Under $10 |
+| 15 | `public/recipes/cheap-salad-recipes-filling.html` | "cheap salad recipes filling" | Under $6 |
+| 16 | `public/recipes/budget-pizza-recipes-at-home.html` | "budget pizza recipes at home" | Under $8 |
+| 17 | `public/recipes/inexpensive-sandwich-ideas.html` | "inexpensive sandwich ideas" | Under $4 |
+| 18 | `public/recipes/cheap-egg-recipes-dinner.html` | "cheap egg recipes dinner" | Under $5 |
+| 19 | `public/recipes/budget-friendly-pasta-bake.html` | "budget friendly pasta bake" | Under $12 |
+| 20 | `public/recipes/easy-cheap-desserts-under-5.html` | "easy cheap desserts under $5" | Under $5 |
+
+### Other Files Updated
+- ✅ `public/sitemap.xml` — Updated to include all 30 recipe pages (10 original + 20 new)
+- ✅ `public/index.html` — Added all 20 new recipe cards to the recipe listing section
+
+### SEO Standards Met (All 20 Pages)
+- ✅ Title tag: "[Recipe Name] - Budget Recipe Under $[X] | Budget Recipe Blog"
+- ✅ Meta description: 150-160 chars, keyword + cost + time
+- ✅ Schema.org Recipe or HowTo markup in JSON-LD
+- ✅ H1: Main recipe title
+- ✅ H2s: Ingredients, Instructions, Tips, Recommended Products
+- ✅ Internal links: 2-3 related recipes per page
+- ✅ Affiliate links: Amazon Associates tag `nunodarwin-20` on all product links
+- ✅ Cost breakdowns: Each recipe shows price per serving
+- ✅ Nutrition info: Calories, protein, carbs, fat per serving
+- ✅ 800-1200+ words of content per page
+
+### Content Quality Notes
+- Each page has 5-12 recipes with full ingredients + instructions
+- All recipes include practical budget tips section
+- Affiliate boxes include 2-3 relevant product links per page
+- All pages cross-link to related existing content for internal linking
+
+### Total Recipe Count
+- Before: 10 recipe pages
+- After: 30 recipe pages (200% increase)
+
+### No Issues Encountered
+All 20 pages created successfully. Ready for Cloudflare deployment.
+
