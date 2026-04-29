@@ -152,3 +152,78 @@ If Reddit posts get traction:
 - Repurpose top-performing Reddit posts as Facebook posts
 - Create a Pinterest "board" for every recipe category to increase discoverability
 
+
+## [task-agent: product-recommender] 2026-04-29 — Affiliate Product Boost
+
+**Task:** Add 8-12 Amazon affiliate products per recipe page, featured above fold, inline links, visual styling, create kitchen-essentials page
+
+**Status:** ✅ DONE
+
+### Files Created
+- `public/kitchen-essentials.html` — New dedicated buying guide page (34 affiliate links)
+- `tasks/amazon-products.csv` — Product tracking spreadsheet (89 product entries)
+- `scripts/add_affiliate_products.py` — Reusable script for future product updates
+
+### Files Modified
+- `public/css/style.css` — Added 200+ lines: `.featured-products`, `.product-card`, `.product-grid`, `.inline-affiliate`, `.tool-card`, `.tools-grid`, `.comparison-table`, `.cta-button`, `.best-value-badge`, `.affiliate-disclosure`
+- All 10 recipe pages updated (see below)
+- `public/index.html` — Added Kitchen Essentials nav link
+
+### Per-Page Product Summary
+
+| Page | Total Links | Featured | Inline | Tools Grid |
+|------|-------------|----------|--------|------------|
+| budget-chicken-recipes.html | 15 | ✅ 6 | ✅ 3 | ✅ 6 |
+| budget-ground-beef-recipes.html | 15 | ✅ 6 | ✅ 3 | ✅ 6 |
+| budget-meal-prep-chicken.html | 15 | ✅ 6 | ✅ 3 | ✅ 6 |
+| budget-slow-cooker-recipes.html | 13 | ✅ 6 | ✅ 1 | ✅ 6 |
+| cheap-breakfast-meal-prep.html | 13 | ✅ 6 | ✅ 1 | ✅ 6 |
+| cheap-dinner-ideas-for-two.html | 13 | ✅ 6 | ✅ 1 | ✅ 6 |
+| cheap-healthy-dinners.html | 13 | ✅ 6 | ✅ 2 | ✅ 6 |
+| cheap-pasta-dishes-for-students.html | 15 | ✅ 6 | ✅ 3 | ✅ 6 |
+| cheap-vegetarian-meals.html | 13 | ✅ 6 | ✅ 2 | ✅ 6 |
+| easy-meal-prep-under-20.html | 13 | ✅ 6 | ✅ 2 | ✅ 6 |
+| **kitchen-essentials.html** | **34** | starter kit | comparison tables | tools grid |
+| **TOTAL** | **172** | | | |
+
+### Products Added (Key ASINs)
+- B00006JSUB — Lodge 12" Cast Iron Skillet ~$35
+- B000G0KJG4 — Nordic Ware Half Sheet Pan ~$25
+- B01IHHLB3W — ThermoPro Meat Thermometer ~$12
+- B0019WXIDO — Victorinox 8" Chef's Knife ~$35
+- B01N6A5JZ7 — Glass Meal Prep Containers ~$28
+- B00UXIO9U8 — Ground Meat Chopper ~$10
+- B00FLYWNYQ — Instant Pot Duo 6qt ~$80
+- B003HNLSLE — Crock-Pot 6qt Slow Cooker ~$35
+- B07QQ8YTFW — Cuisinart 12" Nonstick Skillet ~$38
+- B00B4CJNVE — OXO Colander 5qt ~$20
+- B0007GAWRS — OXO Digital Kitchen Scale ~$50
+- B00OGKJHQ0 — Budget Bytes Cookbook ~$16
+- All links use tag: `nunodarwin-20` ✅
+
+### CSS Improvements
+- **Amazon-orange (#ff9900) featured products block** — appears right after recipe intro (above fold on all pages)
+- **Product cards** with emoji icons, star ratings, price badges — visual and clickable
+- **Inline affiliate links** in orange with underline decoration — impossible to miss
+- **Tool cards grid** with "View on Amazon →" orange buttons replacing plain text links
+- **Comparison tables** for pans, knives, appliances on kitchen-essentials page
+- **Mobile responsive** — product grid collapses to 2 columns on small screens
+
+### Kitchen Essentials Page Highlights
+- Comparison tables: Best Budget Skillets, Best Chef's Knives, Slow Cooker vs Instant Pot
+- "Budget Kitchen Starter Kit" section (6 essential tools, ~$130 total)
+- 12 small tools under $20 with mini-reviews
+- 4 cookbooks with "why we recommend this" descriptions
+- 2 bulk pantry staples
+- Linked from nav on ALL pages
+
+### Deployment Status
+- ✅ Git committed and pushed (commit: 71ebecc)
+- ⚠️ Cloudflare deploy blocked — API token has IP address restriction (error code 9109)
+- **Action needed:** Project agent or human must deploy via Cloudflare dashboard or from a whitelisted IP
+
+### Estimated CTR Impact
+Before: 4 buried text links per page → 0 tracked clicks
+After: 13-15 visually prominent links per page (featured cards + inline + tool cards + kitchen essentials)
+Expected improvement: 5-15 clicks/day once traffic grows (vs. 0 currently)
+
