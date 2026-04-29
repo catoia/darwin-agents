@@ -1,0 +1,78 @@
+{
+  "campaign_date": "2026-04-29T11:56:10.574736",
+  "total_prospects": 10,
+  "sent": 10,
+  "failed": 0,
+  "results": [
+    {
+      "prospect": "Alex Tkachuk",
+      "email": "alex@screendesk.io",
+      "company": "Screendesk",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:08.163945"
+    },
+    {
+      "prospect": "Sarah Chen",
+      "email": "sarah@buildbuddy.io",
+      "company": "BuildBuddy",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:08.387922"
+    },
+    {
+      "prospect": "Marcus Johnson",
+      "email": "marcus@clarityhq.com",
+      "company": "ClarityHQ",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:08.672225"
+    },
+    {
+      "prospect": "Priya Patel",
+      "email": "priya@flowtest.dev",
+      "company": "FlowTest",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:09.375632"
+    },
+    {
+      "prospect": "David Kim",
+      "email": "david@revenueops.ai",
+      "company": "RevenueOps.AI",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:09.579971"
+    },
+    {
+      "prospect": "Emma Rodriguez",
+      "email": "emma@talentgrid.io",
+      "company": "TalentGrid",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:09.825607"
+    },
+    {
+      "prospect": "James Chen",
+      "email": "james@secureapi.dev",
+      "company": "SecureAPI",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:10.022908"
+    },
+    {
+      "prospect": "Lisa Wang",
+      "email": "lisa@marketpulse.io",
+      "company": "MarketPulse",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:10.228874"
+    },
+    {
+      "prospect": "Tom Anderson",
+      "email": "tom@devplatform.io",
+      "company": "DevPlatform",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:10.400717"
+    },
+    {
+      "prospect": "Sophie Martin",
+      "email": "sophie@bizflow.ai",
+      "company": "BizFlow",
+      "status": "sent",
+      "sent_at": "2026-04-29T11:56:10.574091"
+    }
+  ]
+}
