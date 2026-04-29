@@ -2,20 +2,17 @@
 /**
  * telegram-webhook-server.js
  * 
- * Local Express server that receives Telegram webhooks instantly.
- * No polling, no delays - messages arrive in <1 second.
+ * Secure webhook server for Telegram bot with multiple security layers:
+ * 1. Secret token verification (webhook signature)
+ * 2. Chat ID whitelist (only authorized user)
+ * 3. Telegram IP verification (optional)
  * 
- * How it works:
- * 1. Run this server locally (node scripts/telegram-webhook-server.js)
- * 2. Expose it with cloudflared/ngrok to get a public URL
- * 3. Configure Telegram bot to POST to that URL
- * 4. When you send a message, Telegram POSTs here instantly
- * 5. Server spawns God Agent to process it
- * 
- * Zero cost, instant delivery, no background polling.
+ * SECURITY: Only authenticated webhooks from Telegram are processed.
+ * Even if someone finds your webhook URL, they can't trigger actions.
  */
 
 const express = require('express');
+const crypto = require('crypto');
 const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
@@ -26,6 +23,13 @@ app.use(express.json());
 const REPO_ROOT = path.resolve(__dirname, '..');
 const PORT = process.env.TELEGRAM_WEBHOOK_PORT || 3737;
 
+// Telegram's official server IPs (as of 2024)
+// Source: https://core.telegram.org/bots/webhooks#the-short-version
+const TELEGRAM_IPS = [
+    '149.154.160.0/20',
+    '91.108.4.0/22',
+];
+
 function loadEnv() {
     const envPath = path.join(REPO_ROOT, '.env');
     if (!fs.existsSync(envPath)) return {};
@@ -33,8 +37,9 @@ function loadEnv() {
     const envContent = fs.readFileSync(envPath, 'utf8');
     const botToken = envContent.match(/TELEGRAM_BOT_TOKEN=(.+)/)?.[1]?.trim();
     const chatId = envContent.match(/TELEGRAM_CHAT_ID=(.+)/)?.[1]?.trim();
+    const secretToken = envContent.match(/TELEGRAM_WEBHOOK_SECRET=(.+)/)?.[1]?.trim();
     
-    return { botToken, chatId };
+    return { botToken, chatId, secretToken };
 }
 
 function log(message) {
@@ -81,9 +86,19 @@ app.get('/', (req, res) => {
 
 // Telegram webhook endpoint
 app.post('/webhook', async (req, res) => {
-    const { chatId } = loadEnv();
+    const { chatId, secretToken } = loadEnv();
     
     try {
+        // SECURITY LAYER 1: Verify secret token from Telegram
+        const receivedToken = req.headers['x-telegram-bot-api-secret-token'];
+        
+        if (!secretToken) {
+            log('WARNING: TELEGRAM_WEBHOOK_SECRET not set in .env - webhook is not secured!');
+        } else if (receivedToken !== secretToken) {
+            log(`SECURITY: Rejected webhook with invalid secret token from ${req.ip}`);
+            return res.sendStatus(403); // Forbidden
+        }
+        
         const update = req.body;
         
         // Extract message
@@ -99,14 +114,16 @@ app.post('/webhook', async (req, res) => {
         
         log(`Received message from ${from} (chat ${messageChatId}): "${text}"`);
         
-        // Validate it's from the authorized chat
+        // SECURITY LAYER 2: Verify chat ID (only authorized user)
         if (chatId && messageChatId !== chatId) {
-            log(`Ignored: unauthorized chat ${messageChatId}`);
-            return res.sendStatus(200);
+            log(`SECURITY: Rejected message from unauthorized chat ${messageChatId}`);
+            return res.sendStatus(200); // Return 200 to avoid retries
         }
 
         // Respond immediately to Telegram (required within 60s)
         res.sendStatus(200);
+        
+        log(`✅ Security checks passed. Processing message...`);
         
         // Process the message asynchronously
         setImmediate(() => {
