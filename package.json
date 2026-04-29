@@ -12,7 +12,8 @@
     "heartbeat": "bash scripts/heartbeat.sh"
   },
   "dependencies": {
-    "@mariozechner/pi-coding-agent": "^0.70.5"
+    "@mariozechner/pi-coding-agent": "^0.70.5",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "tsx": "^4.19.2",
