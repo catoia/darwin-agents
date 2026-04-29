@@ -2,18 +2,17 @@ Telegram Webhook System - Running Processes
 ============================================
 
 Webhook Server:
-  PID: 68917
+  PID: 69653
   Port: 3737
   Dashboard: http://localhost:3737/dashboard
-  Public: https://pottery-celebrate-started-falls.trycloudflare.com/dashboard
   Log: logs/telegram-webhook.log
   Status: ✅ Running
 
 Cloudflared Tunnel:
-  PID: 68315
-  URL: https://pottery-celebrate-started-falls.trycloudflare.com
+  PID: 81325
+  URL: https://ranging-pittsburgh-translation-readily.trycloudflare.com
   Log: logs/cloudflared.log
-  Status: ✅ Running
+  Status: ✅ Running (restarted 2026-04-29 14:30)
 
 Security:
   ✓ Secret token verification active
@@ -23,4 +22,8 @@ To view dashboard:
   open http://localhost:3737/dashboard
 
 To stop everything:
-  kill 68917 68315
+  kill 69653 81325
+
+Note: Cloudflared tunnels expire after ~24 hours.
+If webhook stops working, restart tunnel:
+  bash scripts/restart-tunnel.sh
