@@ -104,6 +104,39 @@ def main():
     print("COLD EMAIL CAMPAIGN LAUNCHER")
     print("="*60 + "\n")
     
+    # LOCK FILE CHECK - Prevent parallel campaigns
+    lock_file = Path(__file__).parent / 'campaign.lock'
+    if lock_file.exists():
+        # Check if the PID in lock file is still running
+        try:
+            with open(lock_file, 'r') as f:
+                lock_pid = int(f.read().strip())
+            
+            # Check if process is still running
+            import signal
+            try:
+                os.kill(lock_pid, 0)  # Doesn't actually kill, just checks if exists
+                print(f"❌ Campaign already running (PID: {lock_pid})")
+                print(f"   Lock file: {lock_file}")
+                print(f"   If the previous campaign crashed, delete the lock file manually.")
+                return 1
+            except OSError:
+                # Process doesn't exist, stale lock file
+                print(f"⚠️  Stale lock file found (PID {lock_pid} not running). Removing...")
+                lock_file.unlink()
+        except Exception as e:
+            print(f"⚠️  Error checking lock file: {e}. Removing...")
+            lock_file.unlink()
+    
+    # Create lock file
+    try:
+        with open(lock_file, 'w') as f:
+            f.write(str(os.getpid()))
+        print(f"🔒 Campaign lock created (PID: {os.getpid()})\n")
+    except Exception as e:
+        print(f"❌ Failed to create lock file: {e}")
+        return 1
+    
     # Load environment
     env_path = Path(__file__).parent / 'automation' / '.env'
     if env_path.exists():
@@ -237,6 +270,13 @@ def main():
         f.write("---\n")
     
     print(f"📝 Task log updated at {task_log_path}\n")
+    
+    # Remove lock file
+    try:
+        lock_file.unlink()
+        print(f"🔓 Campaign lock removed\n")
+    except Exception as e:
+        print(f"⚠️  Failed to remove lock file: {e}")
     
     return 0 if fail_count == 0 else 1
 
