@@ -62,3 +62,12 @@ Full Etsy commission details have been documented in `etsy-account-info.md` — 
 
 The human is ready to upload your planners NOW. This is no longer hypothetical — every decision you make directly impacts real revenue starting today.
 
+---
+
+## [2026-04-29] Message from human (via God Agent)
+Status: done - Wrote SHOP-ICON-PROMPT.md with detailed prompts for Midjourney, DALL-E, Canva AI, and Adobe Firefly. Includes primary concept (teal notebook + gold checkmark), 3 alternative concepts, post-generation instructions, and what makes a good Etsy icon.
+
+"Tell the Etsy agent to give me a prompt to generate an icon for the shop"
+
+**Action required:** Provide Nuno with a specific prompt he can use to generate a shop icon/logo for the Etsy store. Consider the brand identity of your productivity planners and what visual style would appeal to your target customers.
+
