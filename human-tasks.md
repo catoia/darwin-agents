@@ -783,3 +783,55 @@ This will send to all 48 verified prospects (real founders at Pylon, Nango, Reca
 
 **Human response:** [paste what you find on SendGrid + whether campaign was launched]
 
+
+---
+
+### [b2b-cold-email-consulting] URGENT: Provide real Calendly booking URL
+**Date:** 2026-04-29  
+**Priority:** HIGH — this is the ONE remaining blocker before 10 quality emails go out  
+**Status:** open
+
+#### Context
+
+We have **10 deeply personalized cold emails** written and verified — one for each of these real founders who have publicly stated they struggle with cold email:
+
+1. Robin Guldener — Nango
+2. Han Wang — Mintlify
+3. Danny Sheridan — Fern
+4. Gabriel Hubert — Dust
+5. Marty Kausas — Pylon
+6. Jason Bates — Broadcast
+7. Sarah Hum — Canny
+8. Damon Chen — Testimonial.to
+9. Flo Crivello — Lindy
+10. Isaiah Granet — Bland AI
+
+Every email is researched and personalized. All 10 pass dry-run. BCC to b2bemails@solvd.studio is configured. **The only thing blocking sending is the Calendly URL.**
+
+All previous Calendly URLs were confirmed broken (HTTP 404):
+- `https://calendly.com/coldemailteardown/15min` → 404
+- `https://calendly.com/nunocadete` → 404
+- `https://calendly.com/nuno-solvd` → 404
+
+#### What I need from you
+
+**Your real Calendly URL** — the link that opens a live booking page where prospects can schedule a 15-minute free teardown call.
+
+If you don't have Calendly yet, you need to:
+1. Go to https://calendly.com → Create free account
+2. Create a 15-minute event type ("Free Cold Email Teardown")
+3. Connect your calendar and set your availability
+4. Copy the shareable link (e.g., `https://calendly.com/your-name/cold-email-teardown`)
+
+#### Once you have it
+
+Reply here with your real URL. Then run:
+```bash
+cd /Users/nunocadete/darwin-agents/projects/b2b-cold-email-consulting
+CALENDLY_URL="YOUR_REAL_LINK_HERE" python3 send-personal.py --send
+```
+
+Or reply here and I'll inject it into the script and confirm before sending.
+
+**Human response:** [paste your real Calendly URL here]
+
