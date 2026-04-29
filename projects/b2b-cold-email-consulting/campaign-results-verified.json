@@ -1,0 +1,345 @@
+{
+  "campaign_date": "2026-04-29T15:00:32.703601",
+  "total_prospects": 48,
+  "sent": 48,
+  "failed": 0,
+  "verified_before_send": true,
+  "results": [
+    {
+      "prospect": "Marty Kausas",
+      "email": "marty@usepylon.com",
+      "company": "Pylon",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:21.392692"
+    },
+    {
+      "prospect": "William Beebe",
+      "email": "william@greenlite.ai",
+      "company": "Greenlite",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:21.571332"
+    },
+    {
+      "prospect": "Robin Guldener",
+      "email": "robin@nango.dev",
+      "company": "Nango",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:21.753490"
+    },
+    {
+      "prospect": "David Gu",
+      "email": "david@recall.ai",
+      "company": "Recall.ai",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:22.350654"
+    },
+    {
+      "prospect": "Danny Sheridan",
+      "email": "danny@buildwithfern.com",
+      "company": "Fern",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:22.562574"
+    },
+    {
+      "prospect": "Han Wang",
+      "email": "han@mintlify.com",
+      "company": "Mintlify",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:22.779343"
+    },
+    {
+      "prospect": "Matt Aitken",
+      "email": "matt@trigger.dev",
+      "company": "Trigger.dev",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:23.408411"
+    },
+    {
+      "prospect": "Gabriel Hubert",
+      "email": "gabriel@dust.tt",
+      "company": "Dust",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:23.646954"
+    },
+    {
+      "prospect": "Jordan Dearsley",
+      "email": "jordan@vapi.ai",
+      "company": "Vapi",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:23.853684"
+    },
+    {
+      "prospect": "Isaiah Granet",
+      "email": "isaiah@bland.ai",
+      "company": "Bland AI",
+      "status": "sent",
+      "sent_at": "2026-04-29T14:05:24.123737"
+    },
+    {
+      "prospect": "Sully Omar",
+      "email": "sully@letta.ai",
+      "company": "Letta",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:24.774851"
+    },
+    {
+      "prospect": "Aditya Agarwal",
+      "email": "aditya@skyvern.com",
+      "company": "Skyvern",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:24.976427"
+    },
+    {
+      "prospect": "Chirag Mahapatra",
+      "email": "chirag@withorb.com",
+      "company": "Orb",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:25.125799"
+    },
+    {
+      "prospect": "Nolan Di Mare Sullivan",
+      "email": "nolan@speakeasyapi.dev",
+      "company": "Speakeasy",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:25.271026"
+    },
+    {
+      "prospect": "Emre Gultepe",
+      "email": "emre@arini.ai",
+      "company": "Arini",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:25.537485"
+    },
+    {
+      "prospect": "Kevin Bai",
+      "email": "kevin@camelai.com",
+      "company": "Camel AGI",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:25.824731"
+    },
+    {
+      "prospect": "Patrick Donnelly",
+      "email": "patrick@vessel.land",
+      "company": "Vessel",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:26.078401"
+    },
+    {
+      "prospect": "Avi Swartz",
+      "email": "avi@structify.ai",
+      "company": "Structify",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:26.241638"
+    },
+    {
+      "prospect": "Devin Stein",
+      "email": "devin@dosu.dev",
+      "company": "Dosu",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:26.410349"
+    },
+    {
+      "prospect": "Tobi Osi",
+      "email": "tobi@inferable.ai",
+      "company": "Inferable",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:26.655421"
+    },
+    {
+      "prospect": "Simo Lemhandez",
+      "email": "simo@folk.app",
+      "company": "Folk",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:26.824015"
+    },
+    {
+      "prospect": "Flo Crivello",
+      "email": "flo@lindy.ai",
+      "company": "Lindy",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:27.073642"
+    },
+    {
+      "prospect": "Tom Gollan",
+      "email": "tom@userled.io",
+      "company": "Userled",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:27.245881"
+    },
+    {
+      "prospect": "Karim Hamze",
+      "email": "karim@claap.io",
+      "company": "Claap",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:27.413258"
+    },
+    {
+      "prospect": "Samuel Omole",
+      "email": "samuel@treblle.com",
+      "company": "Treblle",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:27.657713"
+    },
+    {
+      "prospect": "Yoav Oz",
+      "email": "yoav@momentum.io",
+      "company": "Momentum",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:28.159545"
+    },
+    {
+      "prospect": "Vincent Battaglia",
+      "email": "vincent@commandbar.com",
+      "company": "CommandBar",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:28.308302"
+    },
+    {
+      "prospect": "Thibaud Elziere",
+      "email": "thibaud@slite.com",
+      "company": "Slite",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:28.459039"
+    },
+    {
+      "prospect": "Jason Bates",
+      "email": "jason@usebroadcast.com",
+      "company": "Broadcast",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:28.694219"
+    },
+    {
+      "prospect": "Ivan Karpov",
+      "email": "ivan@neptune.ai",
+      "company": "Neptune.ai",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:28.848107"
+    },
+    {
+      "prospect": "Chris Frantz",
+      "email": "chris@ruttl.com",
+      "company": "Ruttl",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:29.040586"
+    },
+    {
+      "prospect": "Remy Tuyeras",
+      "email": "remy@basepilot.ai",
+      "company": "Basepilot",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:29.272947"
+    },
+    {
+      "prospect": "Cody Schneider",
+      "email": "cody@seo.ai",
+      "company": "SEO.ai",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:29.502113"
+    },
+    {
+      "prospect": "Nick Abraham",
+      "email": "nick@leadbird.io",
+      "company": "Leadbird",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:29.812597"
+    },
+    {
+      "prospect": "Peter Suhm",
+      "email": "peter@reform.app",
+      "company": "Reform",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:29.974824"
+    },
+    {
+      "prospect": "Damon Chen",
+      "email": "damon@testimonial.to",
+      "company": "Testimonial.to",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:30.112360"
+    },
+    {
+      "prospect": "Adil Majid",
+      "email": "adil@outseta.com",
+      "company": "Outseta",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:30.439773"
+    },
+    {
+      "prospect": "Marc Louvion",
+      "email": "marc@shipfa.st",
+      "company": "ShipFast",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:30.655715"
+    },
+    {
+      "prospect": "Pawan Kumar",
+      "email": "pawan@writesonic.com",
+      "company": "Writesonic",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:30.906862"
+    },
+    {
+      "prospect": "Josh Pigford",
+      "email": "josh@baremetrics.com",
+      "company": "Baremetrics",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:31.086388"
+    },
+    {
+      "prospect": "Peter Cottle",
+      "email": "peter@savio.io",
+      "company": "Savio",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:31.319228"
+    },
+    {
+      "prospect": "Ben Orenstein",
+      "email": "ben@tuple.app",
+      "company": "Tuple",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:31.550941"
+    },
+    {
+      "prospect": "Rosie Sherry",
+      "email": "rosie@orbit.love",
+      "company": "Orbit",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:31.797671"
+    },
+    {
+      "prospect": "Suresh Balasubramanian",
+      "email": "suresh@chameleon.io",
+      "company": "Chameleon",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:31.971928"
+    },
+    {
+      "prospect": "Sarah Hum",
+      "email": "sarah@canny.io",
+      "company": "Canny",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:32.152371"
+    },
+    {
+      "prospect": "Hunter McKinley",
+      "email": "hunter@toplyne.io",
+      "company": "Toplyne",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:32.370102"
+    },
+    {
+      "prospect": "Laura Borghesi",
+      "email": "laura@dealfront.com",
+      "company": "Dealfront",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:32.536919"
+    },
+    {
+      "prospect": "Kirra Anderson",
+      "email": "kirra@safebase.io",
+      "company": "SafeBase",
+      "status": "sent",
+      "sent_at": "2026-04-29T15:00:32.703555"
+    }
+  ]
+}
