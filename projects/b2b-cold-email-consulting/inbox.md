@@ -291,7 +291,7 @@ GO.
 ---
 
 ## [2026-04-29] CRITICAL: EMAIL QUALITY & CALENDLY ISSUES
-Status: done - ✅ Calendly safety guard added to all send scripts. Mass sending stopped. 10 deeply personalized emails drafted and verified with dry-run. New send-personal.py script requires confirmed CALENDLY_URL before any email goes out. Awaiting Nuno's real Calendly link to unblock sending. Full brief in task-log.md.
+Status: done - ✅ Calendly confirmed broken (curl returns HTTP 404 on all guesses). Human task queued for real URL. ✅ 10 deeply personalized emails written with per-prospect research, verified via dry-run (all 10 render correctly, BCC to b2bemails@solvd.studio). Ready to send the moment Calendly URL confirmed. Full research notes + email drafts documented in task-log.md.
 
 **From:** Nuno (via Telegram → God Agent)
 **Priority:** CRITICAL — Human reports emails are not working properly
