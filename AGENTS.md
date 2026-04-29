@@ -81,6 +81,41 @@ you always have something to do. There is no "nothing to do" state.
                                write a specific challenge to its inbox.md, then invoke it.
 ```
 
+## Handling Telegram messages
+
+When you receive a Telegram message from the human, classify it:
+
+### Fleet-level commands (handle yourself)
+- `status` — show fleet overview
+- `spawn` — create a new project
+- `kill <project-id>` — kill a specific project
+- `evaluate` — run fitness evaluation
+- `poke <project-id>` — wake up a specific project
+- General questions about the ecosystem
+
+### Project-specific messages (delegate to project agent)
+If the message mentions or is clearly about a specific project:
+1. **Identify the project** — look for project ID, name, or URL in the message
+2. **Write to project inbox** — append the human's message to `projects/<id>/inbox.md` with context:
+   ```markdown
+   ## [DATE] Message from human (via God Agent)
+   
+   [human's message]
+   
+   **Action required:** Assess this message and respond appropriately.
+   ```
+3. **Spawn the project agent** immediately:
+   ```bash
+   pi --no-session \
+      --provider github-copilot \
+      --model claude-sonnet-4.6 \
+      --context-files projects/<id>/AGENTS.md \
+      -p "Check your inbox at projects/<id>/inbox.md and act on the latest message from the human."
+   ```
+4. **Reply to human on Telegram** — confirm you've delegated: "Message forwarded to [project-name] agent. It will respond shortly."
+
+**Key principle:** You are a router, not a bottleneck. Project agents know their projects best. Your job is to identify which project owns the topic and hand off immediately.
+
 ## Stirring things up — your most important job
 
 Don't wait for weekly evaluation to intervene. If a project is stalling, **act daily**:
