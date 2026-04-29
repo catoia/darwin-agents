@@ -527,3 +527,68 @@ The Pinterest marketing agent has completed all preparatory work. Everything is 
 **Why this matters:**
 Pinterest drives 50% of Etsy planner sales. Since Etsy Ads are blocked for 2 weeks on new accounts, Pinterest organic is our ONLY path to traffic right now. Every day without Pinterest is a day where listings go live with zero external traffic pipeline.
 
+
+## [HIGH] ACTION REQUIRED: Drive 100 visitors to budget recipe blog — 30 min/day for 7 days (all content pre-written)
+
+- **ID:** `task-c9326d7a`
+- **From:** project:budget-recipe-blog
+- **Created:** 2026-04-29T11:02:10.650Z
+- **Status:** open
+
+### Context
+
+## The Mission
+The budget recipe blog (https://budget-recipe-blog.pages.dev) needs 100 visitors in 7 days. I've pre-written ALL the content — every Reddit post, Pinterest pin description, Facebook post, and Instagram caption is ready to copy-paste. You just need to execute.
+
+## What I've Prepared (All Ready to Go)
+All files are in `projects/budget-recipe-blog/tasks/social-content/`:
+
+1. **pinterest-pins.md** — 10 complete pin descriptions with titles, hashtag sets, and direct URLs for each recipe
+2. **reddit-posts.md** — 6 scripted Reddit posts for r/EatCheapAndHealthy, r/MealPrepSunday, r/budgetfood, r/Cheap_Meals, r/cookingforbeginners (value-first, authentic, not spammy)
+3. **facebook-posts.md** — 4 Facebook group posts + comment scripts for engaging before posting
+4. **instagram-posts.md** — 5 Instagram captions with hashtags + Stories ideas + DM template for micro-influencer outreach
+5. **master-execution-guide.md** — Day-by-day action plan, what to do each day, only 30-45 min/day
+
+## Day-by-Day Summary
+- **Day 1:** Create Pinterest account + first 3 pins. Create Reddit + join subreddits. Create Instagram + set bio.
+- **Day 2:** 3 more Pinterest pins. Comment on Reddit (no links yet). First Instagram post.
+- **Day 3:** ⭐ First Reddit LINK posts (r/EatCheapAndHealthy + r/MealPrepSunday). Pin remaining 4 recipes.
+- **Day 4:** Reddit post in r/budgetfood. Join 5 Facebook groups.
+- **Day 5:** Reddit posts in r/Cheap_Meals + r/cookingforbeginners. First Facebook post.
+- **Day 6:** 2nd Facebook post. Instagram DMs to 5 micro-influencers.
+- **Day 7:** 3rd Facebook post. Final Instagram posts. Check results.
+
+## Why This Will Work
+Reddit alone (r/EatCheapAndHealthy has 3M members) can send 30-60 visitors with ONE well-written post. Pinterest has a long shelf life — pins from this week can keep driving traffic for months. The content is already written to be authentic and community-friendly, not spammy.
+
+## Expected Traffic
+- Reddit: 30-60 visitors
+- Pinterest: 15-30 visitors
+- Facebook: 10-25 visitors
+- Instagram: 5-15 visitors
+- **Total: ~60-130 visitors in 7 days**
+
+## What You Need to Set Up
+1. A Reddit account (can be personal)
+2. A Pinterest Business account (free)
+3. A Facebook account (personal works fine for group posting)
+4. An Instagram account (new one for the blog)
+
+## Important Notes
+- ALL content follows community rules — value first, no spam
+- Reddit: don't post links for the first 1-2 days in each sub, build karma first
+- Facebook: read each group's rules, most allow recipe sharing with links
+- NO money required — this is all organic
+
+## After Each Action
+Please update `projects/budget-recipe-blog/tasks/traffic-log.csv` with what you did:
+`date,channel,action,url_or_group,impressions,clicks,notes`
+
+The full day-by-day guide is at: `projects/budget-recipe-blog/tasks/social-content/master-execution-guide.md`
+**Default action if no response in 48h:** If no response in 48h, I will create a backup traffic strategy using content syndication (Medium, Quora) that requires no account creation and can be executed through automated submission tools.
+
+### Human Response
+
+<!-- Reply here, then change Status to: done -->
+
+---

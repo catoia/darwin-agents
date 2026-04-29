@@ -317,6 +317,248 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* ===== AFFILIATE PRODUCT STYLES ===== */
+
+/* Amazon-style CTA button */
+.cta-button {
+    background: #ff9900;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    margin: 5px;
+    font-size: 0.95rem;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 6px rgba(255, 153, 0, 0.4);
+}
+
+.cta-button:hover {
+    background: #e68900;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 153, 0, 0.5);
+    color: white;
+}
+
+/* Featured products box (above fold) */
+.featured-products {
+    background: linear-gradient(135deg, #fffbf0, #fff5e0);
+    border-left: 5px solid #ff9900;
+    border-radius: 0 12px 12px 0;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0 2rem;
+    box-shadow: 0 4px 14px rgba(255, 153, 0, 0.12);
+}
+
+.featured-products h3 {
+    font-family: 'Playfair Display', serif;
+    color: #cc7700;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.featured-products p.subtitle {
+    color: var(--soft-gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 0.75rem;
+}
+
+/* Individual product card */
+.product-card {
+    border: 2px solid #ff9900;
+    padding: 1rem;
+    border-radius: 10px;
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--dark-text);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(255, 153, 0, 0.25);
+    border-color: #e68900;
+}
+
+.product-card .product-emoji {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.product-card strong {
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    line-height: 1.3;
+    display: block;
+}
+
+.product-card .price {
+    background: #ff9900;
+    color: white;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.product-card .stars {
+    color: #ff9900;
+    font-size: 0.8rem;
+}
+
+/* Inline affiliate link within recipe text */
+.inline-affiliate {
+    color: #cc7700;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #ff9900;
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.inline-affiliate:hover {
+    color: #ff9900;
+}
+
+/* Expanded tools section at bottom */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.tool-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-top: 3px solid #ff9900;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.tool-card .tool-name {
+    font-weight: 700;
+    color: var(--dark-text);
+    font-size: 1rem;
+}
+
+.tool-card .tool-desc {
+    font-size: 0.88rem;
+    color: var(--soft-gray);
+    line-height: 1.4;
+    flex: 1;
+}
+
+.tool-card .tool-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.tool-card .tool-price {
+    font-weight: 700;
+    color: #cc7700;
+    font-size: 0.95rem;
+}
+
+.tool-card .tool-btn {
+    background: #ff9900;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.82rem;
+    transition: background 0.2s;
+}
+
+.tool-card .tool-btn:hover {
+    background: #e68900;
+}
+
+/* Kitchen Essentials page styles */
+.essentials-section {
+    margin: 2.5rem 0;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.comparison-table th {
+    background: var(--primary-green);
+    color: white;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.comparison-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    vertical-align: middle;
+}
+
+.comparison-table tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+.comparison-table tr:hover td {
+    background: #fff5e0;
+}
+
+.best-value-badge {
+    background: #ff9900;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+.affiliate-disclosure {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.88rem;
+    color: var(--soft-gray);
+    border-left: 3px solid var(--soft-gray);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     header {
@@ -339,6 +581,23 @@ footer a:hover {
     nav a {
         margin: 0 0.75rem;
         font-size: 0.95rem;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-table {
+        font-size: 0.82rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.6rem 0.7rem;
     }
 }
 

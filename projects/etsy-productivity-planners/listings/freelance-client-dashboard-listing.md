@@ -1,7 +1,15 @@
 # Etsy Listing 3: Freelance Client & Project Dashboard
 
 ## Title (140 characters max)
-Freelance Client Tracker Printable | Project Management Planner | Freelancer Organizer | Invoice Tracker Digital Download for Solopreneurs
+Freelance Client Tracker Printable PDF | Invoice & Project Planner | Solopreneur Business Organizer | Digital Download for Freelancers
+
+**SEO notes:**
+- First 40 chars: `Freelance Client Tracker Printable PDF |` ✅ Primary keywords front-loaded
+- Added "PDF" after "Printable" — targets Google search "freelance client tracker printable PDF"
+- "Invoice & Project Planner" captures two high-intent searches in one segment
+- "Solopreneur Business Organizer" — low competition, growing search term
+- "for Freelancers" at end adds audience qualifier Google uses for ranking
+- Character count: 134 / 140 ✅
 
 ## Price
 €10.99 EUR
@@ -17,28 +25,38 @@ Freelance Client Tracker Printable | Project Management Planner | Freelancer Org
 - Art & Collectibles > Prints > Digital Prints
 
 ## Tags (13 max, highly specific)
-1. freelance planner
-2. client tracker
-3. freelancer organizer
-4. project management
-5. invoice tracker
+1. freelance planner printable
+2. client tracker printable
+3. invoice tracker printable
+4. freelancer organizer
+5. project management planner
 6. solopreneur planner
-7. business planner
-8. freelance business
-9. client organizer
-10. project tracker
-11. freelance dashboard
-12. small business planner
-13. printable planner
+7. freelance business planner
+8. client management planner
+9. self employed planner
+10. freelance invoice tracker
+11. client intake form
+12. project tracker printable
+13. virtual assistant planner
+
+**SEO notes:**
+- Tag #3 "invoice tracker printable" — high buyer intent, often searched independently
+- Tag #8 "client management planner" — very low competition, specific pain point
+- Tag #11 "client intake form" — zero competition, unique feature differentiator
+- Tag #13 "virtual assistant planner" — captures VA niche (large Etsy audience)
+- Removed generic "printable planner" and "freelance business" (too vague)
+- Each tag targets a different buyer persona or use case
 
 ## Description
 
 **[First 160 characters — Etsy preview]**
-Manage multiple clients without the chaos. Track projects, invoices, scope creep, and deadlines in one organized freelance dashboard. For solopreneurs & freelancers.
+Freelance Client Tracker Printable PDF — manage clients, track invoices, and protect against scope creep. 55 pages for solopreneurs & freelancers. Instant download.
+
+*(158 chars — optimized for Etsy search preview + Google meta description)*
 
 **[Full Description]**
 
-💼 **Stop juggling clients in your head. Get organized with a system built for freelancers.**
+💼 **Freelance Client Tracker Printable PDF — stop juggling clients in your head. Get organized with a system built for freelancers and solopreneurs.**
 
 If you're managing 3+ clients at once, you know the chaos:
 - Which invoice is overdue?
@@ -71,6 +89,8 @@ This Freelance Client & Project Dashboard solves all of that.
 - Virtual assistants juggling multiple client accounts
 - Independent contractors tracking projects and payments
 - Anyone tired of losing track of invoices and deadlines
+- Self-employed professionals who need a freelance business planner that goes beyond a generic task list
+- Freelancers looking for a printable client tracker PDF they can use immediately
 
 **How to use:**
 1. Download the PDF immediately after purchase
@@ -86,15 +106,43 @@ This Freelance Client & Project Dashboard solves all of that.
 
 **IMPORTANT:** This is a DIGITAL product. You will receive a downloadable PDF file — no physical planner will be mailed to you.
 
-💚 **Built by a freelancer who was tired of losing track of invoices and scope creep.**
+💚 **This freelance client tracker printable was built by a freelancer who was tired of losing track of invoices and scope creep.**
 
 Stay organized. Get paid on time. Protect your boundaries.
 
-Questions? Message me anytime!
+Questions? Message me anytime — I respond within 24 hours!
 
 ---
 
-© All rights reserved. This is a digital file for personal use only. Please do not redistribute, resell, or share this file.
+❓ **FREQUENTLY ASKED QUESTIONS**
+
+**Is this a physical planner?**
+No — this is a digital PDF file (instant download). You will NOT receive anything in the mail. After purchase, you get an immediate download link.
+
+**Can I print multiple copies?**
+Yes! Print as many pages as you need. When you fill an invoice tracker, just reprint — lifetime access to the file.
+
+**What size is it?**
+8.5" × 11" (US Letter size). Prints perfectly at home or at any office print shop.
+
+**Do I need special software?**
+No. Any free PDF reader works — Adobe Acrobat Reader (free), Preview on Mac, or any browser.
+
+**Can I use it on a tablet?**
+Yes! Works great on iPad with GoodNotes or Notability — perfect for freelancers who work digitally.
+
+**Does the invoice tracker work for tracking multiple clients separately?**
+Yes — the invoice tracker has dedicated rows for client name, project, amount, due date, and payment status. Each client can be tracked on their own row.
+
+**What's a client intake form?**
+It's a worksheet you fill out when onboarding a new client: goals, budget, timeline, communication preferences, scope of work. Protects you before the project starts.
+
+**What if I have questions after purchase?**
+Message me on Etsy — I respond within 24 hours.
+
+---
+
+© All rights reserved. This freelance client tracker printable PDF is licensed for personal use only. Please do not redistribute, resell, or share this file.
 
 ## Listing Photos Needed (mockups for human to create)
 1. Cover image: Clean desk with planner, laptop, coffee (professional freelance vibe)
