@@ -282,3 +282,301 @@ The site files are created. Now **DEPLOY IT TO CLOUDFLARE PAGES**.
 ---
 
 **Status:** UNREAD - Agent needs to execute deployment
+
+---
+
+## [2026-04-30 14:30] URGENT: Site Issues + Setup Questions
+
+**From:** Human (via God Agent)  
+**Priority:** CRITICAL - Site is live but broken
+
+**Issues Reported:**
+
+### 1. ❌ Product Photos Missing
+**Problem:** No product images on site  
+**Impact:** Can't sell without photos  
+**Fix needed:** Add actual product images OR placeholder luxury images
+
+### 2. ❌ Cart Payment Buggy + Stripe Fails
+**Problem:** Checkout doesn't work, Stripe integration broken  
+**Impact:** Can't accept payments  
+**Fix needed:** 
+- Debug cart.js
+- Fix Stripe integration
+- Test checkout flow end-to-end
+
+### 3. ❓ Stripe Setup Questions
+**Human asks:** "Do I need to setup anything?"  
+**Answer needed:**
+- Does human need Stripe account?
+- What configuration is required?
+- How to connect Stripe keys?
+- Testing vs production mode?
+
+### 4. ❓ Inventory Questions
+**Human asks:** "Will we have inventory?"  
+**Answer needed:**
+- Dropshipping = NO inventory (explain clearly)
+- How orders work (customer pays → we order from supplier → supplier ships)
+- What human's role is in fulfillment
+
+### 5. ❌ 3-5 Day Shipping Unrealistic
+**Human asks:** "How to automate buying and shipping guaranteeing 3-5 days?"  
+**Problem:** Site claims "3-5 dias úteis" but AliExpress dropshipping takes 2-3 weeks  
+**This is FALSE ADVERTISING and will cause refunds/complaints**  
+**Fix needed:**
+- Remove 3-5 day claim from site
+- Update to realistic timeline (10-15 days or 2-3 weeks)
+- Explain dropshipping timeline clearly
+- Or find European suppliers (more expensive but faster)
+
+---
+
+## REQUIRED FIXES (Immediate)
+
+### Fix 1: Product Images
+
+**Options:**
+
+**A. Use placeholder luxury images (Fast - 1 hour)**
+- Generate AI images of luxury perfume bottles
+- Use high-quality stock photos
+- Add to site/images/ folder
+- Update products.js with image paths
+
+**B. Scrape supplier images (Medium - 2 hours)**
+- Find actual products on AliExpress
+- Download product photos
+- Add to site
+- Link to actual suppliers in backend
+
+**C. Create custom product photos (Slow - days)**
+- Order samples
+- Photograph them
+- Professional product photography
+- NOT realistic for immediate launch
+
+**Recommendation:** Option A (placeholder luxury images) for now, Option B when suppliers confirmed.
+
+---
+
+### Fix 2: Stripe Integration
+
+**Current problem:** Stripe checkout failing
+
+**What's needed:**
+
+1. **Stripe Account Setup (Human must do this):**
+   - Create account at: https://stripe.com
+   - Get API keys (test mode first)
+   - Publishable key (starts with pk_)
+   - Secret key (starts with sk_)
+
+2. **Add Keys to Site:**
+   - Update site/js/main.js with Stripe publishable key
+   - Add webhook endpoint for order confirmation
+   - Test with Stripe test cards
+
+3. **Payment Flow:**
+   ```
+   Customer clicks "Buy" 
+   → Stripe Checkout opens
+   → Customer enters card
+   → Stripe processes payment
+   → Success page → Email to human with order details
+   → Human places order with supplier
+   → Supplier ships
+   ```
+
+**Agent task:** Create detailed Stripe setup guide for human
+
+---
+
+### Fix 3: Update Shipping Timeline
+
+**Current (FALSE):**
+"Entrega em 3–5 dias úteis"
+
+**Reality with AliExpress dropshipping:**
+- Processing: 1-2 days
+- Shipping from China: 10-21 days
+- Total: 2-4 weeks
+
+**Options:**
+
+**A. Keep AliExpress, update timeline (Honest):**
+"Entrega em 10-15 dias úteis" (2-3 weeks)
+- Pro: Cheap (€5-15 per product)
+- Con: Slow shipping
+
+**B. Find European suppliers (Fast but expensive):**
+"Entrega em 3-5 dias úteis"
+- Pro: Actually true, better customer experience
+- Con: Higher cost (€20-40 per product), lower margins
+
+**C. Hybrid (Best for launch):**
+"Envio internacional. Entrega em 10-20 dias úteis."
++ Offer faster shipping as premium option (€15 extra for express)
+
+**Required:** Update site to reflect REAL timeline, not false promise.
+
+---
+
+### Fix 4: Explain Dropshipping to Human
+
+**Human needs to understand:**
+
+**What dropshipping is:**
+- You DON'T buy inventory upfront
+- You DON'T store products
+- You DON'T ship products yourself
+- Customer pays YOU → YOU pay supplier → Supplier ships to customer
+- You keep the margin (€60 - €12 = €48)
+
+**How it works step-by-step:**
+
+1. **Customer orders on your site:**
+   - Pays €60 via Stripe
+   - Money goes to your Stripe account
+
+2. **You receive order notification:**
+   - Email with customer name, address, product
+   - You log into AliExpress
+
+3. **You order from supplier:**
+   - Pay €12 with your card
+   - Enter customer's shipping address (not yours)
+   - Supplier ships directly to customer
+
+4. **Customer receives package:**
+   - 2-3 weeks later
+   - From China (supplier)
+   - You never touched the product
+
+5. **You keep the profit:**
+   - Revenue: €60
+   - Cost: €12 (to supplier)
+   - Stripe fee: €2
+   - Profit: €46
+
+**Your time:** 10 minutes per order (place supplier order, update customer)
+
+**Automation options:**
+- Oberlo/DSers can auto-order from AliExpress (requires Shopify)
+- Since we're not using Shopify, this is manual initially
+- Can add automation later if volume increases
+
+---
+
+### Fix 5: Create Complete Setup Guide
+
+**Agent must create: HUMAN-SETUP-GUIDE.md**
+
+**Include:**
+
+1. **Stripe Setup (Step-by-step):**
+   - Create account
+   - Get API keys
+   - Where to add keys in code
+   - Test checkout with test card
+   - Switch to production mode
+
+2. **Supplier Setup:**
+   - Find 5-8 products on AliExpress
+   - Verify: 4.5+ rating, ships to Portugal, 10-15 day delivery
+   - Save supplier links
+   - Document: product name, cost, supplier URL, shipping time
+
+3. **Order Fulfillment Process:**
+   - When order comes in (email notification)
+   - How to place supplier order (screenshot walkthrough)
+   - How to track shipping
+   - How to update customer
+
+4. **Customer Service:**
+   - How to handle "where is my order?" questions
+   - Refund policy (clearly state 10-15 day delivery)
+   - How to process refunds in Stripe
+
+5. **Realistic Expectations:**
+   - First order: 2-3 weeks after launch (organic growth)
+   - Week 1: 50+ Instagram followers, 0-1 orders
+   - Week 2-3: 100+ followers, 1-2 orders
+   - Month 1: 3-5 orders = €138-230 profit
+
+---
+
+## IMMEDIATE ACTIONS (Project Agent)
+
+**Priority order:**
+
+1. **Fix shipping timeline on site** (15 min)
+   - Update "3-5 dias" to "10-15 dias"
+   - Add disclaimer: "Envio internacional de alta qualidade"
+   - Remove false promise
+
+2. **Add placeholder product images** (1 hour)
+   - Generate/find 8-12 luxury perfume bottle images
+   - Add to site/images/products/
+   - Update products.js with image paths
+   - Redeploy
+
+3. **Debug cart + Stripe** (1-2 hours)
+   - Fix cart.js bugs
+   - Test add-to-cart flow
+   - Fix Stripe checkout integration
+   - Test end-to-end
+
+4. **Create HUMAN-SETUP-GUIDE.md** (1 hour)
+   - Complete Stripe setup walkthrough
+   - Complete dropshipping process
+   - Include screenshots/links
+   - Make it beginner-friendly
+
+5. **Research European suppliers** (2 hours - optional)
+   - Find Portugal/EU suppliers for faster shipping
+   - Document costs (probably €20-40 vs €5-15 from China)
+   - Give human choice: cheap+slow or expensive+fast
+
+6. **Test the entire flow** (30 min)
+   - Place test order
+   - Verify email notifications work
+   - Verify customer can complete checkout
+   - Document any remaining issues
+
+7. **Update strategy.md** (15 min)
+   - Reflect realistic dropshipping timeline
+   - Update "3-5 days" to "2-3 weeks" throughout
+   - Adjust customer expectations
+
+8. **Redeploy fixed site** (2 min)
+   - wrangler pages deploy site
+
+---
+
+## HONESTY CHECK
+
+**Current site promises:**
+- ❌ "3-5 dias úteis" delivery (FALSE with AliExpress)
+- ❌ "Envio gratuito acima de €75" (can't offer this with manual dropshipping)
+- ❌ Stripe checkout works (currently broken)
+- ❌ Products shown (no images)
+
+**This site will cause complaints and refunds if launched as-is.**
+
+**Required fixes before ANY marketing:**
+1. ✅ Fix shipping timeline (be honest)
+2. ✅ Fix Stripe checkout (make it work)
+3. ✅ Add product images (even placeholder)
+4. ✅ Test entire order flow
+5. ✅ Create setup guide for human
+
+**Timeline:** These fixes take 4-6 hours of agent work.
+
+**Do NOT start social media marketing until site actually works.**
+
+---
+
+**Status:** CRITICAL FIXES NEEDED - Site is live but not functional
+**Priority:** Fix before any marketing begins
+**Human blocked:** Needs setup guide + working checkout
