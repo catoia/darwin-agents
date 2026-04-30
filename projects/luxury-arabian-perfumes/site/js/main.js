@@ -15,10 +15,7 @@ function renderProducts(filter = 'all') {
   grid.innerHTML = filtered.map(product => `
     <article class="product-card fade-in" data-category="${product.category}" data-id="${product.id}">
       <div class="product-img-wrap" onclick="openModal('${product.id}')">
-        <div class="product-img-placeholder">
-          <div class="placeholder-icon">${product.icon}</div>
-          <div class="placeholder-label">Al Majd</div>
-        </div>
+        ${product.image ? `<img src="${product.image}" alt="${product.name}" class="product-img" loading="lazy" />` : `<div class="product-img-placeholder"><div class="placeholder-icon">${product.icon}</div><div class="placeholder-label">Al Majd</div></div>`}
         ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
       </div>
       <div class="product-info">
@@ -97,7 +94,7 @@ function openModal(productId) {
   content.innerHTML = `
     <div class="modal-grid">
       <div class="modal-img">
-        <div class="modal-img-placeholder">${product.icon}</div>
+        ${product.image ? `<img src="${product.image}" alt="${product.name}" class="modal-product-img" />` : `<div class="modal-img-placeholder">${product.icon}</div>`}
       </div>
       <div class="modal-details">
         <div class="modal-category">${categoryLabel(product.category)}</div>
