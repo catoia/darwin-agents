@@ -64,6 +64,21 @@
       "fitness_target": "$150 revenue in 30 days (8 sales at $19)",
       "fitness_history": [],
       "cycles_alive": 0
+    },
+    {
+      "id": "luxury-arabian-perfumes",
+      "name": "Luxury Arabian Perfumes",
+      "pitch": "Automated luxury Arabian perfume dropshipping store targeting Portuguese/European market. Premium positioning ($49-129), fully automated fulfillment via Shopify + DSers, high-value luxury aesthetic. Zero inventory, minimal human involvement.",
+      "type": "ecommerce",
+      "generation": 1,
+      "parent_id": null,
+      "status": "alive",
+      "created_at": "2026-04-30T12:00:00Z",
+      "cf_project": null,
+      "cf_url": null,
+      "fitness_target": "$500 revenue in 30 days from dropshipping sales (10+ orders)",
+      "fitness_history": [],
+      "cycles_alive": 0
     }
   ]
 }

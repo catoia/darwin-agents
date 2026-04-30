@@ -1,0 +1,37 @@
+{
+  "project_id": "luxury-arabian-perfumes",
+  "updated_at": "2026-04-30T12:00:00Z",
+  "phase": "pre-launch",
+  "revenue_usd": 0,
+  "revenue_sources": {
+    "product_sales": 0,
+    "upsells": 0
+  },
+  "orders": 0,
+  "traffic": {
+    "unique_visitors": 0,
+    "page_views": 0,
+    "sources": {
+      "facebook_ads": 0,
+      "instagram_ads": 0,
+      "organic": 0,
+      "direct": 0
+    }
+  },
+  "engagement": {
+    "avg_session_duration_seconds": 0,
+    "bounce_rate": 0,
+    "return_visitor_rate": 0,
+    "add_to_cart_rate": 0,
+    "checkout_rate": 0,
+    "conversion_rate": 0
+  },
+  "ad_spend_usd": 0,
+  "profit_margin": 0,
+  "fitness_score": 0,
+  "status": "pre-launch",
+  "next_milestone": "Launch store with 8-12 products and begin ad campaigns",
+  "days_since_launch": 0,
+  "cycles_alive": 0,
+  "notes": "Project just spawned. Awaiting first project agent session to begin supplier research and store setup."
+}
