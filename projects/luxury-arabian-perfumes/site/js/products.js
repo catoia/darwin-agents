@@ -16,6 +16,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: "Best Seller",
     icon: "🌙",
+    image: "images/products/oud-al-qamari.jpg",
     shortNotes: "Oud escuro · Âmbar · Sândalo",
     description: "Uma ode ao oud mais puro do Bangladesh. Notas profundas e terrosas de agarwood envoltas em sândalo cremoso e âmbar dourado. Uma fragrância que dura mais de 12 horas na pele.",
     notes: {
@@ -34,6 +35,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: "Exclusivo",
     icon: "🌹",
+    image: "images/products/royal-rose-attar.jpg",
     shortNotes: "Rosa de Taif · Oud · Almizcle",
     description: "A rosa mais rara do mundo árabe, colhida ao amanhecer nas montanhas de Taif. Um attar puro sem álcool que se funde com a sua pele e cria uma fragrância única, pessoal e inesquecível.",
     notes: {
@@ -52,6 +54,7 @@ const PRODUCTS = [
     oldPrice: 70,
     badge: null,
     icon: "✦",
+    image: "images/products/musk-al-sultan.jpg",
     shortNotes: "Almíscar Branco · Âmbar · Baunilha",
     description: "O almíscar dos palácios do Golfo. Limpo, sensual e envolvente — ideal para quem procura uma fragrância discreta mas marcante. Perfeito para o dia a dia e para ocasiões especiais.",
     notes: {
@@ -70,6 +73,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: "Edição Limitada",
     icon: "◆",
+    image: "images/products/velvet-oud.jpg",
     shortNotes: "Oud Camboja · Defumado · Terroso",
     description: "O oud mais raro da nossa coleção. Proveniente de árvores centenárias do Camboja, este óleo puro tem uma complexidade que só se desenvolve ao longo de horas na sua pele. Para os verdadeiros apreciadores.",
     notes: {
@@ -88,6 +92,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: "Novo",
     icon: "〰",
+    image: "images/products/desert-rose-bakhoor.jpg",
     shortNotes: "Incenso Árabe · Oud · Sândalo",
     description: "Fragmentos de madeira de oud embebidos em óleos essenciais preciosos. Queime sobre carvão ou numa mabkhara elétrica para perfumar toda a sua casa com o aroma autêntico das casas árabes de luxo.",
     notes: {
@@ -106,6 +111,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: null,
     icon: "◉",
+    image: "images/products/amber-nights.jpg",
     shortNotes: "Âmbar Dourado · Oud · Especiarias",
     description: "Uma viagem ao coração do Médio Oriente. Âmbar dourado quente e rico, abraçado por oud e um bouquet de especiarias exóticas. Ideal para noites de inverno e ocasiões especiais.",
     notes: {
@@ -124,6 +130,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: null,
     icon: "○",
+    image: "images/products/jasmine-pearl.jpg",
     shortNotes: "Oud Branco · Floral · Almíscar",
     description: "A versão mais luminosa e etérea do oud. Proveniente das regiões mais frescas da Arábia, este oud branco combina a profundidade oriental com uma leveza floral surpreendente. Ideal para quem descobre o oud.",
     notes: {
@@ -142,6 +149,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: "Exclusivo",
     icon: "✿",
+    image: "images/products/saffron-dreams.jpg",
     shortNotes: "Rosa Pura · Oud · Mel",
     description: "Óleo puro de rosa de Taif, sem qualquer adulteração. Um dos ingredientes mais caros da perfumaria mundial, agora acessível. Uma única gota basta para transformar o seu dia inteiro.",
     notes: {
@@ -160,6 +168,7 @@ const PRODUCTS = [
     oldPrice: null,
     badge: null,
     icon: "♦",
+    image: "images/products/golden-attar-collection.jpg",
     shortNotes: "Oud Real · Sândalo · Âmbar",
     description: "Uma composição digna da realeza árabe. Oud selvagem da Índia mesclado com sândalo de Mysore e âmbar cinza. Uma fragrância de cerimónia que deixa uma impressão duradoura em todas as ocasiões formais.",
     notes: {
@@ -178,6 +187,7 @@ const PRODUCTS = [
     oldPrice: 75,
     badge: "Oferta",
     icon: "⬡",
+    image: "images/products/luxury-gift-set.jpg",
     shortNotes: "Queimador cerâmico + 100g bakhoor",
     description: "O kit perfeito para quem quer começar a experiência do bakhoor árabe. Inclui uma mabkhara cerâmica artesanal e 100g do nosso bakhoor premium. Uma prenda luxuosa ou o começo de um ritual diário.",
     notes: {
