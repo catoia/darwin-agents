@@ -1,9 +1,18 @@
 /**
  * AL MAJD — Shopping Cart
  * localStorage-based cart with Stripe Checkout redirect
+ * 
+ * SETUP REQUIRED - READ HUMAN-SETUP-GUIDE.md:
+ * 1. Get Stripe API keys from https://stripe.com
+ * 2. Create a Stripe Payment Link in your Stripe dashboard
+ * 3. Replace 'pk_test_YOUR_STRIPE_KEY_HERE' below with your REAL publishable key
+ * 4. Replace STRIPE_PAYMENT_LINK URL with your REAL payment link
+ * 5. Test with card 4242 4242 4242 4242 before going live
  */
 
-const STRIPE_PUBLISHABLE_KEY = 'pk_test_YOUR_STRIPE_KEY_HERE';
+// ── CONFIGURATION (CHANGE THESE!) ────────────────────────────────────────────
+const STRIPE_PUBLISHABLE_KEY = 'pk_test_YOUR_STRIPE_KEY_HERE'; // ← Get from Stripe dashboard
+const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/YOUR_PAYMENT_LINK'; // ← Create in Stripe dashboard
 
 // ── Cart State ────────────────────────────────────────────────────────────────
 let cart = JSON.parse(localStorage.getItem('almajd_cart') || '[]');
@@ -169,31 +178,44 @@ async function initiateCheckout() {
   if (cart.length === 0) return;
 
   const btn = document.getElementById('checkout-btn');
+  
+  // Check if Stripe is configured
+  if (STRIPE_PAYMENT_LINK.includes('YOUR_PAYMENT_LINK')) {
+    alert('ERRO: Stripe não está configurado.\n\nConsulte HUMAN-SETUP-GUIDE.md para instruções detalhadas.\n\nResumo:\n1. Crie conta em stripe.com\n2. Crie Payment Link\n3. Adicione o link neste ficheiro (cart.js)\n4. Redeploy o site');
+    if (btn) {
+      btn.textContent = 'Finalizar Compra';
+      btn.disabled = false;
+    }
+    return;
+  }
+
   if (btn) {
     btn.textContent = 'A preparar checkout…';
     btn.disabled = true;
   }
 
   try {
-    // Build line items for Stripe Checkout (server-side required for real keys)
-    // For now, redirect to a pre-built Stripe Payment Link OR use Stripe.js
-    // -----------------------------------------------------------------
-    // OPTION A: Use Stripe Payment Links (simplest — no backend needed)
-    //   Set STRIPE_PAYMENT_LINK below to your Payment Link URL
-    // OPTION B: Use Stripe Checkout with backend (create-checkout-session)
-    //   Uncomment the fetch() block below and set your backend URL
-    // -----------------------------------------------------------------
-
-    const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/YOUR_PAYMENT_LINK'; // <-- Set this
-
-    // Encode cart as URL params so Stripe Payment Link page shows info
+    // Calculate total for reference
+    const total = getCartTotal();
+    const cartItems = cart.map(item => `${item.name} (${item.qty}x)`).join(', ');
+    
+    console.log('Checkout initiated:', { total, items: cartItems });
+    
+    // Encode cart as URL params for tracking
     const params = new URLSearchParams({
-      prefilled_email: '',
       client_reference_id: `order_${Date.now()}`,
     });
 
-    // For demo/test mode — redirect to the payment link
-    // In production, swap this for a proper server-side session
+    // Store cart in localStorage so we can reference it later
+    // (Stripe Payment Link won't pass cart details back to us)
+    localStorage.setItem('almajd_last_order', JSON.stringify({
+      items: cart,
+      total: total,
+      timestamp: Date.now()
+    }));
+
+    // Redirect to Stripe Payment Link
+    // Customer will pay there, then be redirected to success.html
     window.location.href = `${STRIPE_PAYMENT_LINK}?${params}`;
 
   } catch (err) {
@@ -202,7 +224,7 @@ async function initiateCheckout() {
       btn.textContent = 'Finalizar Compra';
       btn.disabled = false;
     }
-    alert('Erro ao iniciar o pagamento. Por favor tente novamente ou contacte-nos.');
+    alert('Erro ao iniciar o pagamento.\n\nPor favor tente novamente ou contacte-nos em ola@almajd.pt');
   }
 }
 
@@ -224,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       hideCartDrawer();
-      hideModal();
+      if (window.hideModal) window.hideModal();
     }
   });
 });
