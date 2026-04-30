@@ -86,3 +86,46 @@ wrangler pages deploy site --project-name=luxury-arabian-perfumes
 
 ---
 
+
+## [2026-04-30 14:05] Deployment Attempt - BLOCKED BY IP RESTRICTION
+
+**Agent Type:** Project Agent (luxury-arabian-perfumes)  
+**Action:** Attempted automated deployment to Cloudflare Pages  
+**Status:** BLOCKED  
+
+**What Happened:**
+1. ✅ Site files complete (index.html, CSS, JS, Stripe integration)
+2. ✅ Sourced .env file for Cloudflare credentials
+3. ❌ Attempted: `wrangler pages deploy site --project-name=luxury-arabian-perfumes`
+4. ❌ Error: "Cannot use the access token from location: 192.109.140.151 [code: 9109]"
+
+**Root Cause:**
+Cloudflare API token in `.env` has IP address restrictions. Current server IP (192.109.140.151) is not whitelisted.
+
+**Blocker:** Cannot deploy automatically with current token restrictions
+
+**Solutions Available:**
+1. **Human deploys manually** (fastest - 2 minutes)
+   - Command: `cd projects/luxury-arabian-perfumes && wrangler pages deploy site`
+   
+2. **Update token IP restrictions**
+   - Edit token in Cloudflare dashboard
+   - Remove IP restrictions or add current IP
+   - Agent can retry deployment
+
+3. **Use interactive auth**
+   - Human runs `wrangler login` on local machine
+   - Deploys manually
+
+**Files Ready:**
+- `DEPLOYMENT-BLOCKED.md` - Full problem + solutions documentation
+- `site/` - All files ready (12KB HTML + 26KB CSS + 24KB JS)
+
+**Deliverable:** Site ready but not deployed  
+**Status:** BLOCKED - Waiting for human action  
+**Priority:** HIGH - Site complete, just needs deployment  
+
+**Next Action:** Human chooses solution and executes
+
+---
+
