@@ -911,3 +911,111 @@ Just execute, track, and report back. Let's validate this in 24 hours.
 <!-- Reply here, then change Status to: done -->
 
 ---
+
+## [HIGH] Cloudflare API token needed to deploy luxury-arabian-perfumes
+
+- **ID:** `task-2a566b99`
+- **From:** project:luxury-arabian-perfumes
+- **Created:** 2026-04-30T14:48:25.353Z
+- **Status:** open
+
+### Context
+
+**What I need:** Cloudflare API token to deploy the site to Cloudflare Pages
+
+**What I did:**
+- ✅ Downloaded 10 product images from Unsplash
+- ✅ Updated products.js with image paths
+- ✅ Updated main.js to render actual <img> tags instead of placeholders
+- ✅ Tested images load correctly (HTTP 200)
+- ✅ Committed changes to git
+- ✅ Pushed to GitHub
+- ❌ Cannot deploy - missing CLOUDFLARE_API_TOKEN env variable
+
+**What you need to do:**
+
+1. **Get Cloudflare API Token:**
+   - Go to: https://dash.cloudflare.com/profile/api-tokens
+   - Click "Create Token"
+   - Use template: "Edit Cloudflare Workers" (includes Pages access)
+   - Copy the token
+
+2. **Add to .env file:**
+   ```bash
+   echo "CLOUDFLARE_API_TOKEN=your_token_here" >> .env
+   ```
+
+3. **Then I can deploy:**
+   ```bash
+   cd projects/luxury-arabian-perfumes
+   source ../../.env
+   wrangler pages deploy site --project-name luxury-arabian-perfumes
+   ```
+
+**Estimated time:** 5 minutes to get token, 2 minutes to deploy
+
+**Why this matters:** The site has product images now but they won't show on the live site until we redeploy. Currently the live site still shows placeholder icons instead of beautiful luxury perfume photos.
+**Default action if no response in 48h:** If no token in 48h, I'll document the deployment command in task-log.md for human to run manually when ready
+
+### Human Response
+
+<!-- Reply here, then change Status to: done -->
+
+---
+
+## [HIGH] Stripe Payment Link needed for luxury-arabian-perfumes checkout
+
+- **ID:** `task-fe444e62`
+- **From:** project:luxury-arabian-perfumes
+- **Created:** 2026-04-30T14:48:25.356Z
+- **Status:** open
+
+### Context
+
+**What I need:** Stripe Payment Link URL to enable checkout on the site
+
+**Background:**
+The site is ready to accept orders, but the checkout flow needs a Stripe Payment Link to process payments. This is the easiest zero-config way to accept payments without needing API keys in the code.
+
+**What you need to do:**
+
+1. **Create Stripe account (if you don't have one):**
+   - Go to: https://stripe.com
+   - Sign up (free)
+   - Complete verification
+
+2. **Create a Payment Link:**
+   - Dashboard → Payment Links → Create payment link
+   - Product name: "Luxury Arabian Perfume"
+   - Price: €60 (adjustable quantity)
+   - Collect customer address: YES (for shipping)
+   - Success URL: https://luxury-arabian-perfumes.pages.dev/success.html
+   - Click Create Link
+
+3. **Copy the Payment Link URL:**
+   - It will look like: https://buy.stripe.com/test_xxxxx (test mode)
+   - Or: https://buy.stripe.com/xxxxx (live mode)
+
+4. **Send me the link:**
+   - Just paste it here as a response
+   - I'll update site/js/cart.js to use it
+   - I'll redeploy the site
+
+**Alternative (more complex):**
+If you want full API integration with dynamic products/prices:
+- Publishable key (starts with pk_)
+- Secret key (starts with sk_)
+- I'll implement custom Stripe Checkout
+
+**Recommended:** Start with Payment Link (simpler, works in 5 minutes)
+
+**Why this matters:** Right now customers can add products to cart but clicking "Checkout" does nothing. With the Payment Link, they can actually pay and you'll receive orders.
+
+**Expected first order:** 10-20 days after we start Instagram marketing (organic growth timeline)
+**Default action if no response in 48h:** If no Stripe setup in 48h, I'll continue with other optimization tasks (SEO, social media content) and revisit payments when human is ready
+
+### Human Response
+
+<!-- Reply here, then change Status to: done -->
+
+---
