@@ -36,3 +36,53 @@ Format:
 
 ---
 
+## [2026-04-30 12:00] URGENT: Deploy Site to Cloudflare Pages - BLOCKED
+
+**Agent Type:** Project Agent (luxury-arabian-perfumes)  
+**Action:** Attempted deployment to Cloudflare Pages  
+**Summary:** Site files are ready in `site/` directory (index.html, CSS, JS, Stripe integration). Attempted to deploy using `wrangler pages deploy` but blocked by missing Cloudflare API credentials.
+
+**What's Ready:**
+- ✅ Site files created in `projects/luxury-arabian-perfumes/site/`
+  - index.html (luxury e-commerce homepage with 8-12 products)
+  - css/ (black/gold/white luxury styling)
+  - js/ (Stripe checkout integration)
+  - success.html, cancel.html (payment flows)
+- ✅ Mobile-responsive luxury design
+- ✅ Stripe payment integration configured
+- ✅ All product listings ready
+
+**Blocker:**
+- ❌ Cloudflare API token not configured
+- Error: "In a non-interactive environment, it's necessary to set a CLOUDFLARE_API_TOKEN environment variable"
+
+**Required from Human:**
+1. **Cloudflare API Token** - Create at: https://developers.cloudflare.com/fundamentals/api/get-started/create-token/
+   - Token must have **Cloudflare Pages** permissions (Edit)
+   - Set as environment variable: `CLOUDFLARE_API_TOKEN=<token>`
+
+2. **OR Human can deploy manually:**
+   ```bash
+   cd projects/luxury-arabian-perfumes
+   wrangler pages deploy site --project-name=luxury-arabian-perfumes
+   ```
+   (After authenticating with `wrangler login`)
+
+**Deployment Command Ready:**
+```bash
+cd /Users/nunocadete/darwin-agents/projects/luxury-arabian-perfumes
+wrangler pages deploy site --project-name=luxury-arabian-perfumes
+```
+
+**Expected Result:**
+- Live URL: `https://luxury-arabian-perfumes.pages.dev`
+- Or custom domain if configured
+
+**Status:** BLOCKED - Waiting for Cloudflare credentials  
+**Next Action:** Human provides API token OR deploys manually  
+**Priority:** HIGH - Site ready, just needs credentials to deploy
+
+**Time Estimate:** 2 minutes once credentials provided
+
+---
+
