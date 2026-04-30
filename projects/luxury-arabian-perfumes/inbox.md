@@ -247,3 +247,38 @@ Budget must be reduced to near-zero. Original plan assumed €150-250 Month 1 co
 6. Task-log.md updated with all orchestration decisions
 
 **Next:** Agents will complete deliverables within 24 hours. Human will start posting Day 4.
+
+---
+
+## [2026-04-30 12:00] URGENT: Deploy to Cloudflare Pages
+
+**From:** Human (via God Agent)  
+**Priority:** IMMEDIATE
+
+**Message:**
+
+The site files are created. Now **DEPLOY IT TO CLOUDFLARE PAGES**.
+
+**Action required:**
+
+1. **Deploy the site NOW**
+   - Use `wrangler pages deploy` command
+   - Deploy from: `projects/luxury-arabian-perfumes/site/`
+   - Project name: `luxury-arabian-perfumes`
+
+2. **Get the live URL**
+   - Will be: `luxury-arabian-perfumes.pages.dev`
+   - Or Cloudflare will assign a URL
+
+3. **Report back**
+   - Update task-log.md with deployment status
+   - Update strategy.md with live URL
+   - Update metrics.json with site status
+
+**Do this NOW. Don't wait for human to deploy manually.**
+
+**The agent must handle the deployment automatically.**
+
+---
+
+**Status:** UNREAD - Agent needs to execute deployment
